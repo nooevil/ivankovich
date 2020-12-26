@@ -1,0 +1,20 @@
+{% if iCategoryID is empty %}
+    {% set iCategoryID = input('category_id') %}
+{% endif %}
+{% set obArticleList = ArticleList.make().sort('publish|desc').category(iCategoryID, true).published() %}
+{% set iPage = Pagination.getPageFromRequest() %}
+{% set arArticleList = obArticleList.page(iPage, Pagination.getCountPerPage()) %}
+{% set iMaxPage = Pagination.getMaxPage(obArticleList.count()) %}
+{% set arPaginationList = Pagination.get(iPage, obArticleList.count()) %}
+
+<ul class="news-list__list">
+    {% for obArticle in arArticleList %}
+        <li class="news-list__item">
+            <a href="{{ 'news-page'|page({ slug: obArticle.slug }) }}" class="news-list__link">
+                {% partial 'article/news-card/news-card' obArticle=obArticle %}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+{% partial 'common/pagination/pagination' arPaginationList=arPaginationList iMaxPage=iMaxPage iPage=iPage wrapperClass='news-list__pagination' %}

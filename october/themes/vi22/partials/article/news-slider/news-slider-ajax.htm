@@ -1,0 +1,23 @@
+{% if iCategoryID is empty %}
+    {% set iCategoryID = input('category_id') %}
+{% endif %}
+
+{% set arArticleList = ArticleList.make().sort('publish|desc').category(iCategoryID, true).published().take(9) %}
+{% if arArticleList is not empty %}
+    <div class="news-slider__container swiper-container" id="news-slider" role="region" aria-live="polite">
+        <ul class="news-slider__wrapper swiper-wrapper">
+            {% for obArticle in arArticleList %}
+                <li class="news-slider__slide swiper-slide">
+                    <a href="{{ 'news-page'|page({ slug: obArticle.slug }) }}" class="news-slider__link">
+                        {% partial 'article/news-card/news-card' obArticle = obArticle %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="news-slider__nav-wrapper">
+        <div class="news-slider__nav news-slider__nav_prev"></div>
+        <div class="news-slider__pagination"></div>
+        <div class="news-slider__nav news-slider__nav_next"></div>
+    </div>
+{% endif %}

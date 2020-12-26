@@ -1,0 +1,12 @@
+<div class="rating {{ wrapperClass }}" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+    <span class="rating__value" aria-label="Rating {{ rating }} from {{ maxRating }} based on {{ reviewCount }} reviews">
+        {% partial 'common/rating/rating-image' maxRating=maxRating rating=rating unique_id='product' %}
+    </span>
+    <a class="rating__review-count-wrap" href="#see-all-reviews" aria-label="See all reviews">
+        <span class="rating__review-count" itemProp="reviewCount" aria-hidden="true">{{ reviewCount }}</span>
+        <span class="rating__review-count-text" aria-hidden="true">reviews</span>
+    </a>
+    <meta itemProp="bestRating" content="5">
+    <meta itemProp="worstRating" content="{{ obProduct.rating|round }}">
+    <meta itemProp="ratingValue" content="{{ obProduct.rating }}">
+</div>

@@ -1,0 +1,32 @@
+1608943569a:1:{s:34:"footer/footer-info/footer-info.htm";a:5:{s:8:"fileName";s:34:"footer/footer-info/footer-info.htm";s:7:"content";s:671:"{% set sDescription        = this.theme.description_footer %}
+{% set sPrivacyPolicyUrl   = this.theme.privacy_policy_url %}
+{% set sCopyright          = this.theme.copyright %}
+
+<div class="footer-info">
+    {% if sDescription is not empty %}
+        <div class="footer-info__descr wysiwyg">{{ sDescription|raw() }}</div>
+    {% endif %}
+    {% partial 'footer/footer-social/footer-social' %}
+    {% if sPrivacyPolicyUrl is not empty %}
+        <a href="{{ sPrivacyPolicyUrl }}" class="footer-info__policy">Privacy Policy</a>
+    {% endif %}
+    {% if sCopyright is not empty %}
+        <span class="footer-info__copyright">{{ sCopyright }}</span>
+    {% endif %}
+</div>
+";s:5:"mtime";i:1560802173;s:6:"markup";s:670:"{% set sDescription        = this.theme.description_footer %}
+{% set sPrivacyPolicyUrl   = this.theme.privacy_policy_url %}
+{% set sCopyright          = this.theme.copyright %}
+
+<div class="footer-info">
+    {% if sDescription is not empty %}
+        <div class="footer-info__descr wysiwyg">{{ sDescription|raw() }}</div>
+    {% endif %}
+    {% partial 'footer/footer-social/footer-social' %}
+    {% if sPrivacyPolicyUrl is not empty %}
+        <a href="{{ sPrivacyPolicyUrl }}" class="footer-info__policy">Privacy Policy</a>
+    {% endif %}
+    {% if sCopyright is not empty %}
+        <span class="footer-info__copyright">{{ sCopyright }}</span>
+    {% endif %}
+</div>";s:4:"code";N;}}

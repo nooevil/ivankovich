@@ -1,0 +1,46 @@
+1608895101a:1:{s:26:"form/textarea/textarea.htm";a:5:{s:8:"fileName";s:26:"form/textarea/textarea.htm";s:7:"content";s:971:"{# TODO: Set a unique ID for a correct work of partial #}
+
+{% set labelStateClass = labelStateClass is not empty ? 'input__label_elevated' : '' %}
+<div class="input textarea {{ wrapperClass }}">
+    <label for="{{ id }}" class="textarea__label input__label {{ labelStateClass }} {{ labelClass }}">{{ labelText }}</label>
+    <textarea
+        id="{{ id }}"
+        name="{{ name }}"
+        class="textarea__field input__field {{ inputClass }}"
+        maxlength="{{ maxLength|default('1000') }}"
+        {% if minLength is not same as(null) %}
+            minlength="{{ minLength }}"
+        {% endif %}
+        {{ required }}
+        {% if validationErrorSelector is not same as(null) %}
+            data-bouncer-target=".{{ validationErrorSelector }}"
+        {% endif %}
+        {{ attribute|raw }}
+    >{{ text }}</textarea>
+    {% if validationErrorSelector is not same as(null) %}
+        <span class="{{ validationErrorSelector }}"></span>
+    {% endif %}
+</div>
+";s:5:"mtime";i:1560802175;s:6:"markup";s:970:"{# TODO: Set a unique ID for a correct work of partial #}
+
+{% set labelStateClass = labelStateClass is not empty ? 'input__label_elevated' : '' %}
+<div class="input textarea {{ wrapperClass }}">
+    <label for="{{ id }}" class="textarea__label input__label {{ labelStateClass }} {{ labelClass }}">{{ labelText }}</label>
+    <textarea
+        id="{{ id }}"
+        name="{{ name }}"
+        class="textarea__field input__field {{ inputClass }}"
+        maxlength="{{ maxLength|default('1000') }}"
+        {% if minLength is not same as(null) %}
+            minlength="{{ minLength }}"
+        {% endif %}
+        {{ required }}
+        {% if validationErrorSelector is not same as(null) %}
+            data-bouncer-target=".{{ validationErrorSelector }}"
+        {% endif %}
+        {{ attribute|raw }}
+    >{{ text }}</textarea>
+    {% if validationErrorSelector is not same as(null) %}
+        <span class="{{ validationErrorSelector }}"></span>
+    {% endif %}
+</div>";s:4:"code";N;}}

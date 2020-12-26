@@ -1,0 +1,30 @@
+1608895100a:1:{s:25:"content/review/review.htm";a:5:{s:8:"fileName";s:25:"content/review/review.htm";s:7:"content";s:725:"{% set obReviewList = obProduct.review.active().sort() %}
+{% set iReviewCount = obReviewList.count() %}
+{% set fRating = obProduct.rating %}
+
+<section class="review">
+    <div class="review__wrapper">
+        {% partial 'common/section-title/section-title' wrapperClass='review__title' id="see-all-reviews" text='Reviews' %}
+        <span class="review__counter">({{ iReviewCount }})</span>
+        <a href="#review-modal" class="review__add js-review-modal">Add review</a>
+    </div>
+        <div class="review__content">
+            {% partial 'content/review/review-list/review-list' obReviewList = obReviewList %}
+        </div>
+    {% partial 'content/review/review-add/review-add' product_id=obProduct.id %}
+</section>
+";s:5:"mtime";i:1607541281;s:6:"markup";s:724:"{% set obReviewList = obProduct.review.active().sort() %}
+{% set iReviewCount = obReviewList.count() %}
+{% set fRating = obProduct.rating %}
+
+<section class="review">
+    <div class="review__wrapper">
+        {% partial 'common/section-title/section-title' wrapperClass='review__title' id="see-all-reviews" text='Reviews' %}
+        <span class="review__counter">({{ iReviewCount }})</span>
+        <a href="#review-modal" class="review__add js-review-modal">Add review</a>
+    </div>
+        <div class="review__content">
+            {% partial 'content/review/review-list/review-list' obReviewList = obReviewList %}
+        </div>
+    {% partial 'content/review/review-add/review-add' product_id=obProduct.id %}
+</section>";s:4:"code";N;}}

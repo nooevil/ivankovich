@@ -1,0 +1,11 @@
+<div class="cart-mini-panel webkit-scroll" id="cart-mini-content" role="region" aria-live="polite" aria-busy="true">
+    <button type="button" class="cart-mini-panel__close js-cart-mini" arial-label="Close cart popup"></button>
+    <b class="cart-mini-panel__title">Shopping Cart</b>
+    <ul class="cart-mini-panel__list">
+        {% partial 'product/cart/cart-mini/cart-mini-panel/cart-mini-panel-ajax' %}
+    </ul>
+    {% partial 'common/preloader/preloader' wrapperClass='cart-mini-panel__preloader' %}
+    {% partial 'product/cart/cart-mini/cart-mini-price/cart-mini-price' %}
+</div>
+
+

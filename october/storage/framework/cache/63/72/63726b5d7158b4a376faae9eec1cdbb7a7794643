@@ -1,0 +1,46 @@
+1608942940a:1:{s:26:"form/checkbox/checkbox.htm";a:5:{s:8:"fileName";s:26:"form/checkbox/checkbox.htm";s:7:"content";s:792:"<div class="checkbox {{ wrapperClass }} ">
+    <input type="checkbox"
+           class="checkbox__field {{ inputClass }}"
+           id="{{ id }}"
+           {% if name is not same as(null) %}
+                name="{{ name }}"
+           {% endif %}
+           {% if value is not same as(null) %}
+                value="{{ value }}"
+           {% endif %}
+           {% if checked == true %}
+               checked
+           {% endif %}
+           {% if disabled == true %}
+               disabled
+           {% endif %}
+            {{ attribute|raw }}
+    >
+    <label for="{{ id }}" class="checkbox__label {{ labelClass }}">{{ labelText }}</label>
+    {% if hintText is not same as(null) %}
+        <span class="checkbox__hint {{ hintClass }}">{{ hintText }}</span>
+    {% endif %}
+</div>
+";s:5:"mtime";i:1560802174;s:6:"markup";s:791:"<div class="checkbox {{ wrapperClass }} ">
+    <input type="checkbox"
+           class="checkbox__field {{ inputClass }}"
+           id="{{ id }}"
+           {% if name is not same as(null) %}
+                name="{{ name }}"
+           {% endif %}
+           {% if value is not same as(null) %}
+                value="{{ value }}"
+           {% endif %}
+           {% if checked == true %}
+               checked
+           {% endif %}
+           {% if disabled == true %}
+               disabled
+           {% endif %}
+            {{ attribute|raw }}
+    >
+    <label for="{{ id }}" class="checkbox__label {{ labelClass }}">{{ labelText }}</label>
+    {% if hintText is not same as(null) %}
+        <span class="checkbox__hint {{ hintClass }}">{{ hintText }}</span>
+    {% endif %}
+</div>";s:4:"code";N;}}

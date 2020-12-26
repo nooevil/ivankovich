@@ -1,0 +1,47 @@
+/* stylelint-disable declaration-property-value-whitelist */
+
+@font-face {
+  font-family: Futura;
+  src:
+    local('FuturaPT-Medium'),
+    url('/themes/lovata-shopaholic-sneakers/assets/fonts/FuturaPT-Medium.woff2') format('woff2'),
+    url('/themes/lovata-shopaholic-sneakers/assets/fonts/FuturaPT-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Futura;
+  src:
+    local('FuturaPT-ExtraBold'),
+    url('/themes/lovata-shopaholic-sneakers/assets/fonts/FuturaPT-ExtraBold.woff2') format('woff2'),
+    url('/themes/lovata-shopaholic-sneakers/assets/fonts/FuturaPT-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Futura;
+  src:
+    local('FuturaPTDemi'),
+    url('/themes/lovata-shopaholic-sneakers/assets/fonts/FuturaPTDemi.woff2') format('woff2'),
+    url('/themes/lovata-shopaholic-sneakers/assets/fonts/FuturaPTDemi.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Futura;
+  src:
+    local('FuturaPT-Heavy'),
+    url('/themes/lovata-shopaholic-sneakers/assets/fonts/FuturaPT-Heavy.woff2') format('woff2'),
+    url('/themes/lovata-shopaholic-sneakers/assets/fonts/FuturaPT-Heavy.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* stylelint-enable */

@@ -1,0 +1,55 @@
+.success {
+  padding: 0 20px;
+}
+
+.success__page {
+  box-sizing: border-box;
+  grid-column: 2 / -2;
+  margin: 50px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.success__title {
+  display: block;
+  font-weight: 900;
+  color: var(--color-default);
+  font-size: var(--font-size-title-l);
+  margin-top: 0;
+  margin-bottom: 15px;
+  padding-top: 120px;
+  text-align: center;
+  background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/check-mark.svg');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 86px 86px;
+
+  @media (width > 768px) {
+    padding-top: 140px;
+    background-size: 91px 91px;
+    margin-bottom: 24px;
+  }
+}
+
+.success__note {
+  font-weight: 600;
+  color: var(--color-primary);
+  font-size: var(--font-size-text-l);
+  margin-top: 0;
+  margin-bottom: 35px;
+  text-align: center;
+
+  @media (width > 768px) {
+    margin-bottom: 59px;
+  }
+}
+
+.success__btn {
+  min-width: 200px;
+  line-height: var(--line-height-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

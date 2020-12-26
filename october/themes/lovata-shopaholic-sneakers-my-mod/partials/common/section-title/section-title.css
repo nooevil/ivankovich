@@ -1,0 +1,14 @@
+.section-title {
+  color: var(--color-default);
+  font-size: var(--font-size-title-l);
+  line-height: var(--line-height-title);
+  margin-bottom: 37px;
+  margin-top: 0;
+  text-align: left;
+  font-weight: 900;
+  font-family: var(--font-family-futura);
+
+  @media (width > 768px) {
+    margin-bottom: 67px;
+  }
+}

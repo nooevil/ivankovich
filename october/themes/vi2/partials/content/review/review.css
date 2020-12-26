@@ -1,0 +1,84 @@
+.review {
+  grid-column: 2 / -2;
+  padding: 0 20px 52px;
+  margin: 0;
+
+  @media (width > 768px) {
+    grid-column: 4 / span 12;
+    padding: 0 0 108px;
+  }
+}
+
+.review__wrapper {
+  display: flex;
+  align-items: center;
+  padding-bottom: 25px;
+  border-bottom: 2px solid var(--color-input);
+
+  @media (width > 768px) {
+    padding-right: 50px;
+  }
+}
+
+.review__title {
+  margin-bottom: 0;
+  padding-right: 2px;
+
+  @media (width > 768px) {
+    padding-right: 15px;
+    padding-bottom: 2px;
+  }
+}
+
+.review__counter {
+  color: var(--color-primary);
+  font-size: var(--font-size-text-xl);
+  font-weight: 600;
+}
+
+.review__add {
+  margin-left: auto;
+  color: var(--color-default);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: var(--font-size-text);
+  padding-right: 25px;
+  background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/arrow-black.svg');
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: 20px;
+
+  &:hover,
+  &.focus-visible:focus {
+    text-decoration: underline;
+  }
+
+  @media (width > 768px) {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 38px;
+    color: var(--color-white);
+    font-size: var(--font-size-text-m);
+    padding-right: 0;
+    padding-left: 46px;
+    background-color: var(--color-default);
+    background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/arrow.svg');
+    background-size: 24px;
+    background-position: center right 37px;
+
+    &:hover,
+    &.focus-visible:focus {
+      text-decoration: none;
+      opacity: 0.75;
+      background-position: center right 27px;
+      transition: opacity 0.2s ease-in, background-position 0.2s ease-in;
+    }
+
+    &:active {
+      opacity: 0.65;
+      transition: opacity 0.2s ease-in;
+    }
+  }
+}

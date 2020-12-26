@@ -1,0 +1,32 @@
+1608936604a:1:{s:31:"content/contact/contact-map.htm";a:5:{s:8:"fileName";s:31:"content/contact/contact-map.htm";s:7:"content";s:543:"{% set sActive = this.theme.map_active %}
+{% set sLat    = this.theme.map_lat %}
+{% set sLng    = this.theme.map_lng %}
+{% set sApiKey = this.theme.map_api_key %}
+
+{% if sActive and sApiKey is not empty %}
+    <div class="contact__map-wrap">
+        <div class="map contact__map"
+            data-api-key="{{ sApiKey }}"
+            data-coordinates="{{ sLat }},{{ sLng }}"
+            data-marker-path={{ 'assets/img/icon/marker.png'|theme }}>
+            {% partial 'content/contact/contact-popup' %}
+        </div>
+    </div>
+{% endif %}
+
+
+";s:5:"mtime";i:1560802171;s:6:"markup";s:540:"{% set sActive = this.theme.map_active %}
+{% set sLat    = this.theme.map_lat %}
+{% set sLng    = this.theme.map_lng %}
+{% set sApiKey = this.theme.map_api_key %}
+
+{% if sActive and sApiKey is not empty %}
+    <div class="contact__map-wrap">
+        <div class="map contact__map"
+            data-api-key="{{ sApiKey }}"
+            data-coordinates="{{ sLat }},{{ sLng }}"
+            data-marker-path={{ 'assets/img/icon/marker.png'|theme }}>
+            {% partial 'content/contact/contact-popup' %}
+        </div>
+    </div>
+{% endif %}";s:4:"code";N;}}

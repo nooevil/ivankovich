@@ -1,0 +1,20 @@
+1608890605a:1:{s:58:"product/cart/cart-mini/cart-mini-panel/cart-mini-panel.htm";a:5:{s:8:"fileName";s:58:"product/cart/cart-mini/cart-mini-panel/cart-mini-panel.htm";s:7:"content";s:590:"<div class="cart-mini-panel webkit-scroll" id="cart-mini-content" role="region" aria-live="polite" aria-busy="true">
+    <button type="button" class="cart-mini-panel__close js-cart-mini" arial-label="Close cart popup"></button>
+    <b class="cart-mini-panel__title">Shopping Cart</b>
+    <ul class="cart-mini-panel__list">
+        {% partial 'product/cart/cart-mini/cart-mini-panel/cart-mini-panel-ajax' %}
+    </ul>
+    {% partial 'common/preloader/preloader' wrapperClass='cart-mini-panel__preloader' %}
+    {% partial 'product/cart/cart-mini/cart-mini-price/cart-mini-price' %}
+</div>
+
+
+";s:5:"mtime";i:1560802178;s:6:"markup";s:587:"<div class="cart-mini-panel webkit-scroll" id="cart-mini-content" role="region" aria-live="polite" aria-busy="true">
+    <button type="button" class="cart-mini-panel__close js-cart-mini" arial-label="Close cart popup"></button>
+    <b class="cart-mini-panel__title">Shopping Cart</b>
+    <ul class="cart-mini-panel__list">
+        {% partial 'product/cart/cart-mini/cart-mini-panel/cart-mini-panel-ajax' %}
+    </ul>
+    {% partial 'common/preloader/preloader' wrapperClass='cart-mini-panel__preloader' %}
+    {% partial 'product/cart/cart-mini/cart-mini-price/cart-mini-price' %}
+</div>";s:4:"code";N;}}

@@ -1,0 +1,46 @@
+1608943569a:1:{s:45:"product/two-level-slider/two-level-slider.htm";a:5:{s:8:"fileName";s:45:"product/two-level-slider/two-level-slider.htm";s:7:"content";s:1222:"{% set obCategoryList  = CategoryList.make().tree() %}
+{% set sBlockTitle = this.theme.index_product_tabs_title|default('New items') %}
+
+{% if obCategoryList.isNotEmpty() %}
+    <section class="two-level-slider">
+        {% if sBlockTitle is not empty %}
+            {% partial 'common/section-title/section-title' text=sBlockTitle %}
+        {% endif %}
+        <ul class="two-level-slider__tablist" role="tablist">
+            {% for obCategory in obCategoryList %}
+                <li class="two-level-slider__tabitem" role="presentation">
+                    {% set isActive = loop.index == 1 ? 'two-level-slider__btn_active' : '' %}
+                    <button class="two-level-slider__btn {{ isActive }}" data-id={{ obCategory.id }} role="tab" aria-controls="trending-slider">{{ obCategory.name }}</button>
+                </li>
+            {% endfor %}
+        </ul>
+        {% set obFirstCategory = obCategoryList.first() %}
+        <div class="two-level-slider__slider">
+            {% partial 'product/two-level-slider/two-level-slider-ajax' iCategoryID=obFirstCategory.id %}
+        </div>
+        {% partial 'common/preloader/preloader' wrapperClass='two-level-slider__preloader' %}
+    </section>
+{% endif %}
+";s:5:"mtime";i:1560802182;s:6:"markup";s:1221:"{% set obCategoryList  = CategoryList.make().tree() %}
+{% set sBlockTitle = this.theme.index_product_tabs_title|default('New items') %}
+
+{% if obCategoryList.isNotEmpty() %}
+    <section class="two-level-slider">
+        {% if sBlockTitle is not empty %}
+            {% partial 'common/section-title/section-title' text=sBlockTitle %}
+        {% endif %}
+        <ul class="two-level-slider__tablist" role="tablist">
+            {% for obCategory in obCategoryList %}
+                <li class="two-level-slider__tabitem" role="presentation">
+                    {% set isActive = loop.index == 1 ? 'two-level-slider__btn_active' : '' %}
+                    <button class="two-level-slider__btn {{ isActive }}" data-id={{ obCategory.id }} role="tab" aria-controls="trending-slider">{{ obCategory.name }}</button>
+                </li>
+            {% endfor %}
+        </ul>
+        {% set obFirstCategory = obCategoryList.first() %}
+        <div class="two-level-slider__slider">
+            {% partial 'product/two-level-slider/two-level-slider-ajax' iCategoryID=obFirstCategory.id %}
+        </div>
+        {% partial 'common/preloader/preloader' wrapperClass='two-level-slider__preloader' %}
+    </section>
+{% endif %}";s:4:"code";N;}}

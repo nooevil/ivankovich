@@ -1,0 +1,10 @@
+<span class="cart-product__price-currency">{{ obCartPosition.currency }}</span>
+<div class="cart-product__price-value-wrapper">
+    <span class="cart-product__price-value_old {{ obCartPosition.discount_price_value == 0 ? '_shopaholic-hide-old-price' : '' }} _shopaholic-old-price _shopaholic-cart" role="presentation" data-group="position" data-field="old-price">
+        {{ obCartPosition.old_price }}
+    </span>
+    <span class="cart-product__price-value _shopaholic-cart" role="presentation" data-group="position" data-field="price">
+        {{ obCartPosition.price }}
+    </span>
+</div>
+

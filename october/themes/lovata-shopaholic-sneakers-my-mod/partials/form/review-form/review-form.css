@@ -1,0 +1,122 @@
+.review-form {
+  padding-top: 36px;
+
+  @media (width > 768px) {
+    padding-top: 30px;
+  }
+}
+
+.review-form__input {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border-width: 0;
+  height: 1px;
+  width: 1px;
+  margin-left: -1px;
+}
+
+.review-form__label {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-right: 6px;
+  background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/star.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-clip: padding-box;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  &:hover,
+  &.focus-visible:focus {
+    cursor: pointer;
+  }
+}
+
+.review-form__wrapper {
+  margin-bottom: 20px;
+}
+
+.review-form__head {
+  display: block;
+  color: var(--color-primary-dark);
+  font-size: var(--font-size-text);
+  margin-bottom: 9px;
+  font-weight: 500;
+
+  @media (width > 768px) {
+    margin-bottom: 11px;
+  }
+}
+
+.review-form__btn-wrap {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.review-form__submit {
+  margin-right: 25px;
+  width: 150px;
+  font-weight: 600;
+}
+
+.review-form__close {
+  padding: 0;
+  border: none;
+  background-color: var(--color-transparent);
+  background-size: 12px;
+  background-position: center;
+  opacity: 0.5;
+  font-size: var(--font-size-text-m);
+  color: var(--color-primary-dark);
+  border-bottom: 2px dashed var(--color-primary-dark);
+  font-weight: 500;
+
+  &:hover,
+  &.focus-visible:focus {
+    opacity: 1;
+    transition: opacity 0.2s ease-out;
+  }
+}
+
+.review-form__label.review-form__label_pre-checked {
+  background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/star-checked.svg');
+}
+
+.review-form__label.review-form__label_pre-hover {
+  background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/star-checked.svg');
+}
+
+.review-form__input:focus + .review-form__label {
+  background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/star-checked.svg');
+}
+
+.review-form__label.review-form__label_after-hover {
+  background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/star.svg');
+}
+
+.review-form__error-name:not(:empty),
+.review-form__error-phone:not(:empty),
+.review-form__error-text:not(:empty) {
+  display: block;
+  margin-bottom: -20px;
+}
+
+.tooltip.review-form__tooltip:not(.review-form__tooltip_visible) {
+  opacity: 0;
+  padding: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+  border: none;
+  position: absolute;
+}
+
+.tooltip.review-form__tooltip_visible {
+  position: absolute;
+  bottom: calc(100% + 20px);
+}

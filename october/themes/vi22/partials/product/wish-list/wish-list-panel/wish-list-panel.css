@@ -1,0 +1,133 @@
+.wish-list-panel__title {
+  display: block;
+  width: 100%;
+  margin-bottom: 40px;
+  color: var(--color-default);
+  font-size: var(--font-size-text-l);
+  font-weight: 600;
+}
+
+.wish-list-panel__close {
+  display: block;
+  border: none;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  background-color: var(--color-transparent);
+  background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/close.svg');
+  background-size: 11px 11px;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media (width > 768px) {
+    top: 35px;
+    right: 40px;
+
+    &:hover,
+    &.focus-visible:focus {
+      cursor: pointer;
+    }
+  }
+}
+
+.wish-list-panel__list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.wish-list-panel__item {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid var(--color-primary-light);
+
+  &:first-child {
+    border-top: 2px solid var(--color-primary-light);
+  }
+
+  @media (width > 768px) {
+    padding-top: 35px;
+    padding-bottom: 32px;
+  }
+}
+
+.wish-list-panel__item-item:not(:last-child) {
+  margin-bottom: 28px;
+
+  @media (width > 768px) {
+    margin-bottom: 25px;
+  }
+}
+
+.wish-list-panel__item_none {
+  border: none;
+  color: var(--color-primary);
+  text-align: center;
+  font-size: var(--font-size-text);
+  font-weight: 600;
+
+  &:first-child {
+    border: none;
+  }
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-m);
+  }
+}
+
+.wish-list-panel__restore {
+  padding: 20px 0;
+
+  @media (width > 768px) {
+    padding: 30px 0;
+  }
+}
+
+.wish-list-panel__restore_visually-hidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border-width: 0;
+  height: 1px;
+  width: 1px;
+  margin-left: -1px;
+}
+
+.wish-list-panel__restore-btn {
+  padding: 0;
+  border: none;
+  border-bottom: 2px dashed var(--color-primary-dark);
+  font-size: var(--font-size-text);
+  background-color: var(--color-transparent);
+  opacity: 0.5;
+  margin-left: 3px;
+  font-weight: 600;
+  line-height: var(--line-height-normal);
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-m);
+    color: var(--color-primary-dark);
+
+    &:hover,
+    &.focus-visible:focus {
+      cursor: pointer;
+      opacity: 1;
+      transition: opacity 0.2s ease-out;
+    }
+  }
+}
+
+.wish-list-panel__restore-text {
+  color: var(--color-primary-dark);
+  font-size: var(--font-size-text);
+  font-weight: 600;
+  text-decoration: none;
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-m);
+  }
+}

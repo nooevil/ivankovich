@@ -1,0 +1,123 @@
+@import '../../../../../node_modules/choices.js/public/assets/styles/choices';
+
+/* stylelint-disable selector-no-qualifying-type, selector-max-type */
+
+select.select {
+  position: relative;
+  padding-left: 19px;
+  width: 200px;
+  max-width: 200px;
+  height: 37px;
+  font-size: var(--font-size-text-m);
+  border: 2px solid var(--color-input);
+  background-color: var(--color-white);
+  color: var(--color-primary-dark);
+  appearance: none;
+  background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/select.svg');
+  background-size: 10px 10px;
+  background-position: center right 10px;
+  background-repeat: no-repeat;
+
+  &.focus-visible:focus {
+    background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/select-open.svg');
+  }
+}
+
+select.select_no-border {
+  border: none;
+  min-width: 120px;
+  max-width: 120px;
+  padding-left: 5px;
+  padding-right: 20px;
+  color: var(--color-default);
+}
+
+/* stylelint-enable */
+
+.select.choices::after {
+  border: none;
+  margin-top: -5px;
+  width: 10px;
+  height: 10px;
+  background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/select.svg');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.select._no-border::after {
+  margin-top: -5px;
+}
+
+.select:not(.is-open):focus {
+  outline: 2px solid var(--color-outline);
+  outline-offset: 2px;
+}
+
+/* stylelint-disable selector-max-class, selector-max-specificity */
+
+.select.choices.is-open::after {
+  transform: rotate(180deg);
+}
+
+.select._no-border .choices__list {
+  min-width: 100px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.select .select__inner.choices__inner {
+  box-sizing: border-box;
+  min-height: 37px;
+  max-height: 37px;
+  max-width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-input);
+}
+
+.select .choices__inner.select__inner._no-border {
+  border-color: var(--color-transparent);
+}
+
+/* stylelint enable */
+
+.select__list {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.select__list.choices__list--single {
+  padding-top: 0;
+}
+
+.select__list_dropdown {
+  border: 2px solid var(--color-input);
+}
+
+.select__item.choices__item {
+  font-weight: 600;
+  padding-right: 10px;
+  color: var(--color-primary-dark);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-m);
+  }
+}
+
+.select__inner._no-border .choices__item {
+  color: var(--color-default);
+}
+
+.select__label {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}

@@ -1,0 +1,8 @@
+/* Article */
+
+@import './../partials/article/news-list/news-list';
+@import './../partials/article/news-card/news-card';
+
+/* Navigation */
+
+@import './../partials/common/pagination/pagination';

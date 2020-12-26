@@ -1,0 +1,26 @@
+1608890605a:1:{s:58:"product/cart/cart-mini/cart-mini-price/cart-mini-price.htm";a:5:{s:8:"fileName";s:58:"product/cart/cart-mini/cart-mini-price/cart-mini-price.htm";s:7:"content";s:442:"{% set href = 'checkout'|page %}
+
+<div class="cart-mini-price">
+    <div class="cart-mini-price__inner">
+        <b class="cart-mini-price__text">
+            Subtotal:&nbsp;
+        </b>
+        <span class="cart-mini-price__ajax-wrapper">
+           {% partial 'product/cart/cart-total' %}
+        </span>
+    </div>
+    {% partial 'form/button/button' wrapperClass='cart-mini-price__checkout' text='Checkout' link=true href=href %}
+</div>
+";s:5:"mtime";i:1560802178;s:6:"markup";s:441:"{% set href = 'checkout'|page %}
+
+<div class="cart-mini-price">
+    <div class="cart-mini-price__inner">
+        <b class="cart-mini-price__text">
+            Subtotal:&nbsp;
+        </b>
+        <span class="cart-mini-price__ajax-wrapper">
+           {% partial 'product/cart/cart-total' %}
+        </span>
+    </div>
+    {% partial 'form/button/button' wrapperClass='cart-mini-price__checkout' text='Checkout' link=true href=href %}
+</div>";s:4:"code";N;}}

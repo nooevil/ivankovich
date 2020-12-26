@@ -1,0 +1,9 @@
+{% if obCategoryList.isNotEmpty() %}
+    <ul class="header-nav__list {{ wrapperClass }}" role="menubar">
+        {% for obCategory in obCategoryList if obCategory.product_count > 0 %}
+            <li class="header-nav__item {{ itemClass }}" role="menuitem">
+                <a href="{{ obCategory.getPageUrl('catalog') }}" class="header-nav__link {{ linkClass }}">{{ obCategory.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}

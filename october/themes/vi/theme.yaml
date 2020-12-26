@@ -1,0 +1,10 @@
+name: 'vivankovich'
+description: ''
+author: 'Bob'
+homepage: ''
+code: 'vi'
+form: config/fields.yaml
+require:
+    - RainLab.Pages
+    - Lovata.Shopaholic
+    - Lovata.Toolbox

@@ -1,0 +1,8 @@
+{% set obProductList = ProductList.make().active().wishList() %}
+
+<div class="wish-list-info-wrapper">
+    {% partial 'product/wish-list/wish-list-info/wish-list-info-button' obProductList=obProductList %}
+</div>
+<div class="wish-list-info__panel webkit-scroll">
+    {% partial 'product/wish-list/wish-list-panel/wish-list-panel' obProductList = obProductList %}
+</div>

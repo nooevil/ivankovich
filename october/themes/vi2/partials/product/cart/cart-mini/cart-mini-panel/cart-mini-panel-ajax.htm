@@ -1,0 +1,21 @@
+{% set obCartList = Cart.get() %}
+
+{% if obCartList.isNotEmpty() %}
+    {% for obCartPosition in obCartList %}
+        {% set obOffer = obCartPosition.offer %}
+        {% set obProduct = obOffer.product %}
+        <li class="cart-mini-panel__item _shopaholic-product-wrapper" data-position-id="{{ obCartPosition.id }}">
+            <div class="cart-mini-panel__restore js-item-restore _visually-hidden" aria-hidden="true">
+                <span class="cart-mini-panel__restore-text" >
+                    {{ obProduct.name }} has been deleted.
+                </span>
+                <button type="button" class="cart-mini-panel__restore-btn _shopaholic-cart-restore" tabindex="-1">Undo</button>
+            </div>
+            {% partial 'product/cart/cart-product/cart-product' obCartPosition=obCartPosition obProduct=obProduct obOffer=obOffer id='small-cart-order-'~loop.index %}
+        </li>
+    {% endfor %}
+{% else %}
+    <li class="cart-mini-panel__item cart-mini-panel__item_none">
+        There are no items in your cart
+    </li>
+{% endif %}

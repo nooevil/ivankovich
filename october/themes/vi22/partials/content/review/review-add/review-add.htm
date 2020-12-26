@@ -1,0 +1,9 @@
+<div class="review-add webkit-scroll">
+    <div class="review-add__container">
+        {% partial 'common/section-title/section-title' wrapperClass='review-add__title' text='Review add' %}
+        <button type="button" class="review-add__close-btn js-review-modal" aria-label="Close popup"></button>
+        <div class="review-add__wrapper">
+            {% partial 'form/review-form/review-form' product_id=product_id %}
+        </div>
+    </div>
+</div>

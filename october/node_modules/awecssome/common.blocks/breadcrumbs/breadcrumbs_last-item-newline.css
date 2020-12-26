@@ -1,0 +1,11 @@
+/* -------------------------------------------------- */
+/* Variables and defaults                             */
+/* -------------------------------------------------- */
+
+.breadcrumbs_last-item-newline {
+  flex-wrap: wrap;
+}
+
+.breadcrumbs_last-item-newline :last-child {
+  flex-basis: 100%;
+}

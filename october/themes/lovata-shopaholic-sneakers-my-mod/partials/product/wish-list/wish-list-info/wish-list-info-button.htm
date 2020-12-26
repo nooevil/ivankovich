@@ -1,0 +1,22 @@
+{% if obProductList is empty %}
+    {% set obProductList = ProductList.make().active().wishList() %}
+{% endif %}
+
+{% set iCountProduct = obProductList.count() %}
+
+{% set isEmpty = iCountProduct > 0 ? '' : 'wish-list-info_empty'  %}
+
+<button
+    type="button"
+    class="wish-list-info js-wish-list {{ isEmpty }}"
+    {% if iCountProduct > 0 %}
+        aria-label="Press to open wish list. Now {{ iCountProduct }} {{ choice('product|products|products', iCountProduct) }} there"
+    {% else %}
+        aria-label="You have no items in your wish list"
+        tabindex="-1"
+    {% endif %}
+    aria-controls="wish-list-content"
+>
+    <span class="wish-list-info__counter" aria-hidden="true">{{ iCountProduct > 0 ? iCountProduct : '' }}</span>
+    <span class="wish-list-info__text" aria-hidden="true">{% if iCountProduct > 0 %}{{ choice('item|items|items', iCountProduct) }}{% else %}No items{% endif %}</span>
+</button>

@@ -1,0 +1,90 @@
+.checkbox {
+  position: relative;
+}
+
+.checkbox__field {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin-left: -1px;
+}
+
+.checkbox__label {
+  position: relative;
+  font-size: var(--font-size-text-m);
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  padding-left: 25px;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 2px solid var(--color-default);
+    border-radius: var(--border-radius-2);
+    opacity: 0.1;
+    background-color: var(--color-transparent);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    box-shadow: var(--shadow-transparent);
+    transition: opacity 0.2s;
+  }
+
+  &:hover,
+  &.focus-visible:focus {
+    cursor: pointer;
+
+    &::before {
+      opacity: 0.6;
+    }
+  }
+}
+
+.checkbox__field:focus + .checkbox__label {
+  outline: 2px solid var(--color-outline);
+  outline-offset: 2px;
+}
+
+.checkbox__field:checked + .checkbox__label {
+  color: var(--color-default);
+  transition: color 0.2s ease-out;
+
+  &::before {
+    opacity: 1;
+    background-color: var(--color-default);
+    background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/checked.svg');
+    transition: background-color 0.2s;
+  }
+}
+
+.checkbox__field:disabled + .checkbox__label {
+  color: var(--color-primary);
+  cursor: not-allowed;
+
+  &::before {
+    opacity: 1;
+    border-color: var(--color-primary);
+    background-color: var(--color-primary);
+  }
+}
+
+/* stylelint-disable selector-max-specificity */
+
+.checkbox__field:checked:disabled + .checkbox__label {
+  color: var(--color-primary);
+
+  &::before {
+    opacity: 1;
+    border-color: var(--color-primary);
+  }
+}
+
+/* stylelint-enable */

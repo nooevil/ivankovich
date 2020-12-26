@@ -1,0 +1,28 @@
+1608943569a:1:{s:11:"success.htm";a:10:{s:8:"fileName";s:11:"success.htm";s:7:"content";s:435:"title = "Success"
+url = "/checkout/:slug"
+layout = "main"
+is_hidden = 0
+
+[OrderPage]
+slug = "{{ :slug }}"
+slug_required = 1
+==
+{% set obOrder = OrderPage.get() %}
+
+{% partial 'common/success/success'
+    wrapperClass='success__page'
+    title='Your order #' ~ obOrder.order_number ~ ' is accepted'
+    note='Thank you for shopping at ' ~ this.theme.company_name ~ '!'
+    link='true'
+    href='index'|page
+    text='Back To Catalog'
+%}";s:5:"mtime";i:1560802167;s:6:"markup";s:308:"{% set obOrder = OrderPage.get() %}
+
+{% partial 'common/success/success'
+    wrapperClass='success__page'
+    title='Your order #' ~ obOrder.order_number ~ ' is accepted'
+    note='Thank you for shopping at ' ~ this.theme.company_name ~ '!'
+    link='true'
+    href='index'|page
+    text='Back To Catalog'
+%}";s:4:"code";N;s:5:"title";s:7:"Success";s:3:"url";s:15:"/checkout/:slug";s:6:"layout";s:4:"main";s:9:"is_hidden";s:1:"0";s:9:"OrderPage";a:2:{s:4:"slug";s:11:"{{ :slug }}";s:13:"slug_required";s:1:"1";}}}

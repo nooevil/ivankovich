@@ -1,0 +1,20 @@
+<div class="search-panel search-panel_hidden webkit-scroll">
+    <button type="button" class="search-panel__close js-search-popup" arial-label="Close search popup"></button>
+    <b class="search-panel__title">Search</b>
+    <form action="#" class="search-panel__form" method='post' role='search' aria-controls="search-result">
+        {% partial 'form/input/input'
+            wrapperClass='search-panel__input'
+            labelClass='search-panel__label'
+            labelText='Search'
+            type='text'
+            id='search-panel'
+            name='search'
+            inputClass='search-panel__input-field _shopaholic-search-input'
+            maxLength='100'
+        %}
+        <button class="search-panel__button" type="submit">Search</button>
+        <div class="search-panel__preloader"></div>
+        {% partial 'common/preloader/preloader' wrapperClass='search-panel__preloader' %}
+    </form>
+    <ul class="search-panel__result" id="search-result" role="region" aria-live="polite"></ul>
+</div>

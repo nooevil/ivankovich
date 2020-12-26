@@ -1,0 +1,27 @@
+{% if iCategoryID is empty %}
+    {% set iCategoryID = input('category_id') %}
+{% endif %}
+
+{% set arProductList = ProductList.make().category(iCategoryID, true).sort('popularity|desc').active().take(18) %}
+{% if arProductList is not empty %}
+    <div class="two-level-slider__container swiper-container" id="trending-slider" role="region" aria-live="polite">
+        <ul class="two-level-slider__wrapper swiper-wrapper">
+            {% for obProduct in arProductList %}
+                <li class="two-level-slider__slide swiper-slide">
+                    <a href="{{ obProduct.getPageUrl('product') }}" class="two-level-slider__link">
+                        {% partial 'product/product-card/product-card' obProduct=obProduct %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="two-level-slider__nav-wrapper">
+        <div class="two-level-slider__nav two-level-slider__nav_prev"></div>
+        <div class="two-level-slider__pagination"></div>
+        <div class="two-level-slider__nav two-level-slider__nav_next"></div>
+    </div>
+{% endif %}
+
+
+
+

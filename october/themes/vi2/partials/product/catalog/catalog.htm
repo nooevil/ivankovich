@@ -1,0 +1,18 @@
+{% set arBreadcrumbs = [
+    {'active': true, 'name': obCategory.name }
+] %}
+
+<div class="catalog grid full-width">
+    {% partial 'common/breadcrumbs/breadcrumbs' wrapperClass='catalog__breadcrumbs' arBreadcrumbs=arBreadcrumbs  %}
+    <h1 class="catalog__title">{{ SeoToolbox.getPageTitle(obCategory, arSEOParams)|default(obCategory.name) }}</h1>
+    {% if obCategory.name == "Lady Wind" or obCategory.name == "Unlimited" %}
+    {% partial 'content/seo-text/seo-text' text=SeoToolbox.getPageDescription(obCategory, arSEOParams)|default(obCategory.description) %}
+    {% endif %}
+    <div class="catalog__wrapper">
+        {% partial 'product/catalog/catalog-ajax' %}
+    </div>
+    {% if obCategory.name != "Lady Wind" and obCategory.name != "Unlimited" %}
+    {% partial 'content/seo-text/seo-text' text=SeoToolbox.getPageDescription(obCategory, arSEOParams)|default(obCategory.description) %}
+    {% endif %}
+    {% partial 'common/preloader/preloader' wrapperClass='catalog__preloader' %}
+</div>

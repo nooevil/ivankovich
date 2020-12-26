@@ -1,0 +1,48 @@
+1608895101a:1:{s:59:"product/relative-product-slider/relative-product-slider.htm";a:5:{s:8:"fileName";s:59:"product/relative-product-slider/relative-product-slider.htm";s:7:"content";s:1305:"{% if arProductList is not empty %}
+    <section class="relative-product-slider">
+        {% if sBlockTitle is not empty %}
+            {% partial 'common/section-title/section-title' text=sBlockTitle %}
+        {% endif %}
+        <div class="relative-product-slider__container swiper-container">
+            <ul class="relative-product-slider__wrapper swiper-wrapper">
+                {% for obSliderProduct in arProductList %}
+                    <li class="relative-product-slider__slide swiper-slide">
+                        <a href="{{ obSliderProduct.getPageUrl('product') }}" class="relative-product-slider__link">
+                            {% partial 'product/product-card/product-card' obProduct=obSliderProduct %}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="relative-product-slider__nav-wrapper">
+            <div class="relative-product-slider__nav relative-product-slider__nav_prev"></div>
+            <div class="relative-product-slider__pagination"></div>
+            <div class="relative-product-slider__nav relative-product-slider__nav_next"></div>
+        </div>
+        {% partial 'common/preloader/preloader' wrapperClass='relative-product-slider__preloader' %}
+    </section>
+{% endif %}
+";s:5:"mtime";i:1560802182;s:6:"markup";s:1304:"{% if arProductList is not empty %}
+    <section class="relative-product-slider">
+        {% if sBlockTitle is not empty %}
+            {% partial 'common/section-title/section-title' text=sBlockTitle %}
+        {% endif %}
+        <div class="relative-product-slider__container swiper-container">
+            <ul class="relative-product-slider__wrapper swiper-wrapper">
+                {% for obSliderProduct in arProductList %}
+                    <li class="relative-product-slider__slide swiper-slide">
+                        <a href="{{ obSliderProduct.getPageUrl('product') }}" class="relative-product-slider__link">
+                            {% partial 'product/product-card/product-card' obProduct=obSliderProduct %}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="relative-product-slider__nav-wrapper">
+            <div class="relative-product-slider__nav relative-product-slider__nav_prev"></div>
+            <div class="relative-product-slider__pagination"></div>
+            <div class="relative-product-slider__nav relative-product-slider__nav_next"></div>
+        </div>
+        {% partial 'common/preloader/preloader' wrapperClass='relative-product-slider__preloader' %}
+    </section>
+{% endif %}";s:4:"code";N;}}

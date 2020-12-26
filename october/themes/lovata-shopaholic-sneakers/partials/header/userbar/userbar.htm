@@ -1,0 +1,10 @@
+<ul class="userbar" aria-label="User area">
+    <li class="userbar__item userbar__item_cart _shopaholic-cart-mini-wrapper">
+        {% partial 'product/cart/cart-mini/cart-info/cart-info-empty' %}
+    </li>
+    {% if bHasWishListPlugin %}
+    <li class="userbar__item userbar__item_wish-list">
+        {% partial 'product/wish-list/wish-list-info/wish-list-info-empty' %}
+    </li>
+    {% endif %}
+</ul>

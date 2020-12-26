@@ -1,0 +1,40 @@
+1608943569a:1:{s:43:"header/search/search-panel/search-panel.htm";a:5:{s:8:"fileName";s:43:"header/search/search-panel/search-panel.htm";s:7:"content";s:1014:"<div class="search-panel search-panel_hidden webkit-scroll">
+    <button type="button" class="search-panel__close js-search-popup" arial-label="Close search popup"></button>
+    <b class="search-panel__title">Search</b>
+    <form action="#" class="search-panel__form" method='post' role='search' aria-controls="search-result">
+        {% partial 'form/input/input'
+            wrapperClass='search-panel__input'
+            labelClass='search-panel__label'
+            labelText='Search'
+            type='text'
+            id='search-panel'
+            name='search'
+            inputClass='search-panel__input-field _shopaholic-search-input'
+            maxLength='100'
+        %}
+        <button class="search-panel__button" type="submit">Search</button>
+        <div class="search-panel__preloader"></div>
+        {% partial 'common/preloader/preloader' wrapperClass='search-panel__preloader' %}
+    </form>
+    <ul class="search-panel__result" id="search-result" role="region" aria-live="polite"></ul>
+</div>
+";s:5:"mtime";i:1560802177;s:6:"markup";s:1013:"<div class="search-panel search-panel_hidden webkit-scroll">
+    <button type="button" class="search-panel__close js-search-popup" arial-label="Close search popup"></button>
+    <b class="search-panel__title">Search</b>
+    <form action="#" class="search-panel__form" method='post' role='search' aria-controls="search-result">
+        {% partial 'form/input/input'
+            wrapperClass='search-panel__input'
+            labelClass='search-panel__label'
+            labelText='Search'
+            type='text'
+            id='search-panel'
+            name='search'
+            inputClass='search-panel__input-field _shopaholic-search-input'
+            maxLength='100'
+        %}
+        <button class="search-panel__button" type="submit">Search</button>
+        <div class="search-panel__preloader"></div>
+        {% partial 'common/preloader/preloader' wrapperClass='search-panel__preloader' %}
+    </form>
+    <ul class="search-panel__result" id="search-result" role="region" aria-live="polite"></ul>
+</div>";s:4:"code";N;}}

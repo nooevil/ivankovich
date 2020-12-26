@@ -1,0 +1,10 @@
+fields:
+    disabled_locales:
+        label: Do not display this locales in frontend
+        type: textarea
+        size: small
+        comment: one locale per line
+    dev_domains_public_access_enabled:
+        label: Enable Public Access to dev domains (en.diskinternals.com)
+        type: switch        
+    

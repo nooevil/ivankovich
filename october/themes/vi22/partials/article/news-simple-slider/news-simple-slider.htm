@@ -1,0 +1,22 @@
+{% set arArticleList = ArticleList.make().sort('publish|desc').published().exclude(obArticle.id).take(18) %}
+{% if arArticleList is not empty %}
+    <div class="news-simple-slider">
+        {% partial 'common/section-title/section-title' wrapperClass='new-page__heading' text='Read Also' %}
+        <div class="news-simple-slider__container swiper-container" id="news-simple-slider" role="region" aria-live="polite">
+            <ul class="news-simple-slider__wrapper swiper-wrapper">
+                {% for obArticle in arArticleList %}
+                    <li class="news-simple-slider__slide swiper-slide" {{ arArticleList.count() }}>
+                        <a href="{{ 'news-page'|page({ slug: obArticle.slug }) }}" class="news-simple-slider__link">
+                            {% partial 'article/news-card/news-card' obArticle=obArticle %}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="news-simple-slider__nav-wrapper">
+            <div class="news-simple-slider__nav news-simple-slider__nav_prev"></div>
+            <div class="news-simple-slider__pagination"></div>
+            <div class="news-simple-slider__nav news-simple-slider__nav_next"></div>
+        </div>
+    </div>
+{% endif %}

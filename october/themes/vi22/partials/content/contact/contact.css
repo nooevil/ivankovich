@@ -1,0 +1,123 @@
+.contact__title {
+  grid-column: 2 / -2;
+  padding: 0 10px;
+  margin-top: 42px;
+  margin-bottom: 33px;
+
+  @media (width > 768px) {
+    grid-column: 4 / -4;
+    padding: 0;
+    margin-top: 76px;
+    margin-bottom: 48px;
+  }
+}
+
+.contact__map-wrap {
+  grid-column: 2 / -2;
+  position: relative;
+  height: calc(100vh - 167px);
+  min-height: 400px;
+  width: calc(100% - 20px);
+  margin: 0 10px 40px;
+
+  &:empty {
+    display: none;
+  }
+
+  @media (width > 768px) {
+    grid-column: 4 / -4;
+    width: 100%;
+    height: 450px;
+    margin: 0 0 50px;
+  }
+}
+
+.contact__map {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.contact__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-column: 2 / -2;
+  padding: 0 20px;
+  margin: 0 0 52px;
+  list-style: none;
+
+  @media (width > 768px) {
+    grid-column: 4 / -4;
+    padding: 0;
+    flex-direction: row;
+    align-items: stretch;
+    margin-bottom: 90px;
+  }
+}
+
+.contact__item {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 550px;
+  padding: 36px 42px;
+  background-color: var(--color-primary-light);
+  margin-bottom: 40px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (width > 768px) {
+    margin-bottom: 0;
+    max-width: 300px;
+    margin-right: 50px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.contact__item-heading {
+  display: inline-block;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: var(--font-size-text-l);
+  font-weight: 900;
+  color: var(--color-default);
+
+  @media (width > 768px) {
+    margin-bottom: 31px;
+  }
+}
+
+.contact__item-content {
+  font-size: var(--font-size-text);
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px;
+  color: var(--color-default);
+  font-weight: 600;
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-m);
+    margin-bottom: 15px;
+  }
+}
+
+.contact__item-hint {
+  font-size: var(--font-size-text);
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px;
+  color: var(--color-primary-dark);
+  font-weight: 600;
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-m);
+  }
+}

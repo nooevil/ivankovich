@@ -1,0 +1,190 @@
+<form class="filter__form" aria-labelledby="filter__form-label">
+    <span class="filter__form-label" id="filter__form-label">Select options for filtering. After change of any input element page will refresh</span>
+    <div class="filter__form-wrapper webkit-scroll">
+         {# Price filter #}
+    <div class="filter__group" role="group" aria-labelledby="price-input-section">
+            <b class="filter__group-legend" id="price-input-section">Price</b>
+            {% partial 'product/catalog/filter/filter-price/filter-price'
+                min_value=fMinPriceFilterValue
+                max_value=fMaxPriceFilterValue
+                currency=obOfferMinPrice.currency
+                min=obOfferMinPrice.price
+                max=obOfferMaxPrice.price %}
+        </div>
+        <div class="filter__group _shopaholic-sale-filter-wrapper" data-filter-type="checkbox" role="group" aria-labelledby="sale-filter">
+            {% partial 'product/catalog/filter/filter-checkbox/filter-checkbox'
+                text='Sale'
+                id='sale-filter'
+                name='sale'
+                checked=bSaleFilter ? 'checked' : ''
+                value=1
+            %}
+        </div>
+
+        {# Brand filter #}
+        {% if obBrandList.isNotEmpty() %}
+            <div class="filter__group _shopaholic-brand-filter-wrapper" data-filter-type="checkbox" role="group" aria-labelledby="brand-filter">
+                <b class="filter__group-legend" id="brand-filter">Brand</b>
+                {% for obBrand in obBrandList %}
+                    {% set obBrandProductList = obCategoryProductList.copy().brand(obBrand.id) %}
+                    {% partial 'product/catalog/filter/filter-checkbox/filter-checkbox'
+                        text=obBrand.name
+                        id='brand-'~obBrand.slug
+                        name='brand[]'
+                        checked=obBrand.id in arFilterBrandIDList ? 'checked' : ''
+                        value=obBrand.slug
+                        disabled=obBrandProductList.count() == 0 ? 'disabled' : ''
+                        hintText='(' ~ obBrandProductList.count() ~ ')' %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% for obProperty in obProductPropertyList if obProperty.hasValue() %}
+
+            {% if obProperty.filter_type == 'checkbox' and obProperty.code != 'size' and obProperty.code != 'color' %}
+                {% set obPropertyValueList = obProperty.property_value.sort() %}
+                <div class="filter__group _shopaholic-filter-wrapper" data-filter-type="checkbox" data-property-id="{{ obProperty.id }}" role="group" aria-labelledby="property-filter-label-{{ obProperty.id }}">
+                    <b class="filter__group-legend" id="property-filter-label-{{ obProperty.id }}">{{ obProperty.filter_name }}</b>
+                    {% for obValue in obPropertyValueList %}
+                        {% set bChecked = arFilterValue[obProperty.id] is not empty and obValue.slug in arFilterValue[obProperty.id] %}
+                        {% set bDisabled = false %}
+                        {% if bChecked == false and arFilterValueWithoutProperty[obProperty.id] is not empty %}
+                            {% set obProductListTemp = obFilteredProductList.copy().filterByProperty(arFilterValueWithoutProperty[obProperty.id], obProductPropertyList).filterByProperty(arFilterValueWithoutProperty[obProperty.id], obOfferPropertyList) %}
+                            {% set bDisabled = obValue.isDisabled(obProductListTemp) %}
+                        {% endif %}
+
+                        {% partial 'product/catalog/filter/filter-checkbox/filter-checkbox'
+                            text=obValue.value
+                            id='property-value-'~obValue.slug
+                            name='property['~ obProperty.id ~ '][]'
+                            disabled=bDisabled ? 'disabled' : ''
+                            checked=bChecked ? 'checked' : ''
+                            value=obValue.slug
+                        %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if obProperty.filter_type == 'select' and obProperty.code != 'size' and obProperty.code != 'color' %}
+                {% set obPropertyValueList = obProperty.property_value.sort() %}
+                <div  class="filter__group _shopaholic-filter-wrapper" data-property-id="{{ obProperty.id }}" data-filter-type="select" role="group" aria-labelledby="property-filter-label-{{ obProperty.id }}">
+                    <b class="filter__group-legend" id="property-filter-label-{{ obProperty.id }}">{{ obProperty.filter_name }}</b>
+                    {% partial 'product/catalog/filter/filter-select/filter-select'
+                        obProperty=obProperty
+                        arFilterValueWithoutProperty=arFilterValueWithoutProperty
+                        obProductPropertyList=obProductPropertyList
+                        obOfferPropertyList=obOfferPropertyList
+                        obFilteredProductList=obFilteredProductList
+                        obPropertyValueList=obPropertyValueList
+                        arFilterValue=arFilterValue
+                        text="Any"
+                    %}
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% set obPropertySize = obOfferPropertyList.getByCode('belts-size') %}
+        {% if obPropertySize.property_value.isNotEmpty() %}
+            {% set obPropertyValueList = obPropertySize.property_value.sort() %}
+            <div class="filter__group _shopaholic-filter-wrapper" data-filter-type="checkbox" data-property-id="{{ obPropertySize.id }}" role="group" aria-labelledby="property-filter-label-{{ obPropertySize.id }}">
+                <b class="filter__group-legend" id="property-filter-label-{{ obPropertySize.id }}">{{ obPropertySize.filter_name }}</b>
+                <ul class="filter__group-list filter-size">
+                    {% for obValue in obPropertyValueList %}
+                        {% set bChecked = arFilterValue[obPropertySize.id] is not empty and obValue.slug in arFilterValue[obPropertySize.id] %}
+                        {% set bDisabled = false %}
+                        {% if bChecked == false and arFilterValueWithoutProperty[obPropertySize.id] is not empty %}
+                            {% set obProductListTemp = obFilteredProductList.copy().filterByProperty(arFilterValueWithoutProperty[obPropertySize.id], obProductPropertyList).filterByProperty(arFilterValueWithoutProperty[obPropertySize.id], obOfferPropertyList) %}
+                            {% set bDisabled = obValue.isDisabled(obProductListTemp) %}
+                        {% endif %}
+                        {% partial 'product/catalog/filter/filter-size/filter-size'
+                            id='property-value-'~obValue.slug
+                            name='property['~ obPropertySize.id ~ '][]'
+                            value=obValue.slug
+                            disabled=bDisabled ? 'disabled' : ''
+                            checked=bChecked ? 'checked' : ''
+                            labelText=obValue.value %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        {% set obPropertySize = obOfferPropertyList.getByCode('brasize') %}
+        {% if obPropertySize.property_value.isNotEmpty() %}
+            {% set obPropertyValueList = obPropertySize.property_value.sort() %}
+            <div class="filter__group _shopaholic-filter-wrapper" data-filter-type="checkbox" data-property-id="{{ obPropertySize.id }}" role="group" aria-labelledby="property-filter-label-{{ obPropertySize.id }}">
+                <b class="filter__group-legend" id="property-filter-label-{{ obPropertySize.id }}">{{ obPropertySize.filter_name }}</b>
+                <ul class="filter__group-list filter-size">
+                    {% for obValue in obPropertyValueList %}
+                        {% set bChecked = arFilterValue[obPropertySize.id] is not empty and obValue.slug in arFilterValue[obPropertySize.id] %}
+                        {% set bDisabled = false %}
+                        {% if bChecked == false and arFilterValueWithoutProperty[obPropertySize.id] is not empty %}
+                            {% set obProductListTemp = obFilteredProductList.copy().filterByProperty(arFilterValueWithoutProperty[obPropertySize.id], obProductPropertyList).filterByProperty(arFilterValueWithoutProperty[obPropertySize.id], obOfferPropertyList) %}
+                            {% set bDisabled = obValue.isDisabled(obProductListTemp) %}
+                        {% endif %}
+                        {% partial 'product/catalog/filter/filter-size/filter-size'
+                            id='property-value-'~obValue.slug
+                            name='property['~ obPropertySize.id ~ '][]'
+                            value=obValue.slug
+                            disabled=bDisabled ? 'disabled' : ''
+                            checked=bChecked ? 'checked' : ''
+                            labelText=obValue.value %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        {% set obPropertySize = obOfferPropertyList.getByCode('size') %}
+        {% if obPropertySize.property_value.isNotEmpty() %}
+            {% set obPropertyValueList = obPropertySize.property_value.sort() %}
+            <div class="filter__group _shopaholic-filter-wrapper" data-filter-type="checkbox" data-property-id="{{ obPropertySize.id }}" role="group" aria-labelledby="property-filter-label-{{ obPropertySize.id }}">
+                <b class="filter__group-legend" id="property-filter-label-{{ obPropertySize.id }}">{{ obPropertySize.filter_name }}</b>
+                <ul class="filter__group-list filter-size">
+                    {% for obValue in obPropertyValueList %}
+                        {% set bChecked = arFilterValue[obPropertySize.id] is not empty and obValue.slug in arFilterValue[obPropertySize.id] %}
+                        {% set bDisabled = false %}
+                        {% if bChecked == false and arFilterValueWithoutProperty[obPropertySize.id] is not empty %}
+                            {% set obProductListTemp = obFilteredProductList.copy().filterByProperty(arFilterValueWithoutProperty[obPropertySize.id], obProductPropertyList).filterByProperty(arFilterValueWithoutProperty[obPropertySize.id], obOfferPropertyList) %}
+                            {% set bDisabled = obValue.isDisabled(obProductListTemp) %}
+                        {% endif %}
+                        {% partial 'product/catalog/filter/filter-size/filter-size'
+                            id='property-value-'~obValue.slug
+                            name='property['~ obPropertySize.id ~ '][]'
+                            value=obValue.slug
+                            disabled=bDisabled ? 'disabled' : ''
+                            checked=bChecked ? 'checked' : ''
+                            labelText=obValue.value %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        {# {% set obPropertyColor = obProductPropertyList.getByCode('color') %}
+        {% if obPropertyColor.property_value.isNotEmpty() %}
+            {% set obPropertyValueList = obPropertyColor.property_value.sort() %}
+            <div data-kek class="filter__group _shopaholic-filter-wrapper" data-filter-type="checkbox" data-property-id="{{ obPropertyColor.id }}" role="group" aria-labelledby="property-filter-{{ obPropertyColor.id }}">
+                <b class="filter__group-legend" id="property-filter-{{ obPropertyColor.id }}">{{ obPropertyColor.filter_name }}</b>
+                <ul class="filter__group-list filter-color">
+                    {% for obValue in obPropertyValueList %}
+                        {% set bChecked = arFilterValue[obPropertyColor.id] is not empty and obValue.slug in arFilterValue[obPropertyColor.id] %}
+                        {% set bDisabled = false %}
+                        {% if bChecked == false and arFilterValueWithoutProperty[obPropertyColor.id] is not empty %}
+                            {% set obProductListTemp = obFilteredProductList.copy().filterByProperty(arFilterValueWithoutProperty[obPropertyColor.id], obProductPropertyList).filterByProperty(arFilterValueWithoutProperty[obPropertyColor.id], obOfferPropertyList) %}
+                            {% set bDisabled = obValue.isDisabled(obProductListTemp) %}
+                        {% endif %}
+                        {% partial 'product/catalog/filter/filter-color/filter-color'
+                            id='property-value-'~obValue.slug
+                            name='property['~ obPropertyColor.id ~ '][]'
+                            value=obValue.slug
+                            disabled=bDisabled ? 'disabled' : ''
+                            checked=bChecked ? 'checked' : ''
+                            bgColor=obValue.value %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %} #}
+    </div>
+    <div class="filter__btn-section">
+        {% partial 'form/button/button' type='submit' wrapperClass='filter__submit' text='Apply' %}
+        <button type="reset" class="filter__reset">Reset</button>
+    </div>
+</form>

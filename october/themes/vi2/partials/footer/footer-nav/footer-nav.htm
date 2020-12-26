@@ -1,0 +1,48 @@
+{% set arPaymentMethodsList = this.theme.payment_methods_list %}
+{% set arMenuList = FooterMenu.menuItems %}
+
+<nav class="footer-nav">
+    <ul class="footer-nav__list">
+        {% for arItemMenu in arMenuList if not arItemMenu.viewBag.isHidden %}
+            <li class="footer-nav__item">
+                <b class="footer-nav__item-title">{{ arItemMenu.title }}</b>
+                {% set arSubItemMenuList = arItemMenu.items %}
+                {% if arSubItemMenuList is not empty %}
+                    <ul class="footer-nav__subnav">
+                        {% for arSubItemMenu in arSubItemMenuList if not arSubItemMenu.viewBag.isHidden %}
+                            <li class="footer-nav__subitem">
+                                <a {% if arSubItemMenu.url is not empty %}href="{{ arSubItemMenu.url }}"{% endif %} class="footer-nav__link">{{ arSubItemMenu.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+        {% if arPaymentMethodsList is not empty %}
+            <li class="footer-nav__item">
+                <b class="footer-nav__item-title">Payment Methods</b>
+                <ul class="footer-nav__subnav footer-nav__subnav_payment">
+                    {% for arPaymentMethodData in arPaymentMethodsList %}
+                        {% if arPaymentMethodData.image is not empty %}
+                            <li class="footer-nav__subitem">
+                                {% set htmlTag = arPaymentMethodData.url is not empty ? 'a' : 'span' %}
+                                <{{ htmlTag }} {% if arPaymentMethodData.url is not empty %}href="{{ arPaymentMethodData.url }}"{% endif %} class="footer-nav__link footer-nav__link_with-icon" {% if arPaymentMethodData.url is not empty %}target="_blank" rel="noopener"{% endif %}>
+                                    {% set imageExtension =  arPaymentMethodData.image|media|split('.')|last %}
+                                    {% if imageExtension != 'svg' %}
+                                        <picture class="footer-nav__icon-wrap">
+                                            <source data-srcset="{{ arPaymentMethodData.image|media|resize(null,144, {'quantity': 80, 'extension': 'webp'}) }}" type="image/webp">
+                                            <source data-srcset="{{ arPaymentMethodData.image|media|resize(null,144,{'quantity': 80}) }}">
+                                            <img class="footer-nav__icon js-lazy-load" data-src="{{ arPaymentMethodData.image|media }}" alt="{{ arPaymentMethodData.description }}" title="{{ arPaymentMethodData.title }}">
+                                        </picture>
+                                    {% else %}
+                                        <img class="footer-nav__icon js-lazy-load" data-src="{{ arPaymentMethodData.image|media }}" alt="{{ arPaymentMethodData.description }}" title="{{ arPaymentMethodData.title }}">
+                                    {% endif %}
+                                </{{ htmlTag }}>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endif %}
+    </ul>
+</nav>

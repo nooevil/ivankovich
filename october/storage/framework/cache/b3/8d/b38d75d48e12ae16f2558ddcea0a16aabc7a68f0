@@ -1,0 +1,2 @@
+1608943569a:1:{s:38:"common/section-title/section-title.htm";a:5:{s:8:"fileName";s:38:"common/section-title/section-title.htm";s:7:"content";s:75:"<h2 class="section-title {{ wrapperClass }}" id="{{ id }}">{{ text }}</h2>
+";s:5:"mtime";i:1560802170;s:6:"markup";s:74:"<h2 class="section-title {{ wrapperClass }}" id="{{ id }}">{{ text }}</h2>";s:4:"code";N;}}

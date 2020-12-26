@@ -1,0 +1,15 @@
+name: 'lovata.propertiesshopaholic::lang.measure.name'
+modelClass: Lovata\PropertiesShopaholic\Models\Measure
+form: $/lovata/propertiesshopaholic/models/measure/fields.yaml
+defaultRedirect: lovata/propertiesshopaholic/measures
+create:
+    title: 'backend::lang.form.create_title'
+    redirect: 'lovata/propertiesshopaholic/measures/update/:id'
+    redirectClose: lovata/propertiesshopaholic/measures
+    flashSave: 'lovata.toolbox::lang.message.create_success'
+update:
+    title: 'backend::lang.form.update_title'
+    redirect: lovata/propertiesshopaholic/measures
+    redirectClose: lovata/propertiesshopaholic/measures
+    flashSave: 'lovata.toolbox::lang.message.update_success'
+    flashDelete: 'lovata.toolbox::lang.message.delete_success'

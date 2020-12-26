@@ -1,0 +1,15 @@
+<div class="error">
+    <h1 class="error__title">
+        {{ title }}
+    </h1>
+    <span class="error__descr">
+        {{ description|raw }}
+    </span>
+    <span class="error__hint">
+        {{ hint|raw }}
+    </span>
+    {% set errorType = this.page.id=='404' %}
+    {% set href = this.page.id=='404' ? 'index'|page : '' %}
+    {% set class = this.page.id=='404' ? 'error__btn error__link-back' : 'error__btn' %}
+    {% partial 'form/button/button' link=errorType wrapperClass=class text=buttonText href=href %}
+</div>

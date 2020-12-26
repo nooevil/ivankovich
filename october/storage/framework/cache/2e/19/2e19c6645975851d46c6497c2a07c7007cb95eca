@@ -1,0 +1,6 @@
+1608942940a:1:{s:29:"content/seo-text/seo-text.htm";a:5:{s:8:"fileName";s:29:"content/seo-text/seo-text.htm";s:7:"content";s:109:"{% if text is not empty %}
+<div class="seo-text {{ wrapperClass }} wysiwyg">{{ text|raw }}</div>
+{% endif %}
+";s:5:"mtime";i:1560802173;s:6:"markup";s:108:"{% if text is not empty %}
+<div class="seo-text {{ wrapperClass }} wysiwyg">{{ text|raw }}</div>
+{% endif %}";s:4:"code";N;}}

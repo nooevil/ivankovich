@@ -1,0 +1,155 @@
+.wish-product {
+  display: grid;
+  grid-template-areas:
+    'img title del'
+    'img size size'
+    'img quantity price';
+  grid-template-columns: 34.28% 37.14% auto;
+  grid-template-rows: auto auto 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+}
+
+.wish-product_hidden {
+  display: none;
+}
+
+.wish-product__link {
+  position: relative;
+  grid-area: img;
+  align-self: center;
+  height: 0;
+  padding-bottom: 72.91%;
+  overflow: hidden;
+}
+
+.wish-product__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 0.2s ease-in;
+
+  &_no-photo {
+    object-fit: initial;
+  }
+
+  &:hover,
+  &.focus-visible:focus {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-out;
+  }
+}
+
+.wish-product__title {
+  display: block;
+  grid-area: title;
+  font-size: var(--font-size-text);
+  font-weight: 900;
+  color: var(--color-default);
+  text-decoration: none;
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-m);
+
+    &:hover,
+    &.focus-visible:focus {
+      text-decoration: underline;
+    }
+  }
+}
+
+.wish-product__remove {
+  grid-area: del;
+  margin-left: auto;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: var(--color-transparent);
+  background-repeat: no-repeat;
+  background-size: 12px;
+  background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/remove.svg');
+  background-position: center;
+  opacity: 0.5;
+
+  @media (width > 768px) {
+    width: auto;
+    background-image: none;
+    border-bottom: 2px dashed var(--color-primary-dark);
+
+    &:hover,
+    &.focus-visible:focus {
+      cursor: pointer;
+      opacity: 1;
+      transition: opacity 0.2s ease-out;
+    }
+  }
+}
+
+.wish-product__remove-text {
+  font-size: var(--font-size-zero);
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-m);
+    color: var(--color-primary-dark);
+    font-weight: 600;
+  }
+}
+
+.wish-product__param {
+  grid-area: size;
+  color: var(--color-primary-dark);
+  font-size: var(--font-size-text);
+  font-weight: 600;
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-m);
+  }
+}
+
+.wish-product__quantity {
+  grid-area: quantity;
+  color: var(--color-primary);
+  font-size: var(--font-size-text);
+  font-weight: 600;
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-m);
+  }
+}
+
+.wish-product__price {
+  grid-area: price;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.wish-product__price-currency {
+  font-size: var(--font-size-text-s);
+  color: var(--color-default);
+  font-weight: 600;
+  padding-right: 2px;
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-m);
+  }
+}
+
+.wish-product__price-value {
+  font-size: var(--font-size-text);
+  color: var(--color-default);
+  font-weight: 600;
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-l);
+  }
+}
+
+.wish-product__none {
+  color: var(--color-caution);
+}

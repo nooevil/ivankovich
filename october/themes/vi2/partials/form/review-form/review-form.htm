@@ -1,0 +1,51 @@
+<form class="review-form _required">
+    <div class="review-form__wrapper" role="group" aria-labelledby="star-rating">
+        <b class="review-form__head" id="star-rating">Rate this product</b>
+        <input class="review-form__input" type="radio" id="star-rate1" name="rating" value="1">
+        <label class="review-form__label" for="star-rate1" title="Terrible"></label>
+        <input class="review-form__input" type="radio" id="star-rate2" name="rating" value="2">
+        <label class="review-form__label" for="star-rate2" title="Not good"></label>
+        <input class="review-form__input" type="radio" id="star-rate3" name="rating" value="3">
+        <label class="review-form__label" for="star-rate3" title="Average"></label>
+        <input class="review-form__input" type="radio" id="star-rate4" name="rating" value="4" >
+        <label class="review-form__label" for="star-rate4" title="Very good"></label>
+        <input class="review-form__input" type="radio" id="star-rate5" name="rating" value="5" checked>
+        <label class="review-form__label" for="star-rate5" title="Amazing"></label>
+    </div>
+    <input type="hidden" name="product_id" value="{{ product_id }}">
+    <div class="review-form__wrapper" role="group" aria-labelledby="review-person-name">
+        {% partial 'form/input/input-text'
+            name='name'
+            id='review-person-name-value'
+            required='required'
+            labelText='Your name'
+            validationErrorSelector='review-form__error-name'
+        %}
+    </div>
+    <div class="review-form__wrapper" role="group" aria-labelledby="review-person-phone">
+        {% partial 'form/input/input-tel'
+            name='phone'
+            id='review-person-phone-number'
+            required='required'
+            labelText='Your phone number'
+            validationErrorSelector='review-form__error-phone'
+            customErrorMessage = 'Please use the following format: +1 29 666-66-66'
+        %}
+        {# pattern='^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$' #}
+    </div>
+    <div class="review-form__wrapper" role="group" aria-labelledby="review-person-text">
+        {% partial 'form/textarea/textarea'
+            name='comment'
+            id='review-person-text-content'
+            labelText='Your opinion'
+            required='required'
+            validationErrorSelector='review-form__error-text'
+        %}
+    </div>
+    <div class="review-form__btn-wrap">
+        {% partial 'form/button/button' text='Add review' type='submit' wrapperClass='review-form__submit' %}
+        <button class="review-form__close" type="button">Cancel</button>
+        {% partial 'common/tooltip/tooltip' wrapperClass='review-form__tooltip' error = true %}
+        {% partial 'common/preloader/preloader' wrapperClass="review-add__preloader" %}
+    </div>
+</form>

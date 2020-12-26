@@ -1,0 +1,16 @@
+{% set sDescription        = this.theme.description_footer %}
+{% set sPrivacyPolicyUrl   = this.theme.privacy_policy_url %}
+{% set sCopyright          = this.theme.copyright %}
+
+<div class="footer-info">
+    {% if sDescription is not empty %}
+        <div class="footer-info__descr wysiwyg">{{ sDescription|raw() }}</div>
+    {% endif %}
+    {% partial 'footer/footer-social/footer-social' %}
+    {% if sPrivacyPolicyUrl is not empty %}
+        <a href="{{ sPrivacyPolicyUrl }}" class="footer-info__policy">Privacy Policy</a>
+    {% endif %}
+    {% if sCopyright is not empty %}
+        <span class="footer-info__copyright">{{ sCopyright }}</span>
+    {% endif %}
+</div>

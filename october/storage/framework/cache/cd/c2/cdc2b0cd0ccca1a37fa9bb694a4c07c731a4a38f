@@ -1,0 +1,54 @@
+1608943569a:1:{s:11:"contact.htm";a:9:{s:8:"fileName";s:11:"contact.htm";s:7:"content";s:886:"title = "Contacts"
+url = "/contacts"
+layout = "main"
+is_hidden = 0
+
+==
+<?php
+function onStart()
+{
+    $this['path_page_js'] = mix('js/contact.js', 'themes/lovata-shopaholic-sneakers/assets');
+    $this['path_page_css'] = mix('css/contact.css', 'themes/lovata-shopaholic-sneakers/assets');
+}
+?>
+==
+{% put page_style %}
+    <link rel="stylesheet" href="{{ path_page_css }}">
+{% endput %}
+{% put page_script %}
+    <script src="{{ path_page_js }}"></script>
+{% endput %}
+
+{% set sPageTitle = SeoToolbox.getPageTitle()|default('Contacts') %}
+
+{% set arBreadcrumbs = [
+    {'active': true, 'name': sPageTitle }
+] %}
+
+{% partial 'common/breadcrumbs/breadcrumbs' arBreadcrumbs=arBreadcrumbs  %}
+<h1 class="section-title contact__title">{{ sPageTitle }}</h1>
+{% partial 'content/contact/contact-photo' %}
+{% partial 'content/contact/contact-map' %}
+{% partial 'content/contact/contact-list' %}
+";s:5:"mtime";i:1607536623;s:6:"markup";s:588:"{% put page_style %}
+    <link rel="stylesheet" href="{{ path_page_css }}">
+{% endput %}
+{% put page_script %}
+    <script src="{{ path_page_js }}"></script>
+{% endput %}
+
+{% set sPageTitle = SeoToolbox.getPageTitle()|default('Contacts') %}
+
+{% set arBreadcrumbs = [
+    {'active': true, 'name': sPageTitle }
+] %}
+
+{% partial 'common/breadcrumbs/breadcrumbs' arBreadcrumbs=arBreadcrumbs  %}
+<h1 class="section-title contact__title">{{ sPageTitle }}</h1>
+{% partial 'content/contact/contact-photo' %}
+{% partial 'content/contact/contact-map' %}
+{% partial 'content/contact/contact-list' %}";s:4:"code";s:213:"function onStart()
+{
+    $this['path_page_js'] = mix('js/contact.js', 'themes/lovata-shopaholic-sneakers/assets');
+    $this['path_page_css'] = mix('css/contact.css', 'themes/lovata-shopaholic-sneakers/assets');
+}";s:5:"title";s:8:"Contacts";s:3:"url";s:9:"/contacts";s:6:"layout";s:4:"main";s:9:"is_hidden";s:1:"0";}}

@@ -1,0 +1,42 @@
+.map-popup {
+  padding-left: 20px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.map-popup__title {
+  display: inline-block;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: var(--font-size-text-l);
+  font-weight: 900;
+  color: var(--color-default);
+}
+
+.map-popup__address {
+  font-size: var(--font-size-text);
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px;
+  color: var(--color-default);
+  font-weight: 600;
+}
+
+.map-popup__tel {
+  font-size: var(--font-size-text);
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px;
+  color: var(--color-default);
+  font-weight: 600;
+}
+
+.map-popup__working-hours {
+  font-size: var(--font-size-text);
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px;
+  color: var(--color-primary-dark);
+  font-weight: 600;
+}

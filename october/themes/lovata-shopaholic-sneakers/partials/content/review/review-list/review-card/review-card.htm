@@ -1,0 +1,20 @@
+<li class="review-card" itemscope itemtype="http://schema.org/Review">
+    <div class="review-card__col">
+        <meta itemprop="itemReviewed" content="{{ obProduct.name }}">
+        {% if obReview.name is not empty %}
+            <b class="review-card__author" itemprop="author">{{ obReview.name }}</b>
+        {% endif %}
+        <span class="review-card__rating" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+            <meta itemprop="ratingValue" content={{ obReview.rating }}>
+            {% partial 'common/rating/rating-image' maxRating='5' rating=obReview.rating unique_id='rating-' ~ obReview.id %}
+        </span>
+    </div>
+    <div class="review-card__col">
+        {% if obReview.comment is not empty %}
+            <p itemprop="reviewBody" class="review-card__text">
+                {{ obReview.comment }}
+            </p>
+        {% endif %}
+        <time class="review-card__time" itemprop="datePublished" datetime="{{ obReview.created_at.format('Y-m-d') }}">{{ obReview.created_at.format('F d, Y') }}</time>
+    </div>
+</li>

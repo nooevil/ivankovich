@@ -1,0 +1,132 @@
+.wish-list-info {
+  position: relative;
+  width: 22px;
+  max-width: 22px;
+  height: 22px;
+  padding: 0;
+  font-size: var(--font-size-zero);
+  background-color: var(--color-transparent);
+  border: none;
+  font-family: var(--font-family-futura);
+
+  &_empty:focus {
+    outline: none;
+  }
+
+  &::after {
+    content: '';
+    width: 22px;
+    height: calc(100% + 2px);
+    left: 0;
+    top: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/heart.svg');
+  }
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-m);
+    font-weight: 600;
+    min-width: 92px;
+    width: auto;
+    max-width: none;
+    height: 19px;
+    padding-left: 31px;
+    opacity: 1;
+    text-align: left;
+
+    &:hover,
+    &.focus-visible:focus {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    &_empty:hover,
+    &_empty:focus {
+      cursor: default;
+      text-decoration: none;
+    }
+  }
+}
+
+.wish-list-info__text {
+  color: var(--color-default);
+}
+
+.wish-list-info__counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  top: -3px;
+  right: -5px;
+  border-radius: var(--border-radius-circle);
+  background-color: var(--color-caution);
+  font-size: var(--font-size-text-xxs);
+  color: var(--color-white);
+  font-weight: 600;
+  z-index: 2;
+
+  &:empty {
+    display: none;
+  }
+
+  @media (width > 768px) {
+    display: inline;
+    position: static;
+    color: var(--color-default);
+    background-color: var(--color-transparent);
+    border-radius: var(--border-radius-0);
+    font-size: var(--font-size-text-m);
+    font-weight: inherit;
+  }
+}
+
+.wish-list-info__panel {
+  display: none;
+}
+
+@keyframes wish-drawer {
+  from {
+    transform: translateX(110%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.wish-list-info__panel_visible {
+  display: block;
+  box-sizing: border-box;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  padding: 16px 20px;
+  background-color: var(--color-white);
+  z-index: 100;
+  animation-name: wish-drawer;
+  animation-duration: 200ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  will-change: transform, animation;
+
+  @media (768px < width < 1280px) {
+    right: unset;
+    left: calc(100% - 440px);
+  }
+
+  @media (width > 768px) {
+    max-width: 440px;
+    padding-left: 50px;
+    padding-top: 33px;
+    padding-right: 40px;
+    padding-bottom: 33px;
+  }
+}

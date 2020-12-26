@@ -1,0 +1,64 @@
+{% if arPaginationList is not empty and iMaxPage > 1 %}
+    <nav class="pagination {{ wrapperClass }}" role="navigation" aria-label="Pagination">
+        {% if iPage != 1 %}
+            <a href="{{ url_current() ~ '?page=' ~ (iPage - 1) }}" class="pagination__btn pagination__btn_prev {{ linkClass }}" data-page="{{ iPage - 1 }}" aria-label="Go to previous page">
+                <svg class="pagination__icon" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink"
+                     width="24" height="10" viewBox="0 0 24 10" aria-hidden="true" fill="#000000">
+                    <defs>
+                        <path id="r2ufa" d="M1193.34 457.4v-1.31h20.88v1.31z"/>
+                        <path id="r2ufb" d="M1211.85 452.004l4.337 4.637-.867.927-4.337-4.636z"/>
+                        <path id="r2ufc" d="M1215.218 456.103l-4.082 4.91.816.981 4.082-4.91z"/>
+                    </defs>
+                    <g>
+                        <g transform="translate(-1193 -452)">
+                            <g>
+                                <use xlink:href="#r2ufa"/>
+                            </g>
+                            <g>
+                                <use xlink:href="#r2ufb"/>
+                            </g>
+                            <g>
+                                <use xlink:href="#r2ufc"/>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </a>
+        {% endif %}
+        <ul class="pagination__list">
+            {% for arPagination in arPaginationList %}
+                <li class="pagination__item">
+                    <a class="pagination__link {{ arPagination.class }} {{ linkClass }}" data-page="{{ arPagination.value }}"
+                       {% if arPagination.value != iPage %}href="{{ url_current() ~ '?page=' ~ arPagination.value }}"{% endif %}>{{ arPagination.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        {% if iMaxPage > iPage %}
+            <a href="{{ url_current() ~ '?page=' ~ (iPage + 1) }}" class="pagination__btn pagination__btn_next {{ linkClass }}" data-page="{{ iPage + 1 }}" aria-label="Go to next page">
+                <svg class="pagination__icon" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink"
+                     width="24" height="10" viewBox="0 0 24 10" aria-hidden="true" fill="#000000">
+                    <defs>
+                        <path id="r2ufa" d="M1193.34 457.4v-1.31h20.88v1.31z"/>
+                        <path id="r2ufb" d="M1211.85 452.004l4.337 4.637-.867.927-4.337-4.636z"/>
+                        <path id="r2ufc" d="M1215.218 456.103l-4.082 4.91.816.981 4.082-4.91z"/>
+                    </defs>
+                    <g>
+                        <g transform="translate(-1193 -452)">
+                            <g>
+                                <use xlink:href="#r2ufa"/>
+                            </g>
+                            <g>
+                                <use xlink:href="#r2ufb"/>
+                            </g>
+                            <g>
+                                <use xlink:href="#r2ufc"/>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </a>
+        {% endif %}
+    </nav>
+{% endif %}

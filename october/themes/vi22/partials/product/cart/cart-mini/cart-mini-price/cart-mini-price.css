@@ -1,0 +1,70 @@
+.cart-mini-price {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 30px 20px 0;
+
+  @media (width > 768px) {
+    padding: 30px 40px 0;
+  }
+}
+
+.cart-mini-price__inner {
+  display: flex;
+  align-items: flex-end;
+
+  &_in-cart {
+    justify-content: flex-end;
+  }
+}
+
+.cart-mini-price__text {
+  font-size: var(--font-size-text);
+  font-weight: 600;
+  color: var(--color-default);
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-l);
+  }
+}
+
+.cart-mini-price__currency {
+  font-size: var(--font-size-text);
+  font-weight: 600;
+  color: var(--color-default);
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-m);
+  }
+}
+
+.cart-mini-price__value {
+  font-size: var(--font-size-text);
+  font-weight: 600;
+  color: var(--color-default);
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-l);
+  }
+}
+
+.cart-mini-price__checkout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-width: 150px;
+  max-width: 150px;
+  padding-right: 50px;
+  background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/arrow.svg');
+  background-position: center right 29px;
+  background-size: 21px auto;
+  background-repeat: no-repeat;
+
+  &:hover,
+  &.focus-visible:focus {
+    background-position: center right 24px;
+    transition: background-position 0.2s ease-in;
+    cursor: pointer;
+  }
+}

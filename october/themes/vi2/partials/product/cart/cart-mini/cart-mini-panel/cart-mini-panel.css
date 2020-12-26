@@ -1,0 +1,140 @@
+.cart-mini-panel {
+  position: relative;
+}
+
+.cart-mini-panel__preloader {
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+}
+
+.cart-mini-panel__title {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 0 20px;
+  margin-bottom: 40px;
+  color: var(--color-default);
+  font-size: var(--font-size-text-l);
+  font-weight: 600;
+
+  @media (width > 768px) {
+    padding: 0 40px;
+  }
+}
+
+.cart-mini-panel__close {
+  display: block;
+  border: none;
+  position: absolute;
+  right: 20px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  background-color: var(--color-transparent);
+  background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/close.svg');
+  background-size: 11px 11px;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media (width > 768px) {
+    top: 5px;
+    right: 40px;
+  }
+}
+
+.cart-mini-panel__list {
+  padding: 0 20px;
+  margin: 0;
+  list-style: none;
+  min-height: 100px;
+
+  @media (width > 768px) {
+    padding: 0 40px;
+  }
+}
+
+.cart-mini-panel__item {
+  box-sizing: border-box;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid var(--color-primary-light);
+
+  &:first-child {
+    border-top: 2px solid var(--color-primary-light);
+  }
+
+  @media (width > 768px) {
+    padding-top: 35px;
+    padding-bottom: 32px;
+  }
+}
+
+.cart-mini-panel__item_none {
+  border: none;
+  color: var(--color-primary);
+  text-align: center;
+  font-size: var(--font-size-text);
+  font-weight: 600;
+
+  &:first-child {
+    border: none;
+  }
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-m);
+  }
+}
+
+.cart-mini-panel__restore {
+  padding: 20px 0;
+
+  @media (width > 768px) {
+    padding: 30px 0;
+  }
+}
+
+.cart-mini-panel__restore._visually-hidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border-width: 0;
+  height: 1px;
+  width: 1px;
+  margin-left: -1px;
+}
+
+.cart-mini-panel__restore-btn {
+  padding: 0;
+  border: none;
+  border-bottom: 2px dashed var(--color-primary-dark);
+  font-size: var(--font-size-text);
+  background-color: var(--color-transparent);
+  opacity: 0.5;
+  margin-left: 3px;
+  font-weight: 600;
+  line-height: var(--line-height-normal);
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-m);
+    color: var(--color-primary-dark);
+
+    &:hover,
+    &.focus-visible:focus {
+      cursor: pointer;
+      opacity: 1;
+      transition: opacity 0.2s ease-out;
+    }
+  }
+}
+
+.cart-mini-panel__restore-text {
+  color: var(--color-primary-dark);
+  font-size: var(--font-size-text);
+  font-weight: 600;
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-m);
+  }
+}

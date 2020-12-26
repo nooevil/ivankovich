@@ -1,0 +1,10 @@
+._required .validation-error {
+  border-color: var(--color-warning);
+}
+
+.validation-error__message {
+  display: inline-block;
+  margin-top: 5px;
+  color: var(--color-caution);
+  font-size: var(--font-size-text);
+}

@@ -1,0 +1,31 @@
+1608936604a:1:{s:33:"content/contact/contact-photo.htm";a:5:{s:8:"fileName";s:33:"content/contact/contact-photo.htm";s:7:"content";s:410:"<div class="photos">
+	<img src="https://wiki.wildberries.ru/img/2013/01/800x800x85_10013d0314ad0587fb13eaffc97438a7.jpg" alt="">
+	<img src="https://wiki.wildberries.ru/img/2013/01/800x800x85_10013d0314ad0587fb13eaffc97438a7.jpg" alt="">
+</div>
+
+<style>
+	.photos {
+		grid-column: 4 / -1;
+    	width: 100%;
+    	margin: 0 0 50px;
+	}
+	.photos img {
+		width: 475px;
+		margin-right: 50px;
+	}
+</style>";s:5:"mtime";i:1607537322;s:6:"markup";s:410:"<div class="photos">
+	<img src="https://wiki.wildberries.ru/img/2013/01/800x800x85_10013d0314ad0587fb13eaffc97438a7.jpg" alt="">
+	<img src="https://wiki.wildberries.ru/img/2013/01/800x800x85_10013d0314ad0587fb13eaffc97438a7.jpg" alt="">
+</div>
+
+<style>
+	.photos {
+		grid-column: 4 / -1;
+    	width: 100%;
+    	margin: 0 0 50px;
+	}
+	.photos img {
+		width: 475px;
+		margin-right: 50px;
+	}
+</style>";s:4:"code";N;}}

@@ -1,0 +1,393 @@
+.product-info {
+  box-sizing: border-box;
+  grid-column: 2 / -2;
+  margin: 0 0 52px;
+  padding: 0 20px;
+  width: 100%;
+
+  @media (width > 768px) {
+    display: grid;
+    grid-template-areas:
+      'slider info'
+      'slider params';
+    grid-template-columns: 450px 400px;
+    grid-template-rows: auto 1fr;
+    grid-column-gap: 50px;
+    align-self: flex-start;
+    max-width: none;
+    margin: 0 0 100px;
+    padding: 0;
+  }
+}
+
+.product-info__wrapper {
+  grid-area: info;
+}
+
+.product-info__detail-wrapper {
+  grid-area: params;
+}
+
+.product-info__breadcrumbs {
+  padding: 0 20px;
+
+  & .breadcrumbs__item_current {
+    display: none;
+  }
+
+  @media (width > 768px) {
+    padding: 0;
+    margin-bottom: 20px;
+  }
+}
+
+.product-info__slider {
+
+  @media (width > 768px) {
+    grid-area: slider;
+  }
+}
+
+.product__info-title {
+  display: inline-block;
+  margin: 0 0 16px;
+  font-size: var(--font-size-title-l);
+  font-weight: 900;
+
+  @media (width > 768px) {
+    box-sizing: border-box;
+    line-height: var(--line-height-xl);
+    margin: 30px 0 20px;
+  }
+}
+
+.product-info__rating {
+  margin-bottom: 18px;
+
+  @media (width > 768px) {
+    margin-bottom: 20px;
+  }
+}
+
+.product-info__price {
+
+  @media (width > 768px) {
+    margin-bottom: 32px;
+    height: 20px;
+  }
+}
+
+.product-info__subtitle {
+  color: var(--color-default);
+  font-size: var(--font-size-text-m);
+  font-weight: 600;
+}
+
+.product-info__form {
+
+  @media (width > 768px) {
+    grid-area: form;
+  }
+}
+
+.product-info__size-link {
+  display: inline-block;
+  margin-left: 3px;
+  border-bottom: 1px dashed var(--color-primary-dark);
+  font-size: var(--font-size-text);
+  font-weight: 500;
+  color: var(--color-primary-dark);
+  opacity: 1;
+  text-decoration: none;
+  transition: opacity 0.3s ease-out;
+
+  @media (width > 768px) {
+    margin-left: 17px;
+
+    &:hover,
+    &.focus-visible:focus {
+      cursor: pointer;
+      opacity: 0.5;
+      transition: opacity 0.3s ease-out;
+    }
+  }
+}
+
+.product-info__detail-btn {
+  position: relative;
+  margin: 0 0 25px;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 15px;
+  border: none;
+  appearance: none;
+  background-color: var(--color-transparent);
+
+  &:hover,
+  &.focus-visible:focus {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/select-black.svg');
+    background-repeat: no-repeat;
+    background-size: auto 4px;
+    background-position: center;
+  }
+
+  @media (width > 768px) {
+    margin-bottom: 20px;
+  }
+}
+
+.product-info__detail-btn_open {
+  margin-bottom: 0;
+
+  &::after {
+    transform: rotate(180deg);
+    background-position: center center;
+  }
+}
+
+.product-info__detail-text {
+  margin-top: 22px;
+}
+
+.product-info__detail-text > * {
+  color: var(--color-primary-dark);
+  font-weight: 600;
+}
+
+.product-info__detail-text_visually-hidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border-width: 0;
+  height: 1px;
+  width: 1px;
+  margin-left: -1px;
+}
+
+.product-info__color {
+
+  @media (width > 768px) {
+    margin-bottom: 26px;
+  }
+}
+
+.product-info__color-heading {
+  display: inline-block;
+  margin-bottom: 17px;
+
+  @media (width > 768px) {
+    margin-bottom: 16px;
+  }
+}
+
+.product-info__color-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
+  margin: 0;
+  padding: 0 0 25px;
+  grid-gap: 5px;
+  list-style: none;
+
+  @media (width > 768px) {
+    grid-template-columns: repeat(5, 1fr);
+    padding-bottom: 0;
+    grid-gap: 20px;
+  }
+}
+
+.product-info__color-item {
+  position: relative;
+  background-color: var(--color-primary-light);
+}
+
+.product-info__color-item_active {
+  &::after {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: -9px;
+    right: -9px;
+    border-radius: var(--border-radius-circle);
+    background-color: var(--color-default);
+    background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/checked.svg');
+    background-position: center;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    z-index: 2;
+  }
+}
+
+.product-info__color-link {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  overflow: hidden;
+  position: relative;
+
+  @media (width > 768px) {
+    border: 1px solid var(--color-input);
+
+    &:hover,
+    &.focus-visible:focus {
+      border: 1px solid var(--color-primary-dark);
+    }
+  }
+}
+
+.product-info__color-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-info__size-list {
+  display: grid;
+  grid-gap: 2px;
+  max-width: calc(36px * 7 + 12px);
+  grid-template-columns: repeat(var(--grid-column-count, 7), 36px);
+  padding: 0;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  list-style: none;
+}
+
+.product-info__size-item {
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--color-table);
+}
+
+.product-info__btn-block {
+  display: flex;
+  position: relative;
+}
+
+.product-info__preloader {
+  position: absolute;
+  top: 4px;
+  left: calc(110px - 15px);
+
+  @media (width > 768px) {
+    left: calc(75px - 15px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.product-info__btn {
+  margin-right: 10px;
+  width: calc(100% - 60px);
+  max-width: 280px;
+  font-weight: 600;
+
+  &_not-available {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary-dark);
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &._shopaholic-loading {
+    position: relative;
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      position: absolute;
+      display: block;
+      background-color: var(--color-transparent-white);
+    }
+
+    &::before {
+      content: '';
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      display: block;
+      left: calc(50% - 15px);
+      top: calc(50% - 15px);
+      background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/preloader.svg');
+      background-size: 100%;
+      background-repeat: no-repeat;
+      animation-name: rotate;
+      animation-duration: 1000ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+  }
+
+  @media (width > 768px) {
+    max-width: 150px;
+    margin-right: 20px;
+  }
+}
+
+.product-info__color-img-container {
+  display: block;
+}
+
+.product-info__color-preloader {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-semi-transparent);
+
+  &::after {
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 25px);
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.product-info__color-img-container:not(.lazy-finish) + .product-info__color-preloader {
+  display: block;
+}
+
+.product-info__tooltip {
+  position: absolute;
+  bottom: calc(100% + 25px);
+  display: none;
+  left: 0;
+
+  &_visible {
+    display: block;
+  }
+}

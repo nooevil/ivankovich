@@ -1,0 +1,19 @@
+<li class="cart__payment-item cart__list-item">
+    {% set sDescription = '' %}
+    {% if obPaymentMethod.preview_text is not empty %}
+        {% set sDescription = ':&nbsp <br class="cart__separator"/>'~obPaymentMethod.preview_text %}
+    {% endif %}
+    {% set checked = index == 1 ? 'checked' : '' %}
+    {% set sPaymentInfo = obPaymentMethod.name~sDescription %}
+    {% partial 'form/radio/radio'
+        wrapperClass='cart__payment-radio'
+        labelClass='cart__payment-text'
+        inputClass='_shopaholic-order-field'
+        id='payment'~obPaymentMethod.id
+        name='payment_method_id'
+        value=obPaymentMethod.id
+        labelText=sPaymentInfo
+        checked=checked
+        attribute='data-group="order"'
+    %}
+</li>

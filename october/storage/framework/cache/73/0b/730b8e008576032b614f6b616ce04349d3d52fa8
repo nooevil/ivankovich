@@ -1,0 +1,54 @@
+1608943569a:1:{s:35:"content/main-slider/main-slider.htm";a:5:{s:8:"fileName";s:35:"content/main-slider/main-slider.htm";s:7:"content";s:1923:"{% set arSliderList  = this.theme.index_slider %}
+
+{% if arSliderList is not empty %}
+    <section class="main-slider swiper-container">
+        <ul class="main-slider__list swiper-wrapper">
+            {% for arSlider in arSliderList if arSlider.image is not empty %}
+                <li class="main-slider__item swiper-slide">
+                    <a {% if arSlider.url is not empty %}href="{{ arSlider.url }}"{% endif %} class="main-slider__link">
+                        <picture class="main-slider__img-container">
+                            <source media="(min-width:769px)" data-srcset="{{ arSlider.image|media|resize(1200, 570, {'quantity': 80, 'extension': 'webp'}) }}" type="image/webp">
+                            <source media="(min-width:769px)" data-srcset="{{ arSlider.image|media|resize(1200, 570, {'quantity': 80}) }}" type="image/jpeg">
+                            <source media="(max-width:768px)" data-srcset="{{ arSlider.mobile_image|media|resize(768, 968, {'quantity': 80, 'extension': 'webp'}) }}" type="image/webp">
+                            <source media="(max-width:768px)" data-srcset="{{ arSlider.mobile_image|media|resize(768, 968, {'quantity': 80}) }}" type="image/jpeg">
+                            <img class="main-slider__img js-lazy-load" data-src="{{ arSlider.image|media|resize(1200, 570, {'quantity': 80}) }}" alt="{{ arSlider.description }}" title="{{ arSlider.title }}">
+                        </picture>
+                        {% partial 'common/preloader/preloader' wrapperClass='main-slider__preloader' %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="main-slider__btn-wrap">
+            <div class="main-slider__btn main-slider__btn_prev"></div>
+            <div class="main-slider__pagination"></div>
+            <div class="main-slider__btn main-slider__btn_next"></div>
+        </div>
+    </section>
+{% endif %}
+";s:5:"mtime";i:1560802172;s:6:"markup";s:1922:"{% set arSliderList  = this.theme.index_slider %}
+
+{% if arSliderList is not empty %}
+    <section class="main-slider swiper-container">
+        <ul class="main-slider__list swiper-wrapper">
+            {% for arSlider in arSliderList if arSlider.image is not empty %}
+                <li class="main-slider__item swiper-slide">
+                    <a {% if arSlider.url is not empty %}href="{{ arSlider.url }}"{% endif %} class="main-slider__link">
+                        <picture class="main-slider__img-container">
+                            <source media="(min-width:769px)" data-srcset="{{ arSlider.image|media|resize(1200, 570, {'quantity': 80, 'extension': 'webp'}) }}" type="image/webp">
+                            <source media="(min-width:769px)" data-srcset="{{ arSlider.image|media|resize(1200, 570, {'quantity': 80}) }}" type="image/jpeg">
+                            <source media="(max-width:768px)" data-srcset="{{ arSlider.mobile_image|media|resize(768, 968, {'quantity': 80, 'extension': 'webp'}) }}" type="image/webp">
+                            <source media="(max-width:768px)" data-srcset="{{ arSlider.mobile_image|media|resize(768, 968, {'quantity': 80}) }}" type="image/jpeg">
+                            <img class="main-slider__img js-lazy-load" data-src="{{ arSlider.image|media|resize(1200, 570, {'quantity': 80}) }}" alt="{{ arSlider.description }}" title="{{ arSlider.title }}">
+                        </picture>
+                        {% partial 'common/preloader/preloader' wrapperClass='main-slider__preloader' %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="main-slider__btn-wrap">
+            <div class="main-slider__btn main-slider__btn_prev"></div>
+            <div class="main-slider__pagination"></div>
+            <div class="main-slider__btn main-slider__btn_next"></div>
+        </div>
+    </section>
+{% endif %}";s:4:"code";N;}}

@@ -1,0 +1,17 @@
+{# TODO: Remove this partial, not used in filter #}
+{% if type == 'filter' %}
+    {% set obPropertyValueList = obProperty.property_value.sort() %}
+    <select
+        class="select {{ wrapperClass }}"
+        name="{{ obProperty.name }}"
+        id="{{ obProperty.id }}"
+        {{ attribute|raw }}
+    >
+        {% if selectTitle is not empty %}
+            <option selected>{{ selectTitle }}</option>
+        {% endif %}
+        {% for obValue in obPropertyValueList %}
+            <option value="{{ obValue.slug }}" data-id="{{ obValue.id }}">{{ obValue.value }}</option>
+        {% endfor %}
+    </select>
+{% endif %}

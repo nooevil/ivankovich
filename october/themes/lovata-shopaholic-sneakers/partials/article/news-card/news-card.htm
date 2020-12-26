@@ -1,0 +1,16 @@
+<div class="news-card">
+    <div class="news-card__img-wrap">
+        {% if obArticle.preview_image.path|length > 0 %}
+            <picture class="news-card__img-container">
+                <source  data-srcset="{{ obArticle.preview_image.getThumb(420, 315, {'quantity': 80, 'extension': 'webp'}) }}" type="image/webp">
+                <source data-srcset="{{ obArticle.preview_image.getThumb(420, 315, {'quantity': 80}) }}">
+                <img class="news-card__img js-lazy-load" data-src="{{ obArticle.preview_image.getThumb(420, 315, {'quantity': 80}) }} }}"  alt="{{ obArticle.preview_image.description }}" title="{{ obArticle.preview_image.title }}">
+            </picture>
+            {% partial 'common/preloader/preloader' wrapperClass='news-card__preloader' %}
+        {% else %}
+            <img class="news-card__img news-card__img_no-photo" src="{{ 'assets/img/nophoto.svg'|theme }}" itemprop="image" alt="{{ obProduct.preview_image.description }}" title="{{ obProduct.preview_image.title }}">
+        {% endif %}
+    </div>
+    <h3 class="news-card__title _js-cutted">{{ obArticle.title }}</h3>
+    <div class="news-card__date">{{ obArticle.published_start.format('F d, Y') }}</div>
+</div>

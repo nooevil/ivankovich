@@ -1,0 +1,50 @@
+{% if obShippingTypeList is empty %}
+    {% set obShippingTypeList = ShippingTypeList.make().sort().active() %}
+
+    {% set iActiveShippingTypeID = input('shipping_type_id') %}
+    {% set obActiveShippingType = obShippingTypeList.find(iActiveShippingTypeID) %}
+    {% if obActiveShippingType.isEmpty() %}
+        {% set obActiveShippingType = obShippingTypeList.first() %}
+    {% endif %}
+{% endif %}
+
+{% partial 'common/section-title/section-title' id='cart-delivery-info' wrapperClass='cart__heading cart__heading_no-border' text='2. Delivery Method' %}
+<ul class="cart__delivery-list cart__list">
+    {% for obShippingType in obShippingTypeList %}
+        <li class="cart__delivery-item cart__list-item">
+            {% set checked = index == 1 ? 'checked' : '' %}
+            <div class="radio cart__delivery-radio">
+                    <input type="radio"
+                           class="radio__field _shopaholic-order-field"
+                           id="delivery_{{ obShippingType.id }}"
+                           name="shipping_type_id"
+                           value="{{ obShippingType.id }}"
+                           {% if obActiveShippingType.id == obShippingType.id %}
+                               checked
+                           {% endif %}
+                           {% if obShippingType.isAvailable() == false %}
+                               disabled
+                           {% endif %}
+                            data-group="order"
+                    >
+                    <label for="delivery_{{ obShippingType.id }}" class="radio__label cart__delivery-text">
+                        {% set isHidden = obShippingType.discount_price_value == 0 ? 'cart__delivery-price-value_hidden' %}
+                        <span class="cart__delivery-name">{{ obShippingType.name}}:&nbsp</span>
+                        <br class="cart__separator"/>
+                        <span class="cart__delivery-price">
+                            <span class="cart__delivery-price-currency">{{ obShippingType.currency }}</span>
+                               <span class="cart__delivery-price-value">{{ obShippingType.price }}</span>
+                               <span class="cart__delivery-price-value cart__delivery-price-value_old {{ isHidden }}" role="presentation">
+                                   {{ obShippingType.old_price  }}
+                                </span>
+                        </span>
+                        <span class="cart__delivery-description">&nbsp Arrives: {{ obShippingType.preview_text }}</span>
+                    </label>
+                </div>
+        </li>
+    {% endfor %}
+</ul>
+{% set sMessage = this.theme.message_delivery %}
+{% if sMessage is not empty %}
+    <span class="cart__delivery-note">{{ sMessage|raw }}</span>
+{% endif %}

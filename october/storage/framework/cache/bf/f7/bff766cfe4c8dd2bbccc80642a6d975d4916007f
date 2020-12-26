@@ -1,0 +1,9 @@
+1608890605a:1:{s:46:"product/cart/cart-mini/cart-info/cart-info.htm";a:5:{s:8:"fileName";s:46:"product/cart/cart-mini/cart-info/cart-info.htm";s:7:"content";s:194:"{% partial 'product/cart/cart-mini/cart-info/cart-info-button' %}
+<div class="cart-info__panel webkit-scroll">
+    {% partial 'product/cart/cart-mini/cart-mini-panel/cart-mini-panel' %}
+</div>
+
+";s:5:"mtime";i:1560802178;s:6:"markup";s:192:"{% partial 'product/cart/cart-mini/cart-info/cart-info-button' %}
+<div class="cart-info__panel webkit-scroll">
+    {% partial 'product/cart/cart-mini/cart-mini-panel/cart-mini-panel' %}
+</div>";s:4:"code";N;}}

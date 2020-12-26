@@ -1,0 +1,15 @@
+{% set obReviewList = obProduct.review.active().sort() %}
+{% set iReviewCount = obReviewList.count() %}
+{% set fRating = obProduct.rating %}
+
+<section class="review">
+    <div class="review__wrapper">
+        {% partial 'common/section-title/section-title' wrapperClass='review__title' id="see-all-reviews" text='Reviews' %}
+        <span class="review__counter">({{ iReviewCount }})</span>
+        <a href="#review-modal" class="review__add js-review-modal">Add review</a>
+    </div>
+        <div class="review__content">
+            {% partial 'content/review/review-list/review-list' obReviewList = obReviewList %}
+        </div>
+    {% partial 'content/review/review-add/review-add' product_id=obProduct.id %}
+</section>

@@ -1,0 +1,59 @@
+1608943569a:1:{s:13:"news-page.htm";a:12:{s:8:"fileName";s:13:"news-page.htm";s:7:"content";s:995:"title = "Article page"
+url = "/news/:slug"
+layout = "main"
+is_hidden = 0
+
+[ArticlePage]
+slug = "{{ :slug }}"
+slug_required = 1
+
+[ArticleList]
+sorting = "publish|desc"
+
+[ArticleCategoryList]
+==
+<?php
+function onStart()
+{
+    $this['path_page_js'] = mix('js/news-page.js', 'themes/lovata-shopaholic-sneakers/assets');
+    $this['path_page_css'] = mix('css/news-page.css', 'themes/lovata-shopaholic-sneakers/assets');
+}
+?>
+==
+
+{% put page_style %}
+    <link rel="stylesheet" href="{{ path_page_css }}">
+{% endput %}
+{% put page_script %}
+    <script src="{{ path_page_js }}"></script>
+{% endput %}
+{% set obArticle = ArticlePage.get() %}
+
+{% set arSEOParams = {'article': obArticle} %}
+{% put seo_tags %}
+    {% component 'SeoToolbox' model=obArticle params=arSEOParams %}
+{% endput %}
+
+{% partial 'article/news-page/news-page' obArticle=obArticle arSEOParams=arSEOParams %}
+{% partial 'article/news-simple-slider/news-simple-slider' obArticle=obArticle %}
+{% partial 'form/subscribe/subscribe' %}
+";s:5:"mtime";i:1560802166;s:6:"markup";s:570:"{% put page_style %}
+    <link rel="stylesheet" href="{{ path_page_css }}">
+{% endput %}
+{% put page_script %}
+    <script src="{{ path_page_js }}"></script>
+{% endput %}
+{% set obArticle = ArticlePage.get() %}
+
+{% set arSEOParams = {'article': obArticle} %}
+{% put seo_tags %}
+    {% component 'SeoToolbox' model=obArticle params=arSEOParams %}
+{% endput %}
+
+{% partial 'article/news-page/news-page' obArticle=obArticle arSEOParams=arSEOParams %}
+{% partial 'article/news-simple-slider/news-simple-slider' obArticle=obArticle %}
+{% partial 'form/subscribe/subscribe' %}";s:4:"code";s:217:"function onStart()
+{
+    $this['path_page_js'] = mix('js/news-page.js', 'themes/lovata-shopaholic-sneakers/assets');
+    $this['path_page_css'] = mix('css/news-page.css', 'themes/lovata-shopaholic-sneakers/assets');
+}";s:5:"title";s:12:"Article page";s:3:"url";s:11:"/news/:slug";s:6:"layout";s:4:"main";s:9:"is_hidden";s:1:"0";s:11:"ArticlePage";a:2:{s:4:"slug";s:11:"{{ :slug }}";s:13:"slug_required";s:1:"1";}s:11:"ArticleList";a:1:{s:7:"sorting";s:12:"publish|desc";}s:19:"ArticleCategoryList";a:0:{}}}

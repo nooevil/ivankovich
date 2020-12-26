@@ -1,0 +1,374 @@
+tabs:
+    fields:
+### Header
+        company_name:
+            label: 'Company name'
+            type: text
+            span: left
+            tab: 'General'
+        logo_section:
+            label: 'Logo'
+            type: section
+            span: full
+            tab: 'General'
+        logo_image:
+            label: 'lovata.toolbox::lang.field.image'
+            type: mediafinder
+            span: left
+            mode: image
+            tab: 'General'
+        logo_title:
+            label: 'lovata.toolbox::lang.field.title'
+            type: text
+            span: right
+            tab: 'General'
+            placeholder: 'lovata.toolbox::lang.field.title'
+        logo_alt:
+            label: 'lovata.toolbox::lang.field.description'
+            type: text
+            span: right
+            tab: 'General'
+            placeholder: 'lovata.toolbox::lang.field.description'
+### Footer
+        footer_section:
+            label: 'Footer'
+            type: section
+            span: full
+            tab: 'General'
+        description_footer:
+            label: 'lovata.toolbox::lang.field.description'
+            type: richeditor
+            span: left
+            tab: 'General'
+        privacy_policy_section:
+            label: 'Privacy policy'
+            type: section
+            span: right
+            tab: 'General'
+        privacy_policy_url:
+            label: 'lovata.toolbox::lang.field.slug'
+            type: text
+            span: right
+            required: 0
+            tab: 'General'
+        copyright_section:
+            label: 'Copyright'
+            type: section
+            span: right
+            tab: 'General'
+        copyright:
+            type: text
+            span: right
+            required: 0
+            tab: 'General'
+            placeholder: 'Copyright'
+### Social networks
+        social_networks_section:
+            label: 'Social networks'
+            type: section
+            span: full
+            tab: 'Footer'
+        social_networks_facebook:
+            label: 'Facebook'
+            type: text
+            span: left
+            tab: 'Footer'
+            placeholder: 'lovata.toolbox::lang.field.slug'
+        social_networks_twitter:
+            label: 'Twitter'
+            type: text
+            span: right
+            tab: 'Footer'
+            placeholder: 'lovata.toolbox::lang.field.slug'
+        social_networks_youtube:
+            label: 'Youtube'
+            type: text
+            span: right
+            tab: 'Footer'
+            placeholder: 'lovata.toolbox::lang.field.slug'
+        social_networks_instagram:
+            label: 'Instagram'
+            type: text
+            span: left
+            tab: 'Footer'
+            placeholder: 'lovata.toolbox::lang.field.slug'
+        social_networks_telegram:
+            label: 'Telegram'
+            type: text
+            span: right
+            tab: 'Footer'
+            placeholder: 'lovata.toolbox::lang.field.slug'
+### Payment Methods
+        payment_methods_list_section:
+          label: 'Payment methods'
+          type: section
+          span: full
+          tab: 'Footer'
+        payment_methods_list:
+          type: repeater
+          span: full
+          tab: 'Footer'
+          form:
+            fields:
+              title:
+                label: 'lovata.toolbox::lang.field.title'
+                type: text
+                span: left
+                placeholder: 'lovata.toolbox::lang.field.title'
+              image:
+                label: 'lovata.toolbox::lang.field.image'
+                type: mediafinder
+                span: right
+                mode: image
+              description:
+                label: 'lovata.toolbox::lang.field.description'
+                type: text
+                span: left
+                placeholder: 'lovata.toolbox::lang.field.description'
+              url:
+                label: 'lovata.toolbox::lang.field.slug'
+                type: text
+                span: left
+                placeholder: 'lovata.toolbox::lang.field.slug'
+### Search settings
+        search_by_category:
+            label: 'Search by category'
+            type: checkbox
+            span: left
+            tab: 'Search'
+        search_by_product:
+            label: 'Search by product'
+            type: checkbox
+            span: left
+            tab: 'Search'
+### Index page blocks
+        index_subscription_description:
+            label: 'Description of subscription form'
+            type: textarea
+            span: full
+            size: small
+            tab: 'Index page'
+        index_main_slider_section:
+            label: 'Main slider'
+            type: section
+            span: full
+            tab: 'Index page'
+        index_slider:
+            type: repeater
+            span: full
+            required: 0
+            tab: 'Index page'
+            form:
+                fields:
+                    title:
+                        label: 'lovata.toolbox::lang.field.title'
+                        type: text
+                        span: left
+                        required: 0
+                        placeholder: 'lovata.toolbox::lang.field.title'
+                    image:
+                        label: 'lovata.toolbox::lang.field.image'
+                        type: mediafinder
+                        span: right
+                        mode: image
+                        required: 0
+                    description:
+                        label: 'lovata.toolbox::lang.field.description'
+                        type: text
+                        span: left
+                        required: 0
+                        size: large
+                        placeholder: 'lovata.toolbox::lang.field.description'
+                    url:
+                        label: 'lovata.toolbox::lang.field.slug'
+                        type: text
+                        span: left
+                        required: 0
+                        placeholder: 'lovata.toolbox::lang.field.slug'
+                    mobile_image:
+                        label: 'Mobile image'
+                        type: mediafinder
+                        span: right
+                        mode: image
+                        required: 0
+        index_product_tabs_section:
+            label: 'Slider with products'
+            type: section
+            span: full
+            tab: 'Index page'
+        index_product_tabs_title:
+            label: 'lovata.toolbox::lang.field.title'
+            type: text
+            span: left
+            required: 0
+            tab: 'Index page'
+            placeholder: 'lovata.toolbox::lang.field.title'
+        index_banner_slider_section:
+            label: 'Slider of banners'
+            type: section
+            span: full
+            tab: 'Index page'
+        index_banner_slider:
+            type: repeater
+            span: full
+            required: 0
+            tab: 'Index page'
+            form:
+                fields:
+                    title:
+                        label: 'lovata.toolbox::lang.field.title'
+                        type: text
+                        span: left
+                        placeholder: 'lovata.toolbox::lang.field.title'
+                    image:
+                        label: 'lovata.toolbox::lang.field.image'
+                        type: mediafinder
+                        span: right
+                        mode: image
+                    description:
+                        label: 'lovata.toolbox::lang.field.description'
+                        type: text
+                        span: left
+                        placeholder: 'lovata.toolbox::lang.field.description'
+                    url:
+                        label: 'lovata.toolbox::lang.field.slug'
+                        type: text
+                        span: left
+                        required: 0
+                        placeholder: 'lovata.toolbox::lang.field.slug'
+                    mobile_image:
+                        label: 'Mobile image'
+                        type: mediafinder
+                        span: right
+                        mode: image
+                        required: 0
+        # Messages
+        message_delivery:
+            label: 'Message for delivery methods'
+            type: richeditor
+            span: left
+            required: 0
+            tab: 'Messages'
+            placeholder: 'Message for delivery methods'
+        message_contact_form:
+            label: 'Message for contact form'
+            type: richeditor
+            span: left
+            required: 0
+            tab: 'Messages'
+            placeholder: 'Message for contact form'
+        # Contacts
+        address_section:
+            label: 'lovata.toolbox::lang.field.address'
+            type: section
+            span: left
+            tab: 'Contacts'
+        address:
+            label: 'lovata.toolbox::lang.field.address'
+            type: text
+            span: left
+            required: 0
+            tab: 'Contacts'
+            placeholder: 'lovata.toolbox::lang.field.address'
+        address_description:
+            label: 'lovata.toolbox::lang.field.description'
+            type: text
+            span: left
+            required: 0
+            tab: 'Contacts'
+            placeholder: 'lovata.toolbox::lang.field.description'
+        phone_section:
+            label: 'lovata.toolbox::lang.field.phone'
+            type: section
+            span: left
+            tab: 'Contacts'
+        phone:
+            label: 'lovata.toolbox::lang.field.phone'
+            type: text
+            span: left
+            required: 0
+            tab: 'Contacts'
+            placeholder: 'lovata.toolbox::lang.field.phone'
+        phone_description:
+            label: 'lovata.toolbox::lang.field.description'
+            type: text
+            span: left
+            required: 0
+            tab: 'Contacts'
+            placeholder: 'lovata.toolbox::lang.field.description'
+        email_section:
+            label: 'lovata.toolbox::lang.field.email'
+            type: section
+            span: left
+            tab: 'Contacts'
+        email:
+            label: 'lovata.toolbox::lang.field.email'
+            type: text
+            span: left
+            required: 0
+            tab: 'Contacts'
+            placeholder: 'lovata.toolbox::lang.field.phone'
+        email_description:
+            label: 'lovata.toolbox::lang.field.description'
+            type: text
+            span: left
+            required: 0
+            tab: 'Contacts'
+            placeholder: 'lovata.toolbox::lang.field.description'
+        map_section:
+            label: 'Map'
+            type: section
+            span: left
+            tab: 'Contacts'
+        map_active:
+            label: 'lovata.toolbox::lang.field.active'
+            type: switch
+            span: left
+            required: 0
+            tab: 'Contacts'
+        map_popup_title:
+            label: 'lovata.toolbox::lang.field.title'
+            type: text
+            span: left
+            required: 0
+            tab: 'Contacts'
+            placeholder: 'lovata.toolbox::lang.field.title'
+        map_lat:
+            label: 'Lat'
+            type: text
+            span: left
+            required: 0
+            tab: 'Contacts'
+            placeholder: 'Lat'
+        map_lng:
+            label: 'Lng'
+            type: text
+            span: left
+            required: 0
+            tab: 'Contacts'
+            placeholder: 'Lng'
+        map_api_key:
+            label: 'Api key'
+            type: text
+            span: left
+            required: 0
+            tab: 'Contacts'
+            placeholder: 'Api key'
+        favicon_32:
+            label: 'Favicon 32x32'
+            type: mediafinder
+            span: right
+            mode: file
+            tab: 'Favicon'
+        favicon_64:
+            label: 'Favicon 64x64'
+            type: mediafinder
+            span: right
+            mode: file
+            tab: 'Favicon'
+        favicon_180:
+            label: 'Favicon 180x180'
+            type: mediafinder
+            span: right
+            mode: file
+            tab: 'Favicon'

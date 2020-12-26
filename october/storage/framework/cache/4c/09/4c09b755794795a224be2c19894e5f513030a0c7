@@ -1,0 +1,8 @@
+1608943569a:1:{s:24:"header/search/search.htm";a:5:{s:8:"fileName";s:24:"header/search/search.htm";s:7:"content";s:218:"<div class="search {{ wrapperClass }}">
+    <button type="button" class="search__btn js-search-popup" aria-label="Open search sidebar">Search</button>
+    {% partial 'header/search/search-panel/search-panel' %}
+</div>
+";s:5:"mtime";i:1560802176;s:6:"markup";s:217:"<div class="search {{ wrapperClass }}">
+    <button type="button" class="search__btn js-search-popup" aria-label="Open search sidebar">Search</button>
+    {% partial 'header/search/search-panel/search-panel' %}
+</div>";s:4:"code";N;}}

@@ -1,0 +1,14 @@
+<b class="cart__result-price">
+    <span class="cart__result-text">Total with delivery:&nbsp;</span>
+    <span class="cart__result-price-currency">{{ Cart.getCurrency() }}</span>
+    <div class="cart__result-price-wrapper">
+        <span class="cart__result-price-value _shopaholic-cart" data-group="total-price" data-field="price">
+            {{ obTotalPriceData.price  }}
+        </span>
+        <span class="cart__result-price-value cart__result-price-value_old {{ obTotalPriceData.discount_price_value == 0 ? '_shopaholic-hide-old-price' : '' }} _shopaholic-old-price _shopaholic-cart" role="presentation" data-group="total-price" data-field="old-price">
+            {{ obTotalPriceData.old_price  }}
+        </span>
+    </div>
+
+</b>
+{% partial 'form/button/button' wrapperClass='cart__submit' type='submit' text='Pay' %}

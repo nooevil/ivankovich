@@ -1,0 +1,63 @@
+1608943569a:1:{s:13:"news-list.htm";a:13:{s:8:"fileName";s:13:"news-list.htm";s:7:"content";s:1221:"title = "News list"
+url = "/news"
+layout = "main"
+is_hidden = 0
+
+sorting = "publish|desc"
+
+[ArticleList]
+sorting = "publish|desc"
+
+[ArticleCategoryList]
+
+[Pagination]
+count_per_page = 18
+pagination_limit = 5
+active_class = "pagination__link_current"
+button_list = "first,first-more,main,last-more,last"
+first_button_name = "First"
+first_button_limit = 3
+first_button_number = 1
+first-more_button_name = "..."
+first-more_button_limit = 4
+prev_button_name = "Prev"
+prev_button_limit = 1
+prev-more_button_name = "..."
+prev-more_button_limit = 1
+next-more_button_name = "..."
+next-more_button_limit = 1
+next_button_name = "Next"
+next_button_limit = 1
+last-more_button_name = "..."
+last-more_button_limit = 4
+last_button_name = "Last"
+last_button_limit = 3
+last_button_number = 1
+==
+<?php
+function onStart()
+{
+    $this['path_page_js'] = mix('js/news-list.js', 'themes/lovata-shopaholic-sneakers/assets');
+    $this['path_page_css'] = mix('css/news-list.css', 'themes/lovata-shopaholic-sneakers/assets');
+}
+==
+{% put page_style %}
+    <link rel="stylesheet" href="{{ path_page_css }}">
+{% endput %}
+{% put page_script %}
+    <script src="{{ path_page_js }}"></script>
+{% endput %}
+
+{% partial 'article/news-list/news-list' %}
+";s:5:"mtime";i:1560802166;s:6:"markup";s:215:"{% put page_style %}
+    <link rel="stylesheet" href="{{ path_page_css }}">
+{% endput %}
+{% put page_script %}
+    <script src="{{ path_page_js }}"></script>
+{% endput %}
+
+{% partial 'article/news-list/news-list' %}";s:4:"code";s:217:"function onStart()
+{
+    $this['path_page_js'] = mix('js/news-list.js', 'themes/lovata-shopaholic-sneakers/assets');
+    $this['path_page_css'] = mix('css/news-list.css', 'themes/lovata-shopaholic-sneakers/assets');
+}";s:5:"title";s:9:"News list";s:3:"url";s:5:"/news";s:6:"layout";s:4:"main";s:9:"is_hidden";s:1:"0";s:7:"sorting";s:12:"publish|desc";s:11:"ArticleList";a:1:{s:7:"sorting";s:12:"publish|desc";}s:19:"ArticleCategoryList";a:0:{}s:10:"Pagination";a:22:{s:14:"count_per_page";s:2:"18";s:16:"pagination_limit";s:1:"5";s:12:"active_class";s:24:"pagination__link_current";s:11:"button_list";s:36:"first,first-more,main,last-more,last";s:17:"first_button_name";s:5:"First";s:18:"first_button_limit";s:1:"3";s:19:"first_button_number";s:1:"1";s:22:"first-more_button_name";s:3:"...";s:23:"first-more_button_limit";s:1:"4";s:16:"prev_button_name";s:4:"Prev";s:17:"prev_button_limit";s:1:"1";s:21:"prev-more_button_name";s:3:"...";s:22:"prev-more_button_limit";s:1:"1";s:21:"next-more_button_name";s:3:"...";s:22:"next-more_button_limit";s:1:"1";s:16:"next_button_name";s:4:"Next";s:17:"next_button_limit";s:1:"1";s:21:"last-more_button_name";s:3:"...";s:22:"last-more_button_limit";s:1:"4";s:16:"last_button_name";s:4:"Last";s:17:"last_button_limit";s:1:"3";s:18:"last_button_number";s:1:"1";}}}

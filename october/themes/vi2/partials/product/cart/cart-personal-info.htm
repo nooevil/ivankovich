@@ -1,0 +1,83 @@
+{% partial 'common/section-title/section-title' id='cart-person-info' wrapperClass='cart__heading cart__heading_no-border' text='3. Contact Info' %}
+{% partial 'form/input/input-text'
+    labelText='First Name'
+    required='required'
+    id='person-first-name'
+    wrapperClass='cart__input'
+    validationErrorSelector='cart__input-error_name'
+    inputClass='_shopaholic-order-field'
+    name='name'
+    attribute='data-group="user"'
+%}
+{% partial 'form/input/input-text'
+    labelText='Last Name'
+    id='person-last-name'
+    required='required'
+    wrapperClass='cart__input'
+    validationErrorSelector='cart__input-error_last-name'
+    inputClass='_shopaholic-order-field'
+    name='last_name'
+    attribute='data-group="user"'
+%}
+{% partial 'form/input/input-text'
+    labelText='Address'
+    required='required'
+    id='person-address'
+    wrapperClass='cart__input'
+    validationErrorSelector='cart__input-error_address'
+    inputClass='_shopaholic-order-field'
+    name='address1'
+    attribute='data-group="shipping_address"'
+%}
+<div class="cart__inner cart__input">
+{#    {% partial 'form/select/select'#}
+{#        wrapperClass='cart__wrappered-input'#}
+{#        name='state'#}
+{#        id='person-state-info'#}
+{#        selectTitle='Select State'#}
+{#        inputClass='_shopaholic-order-field'#}
+{#        selectObj=stateObj#}
+{#        attribute='data-group="shipping_address"'#}
+{#    %}#}
+    {% partial 'form/input/input-text'
+        name='country'
+        labelText='Country and state'
+        id='person-country'
+        wrapperClass='cart__wrappered-input'
+        validationErrorSelector='cart__input-error_state'
+        inputClass='_shopaholic-order-field'
+        attribute='data-group="shipping_address"'
+    %}
+    {% partial 'form/input/input'
+        labelText='Zip-code'
+        id='person-zip-name'
+        wrapperClass='cart__wrappered-input'
+        validationErrorSelector='cart__input-error_code'
+        inputClass='_shopaholic-order-field'
+        name='poscode'
+        attribute='data-group="shipping_address"'
+    %}
+</div>
+{% partial 'form/input/input-email'
+    id='person-email'
+    wrapperClass='cart__input'
+    validationErrorSelector='cart__input-error_mail'
+    inputClass='_shopaholic-order-field'
+    name='email'
+    attribute='data-group="user"'
+%}
+{% partial 'form/input/input-tel'
+    required='required'
+    id='person-phone'
+    wrapperClass='cart__input'
+    inputClass='_shopaholic-order-field'
+    validationErrorSelector='cart__input-error_phone'
+    name='phone'
+    attribute='data-group="user"'
+%}
+{#     pattern='^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$'
+ #}
+{% set sMessage = this.theme.message_contact_form %}
+{% if sMessage is not empty %}
+    <span class="cart__policy">{{ sMessage|raw }}</span>
+{% endif %}

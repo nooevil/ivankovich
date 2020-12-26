@@ -1,0 +1,15 @@
+{% if arProductList is not empty %}
+<ul class="catalog-list">
+    {% for obProduct in arProductList %}
+        <li class="catalog-item">
+            <a href="{{ obProduct.getPageUrl('product') }}" class="catalog-item__link">
+                {% partial 'product/product-card/product-card' obProduct = obProduct %}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+{% set arPaginationList = Pagination.get(iPage, obProductList.count()) %}
+{% partial 'common/pagination/pagination' arPaginationList=arPaginationList iMaxPage=iMaxPage iPage=iPage wrapperClass = 'catalog-pagination' linkClass='_shopaholic-pagination' %}
+{% else %}
+    <span class="catalog-list__empty-message">Products not found</span>
+{% endif %}

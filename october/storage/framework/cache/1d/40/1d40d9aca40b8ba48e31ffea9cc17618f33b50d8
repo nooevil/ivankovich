@@ -1,0 +1,24 @@
+1608895100a:1:{s:24:"common/rating/rating.htm";a:5:{s:8:"fileName";s:24:"common/rating/rating.htm";s:7:"content";s:849:"<div class="rating {{ wrapperClass }}" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+    <span class="rating__value" aria-label="Rating {{ rating }} from {{ maxRating }} based on {{ reviewCount }} reviews">
+        {% partial 'common/rating/rating-image' maxRating=maxRating rating=rating unique_id='product' %}
+    </span>
+    <a class="rating__review-count-wrap" href="#see-all-reviews" aria-label="See all reviews">
+        <span class="rating__review-count" itemProp="reviewCount" aria-hidden="true">{{ reviewCount }}</span>
+        <span class="rating__review-count-text" aria-hidden="true">reviews</span>
+    </a>
+    <meta itemProp="bestRating" content="5">
+    <meta itemProp="worstRating" content="{{ obProduct.rating|round }}">
+    <meta itemProp="ratingValue" content="{{ obProduct.rating }}">
+</div>
+";s:5:"mtime";i:1560802170;s:6:"markup";s:848:"<div class="rating {{ wrapperClass }}" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+    <span class="rating__value" aria-label="Rating {{ rating }} from {{ maxRating }} based on {{ reviewCount }} reviews">
+        {% partial 'common/rating/rating-image' maxRating=maxRating rating=rating unique_id='product' %}
+    </span>
+    <a class="rating__review-count-wrap" href="#see-all-reviews" aria-label="See all reviews">
+        <span class="rating__review-count" itemProp="reviewCount" aria-hidden="true">{{ reviewCount }}</span>
+        <span class="rating__review-count-text" aria-hidden="true">reviews</span>
+    </a>
+    <meta itemProp="bestRating" content="5">
+    <meta itemProp="worstRating" content="{{ obProduct.rating|round }}">
+    <meta itemProp="ratingValue" content="{{ obProduct.rating }}">
+</div>";s:4:"code";N;}}

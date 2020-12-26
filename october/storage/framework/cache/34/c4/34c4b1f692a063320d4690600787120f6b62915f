@@ -1,0 +1,20 @@
+1608943569a:1:{s:26:"header/userbar/userbar.htm";a:5:{s:8:"fileName";s:26:"header/userbar/userbar.htm";s:7:"content";s:404:"<ul class="userbar" aria-label="User area">
+    <li class="userbar__item userbar__item_cart _shopaholic-cart-mini-wrapper">
+        {% partial 'product/cart/cart-mini/cart-info/cart-info-empty' %}
+    </li>
+    {% if bHasWishListPlugin %}
+    <li class="userbar__item userbar__item_wish-list">
+        {% partial 'product/wish-list/wish-list-info/wish-list-info-empty' %}
+    </li>
+    {% endif %}
+</ul>
+";s:5:"mtime";i:1560802177;s:6:"markup";s:403:"<ul class="userbar" aria-label="User area">
+    <li class="userbar__item userbar__item_cart _shopaholic-cart-mini-wrapper">
+        {% partial 'product/cart/cart-mini/cart-info/cart-info-empty' %}
+    </li>
+    {% if bHasWishListPlugin %}
+    <li class="userbar__item userbar__item_wish-list">
+        {% partial 'product/wish-list/wish-list-info/wish-list-info-empty' %}
+    </li>
+    {% endif %}
+</ul>";s:4:"code";N;}}

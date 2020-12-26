@@ -1,0 +1,12 @@
+1608895101a:1:{s:24:"form/input/input-tel.htm";a:5:{s:8:"fileName";s:24:"form/input/input-tel.htm";s:7:"content";s:133:"{% partial 'form/input/input'
+    labelText=labelText|default('Phone number')
+    type='tel'
+    maxLength='25'
+    minLength='3'
+%}
+";s:5:"mtime";i:1560802174;s:6:"markup";s:132:"{% partial 'form/input/input'
+    labelText=labelText|default('Phone number')
+    type='tel'
+    maxLength='25'
+    minLength='3'
+%}";s:4:"code";N;}}

@@ -1,0 +1,9 @@
+<div class="wish-list-panel" id="wish-list-content" role="region" aria-live="polite" aria-busy="true">
+    <button type="button" class="wish-list-panel__close js-wish-list" arial-label="Close wish-list popup"></button>
+    <b class="wish-list-panel__title">Wish list</b>
+    <ul class="wish-list-panel__list">
+        {% partial 'product/wish-list/wish-list-panel/wish-list-panel-ajax' obProductList = obProductList %}
+    </ul>
+</div>
+
+

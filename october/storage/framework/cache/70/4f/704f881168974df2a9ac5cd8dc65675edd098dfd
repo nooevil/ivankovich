@@ -1,0 +1,38 @@
+1608936604a:1:{s:33:"content/contact/contact-popup.htm";a:5:{s:8:"fileName";s:33:"content/contact/contact-popup.htm";s:7:"content";s:749:"{% set sTitle              = this.theme.map_popup_title %}
+{% set sAddressValue       = this.theme.address %}
+{% set sAddressDescription = this.theme.address_description %}
+{% set sPhoneValue         = this.theme.phone %}
+
+<div class="map-popup contact__popup">
+    {% if sTitle is not empty %}
+        <h4 class="map-popup__title">{{ sTitle }}</h4>
+    {% endif %}
+    {% if sAddressValue is not empty %}
+        <b class="map-popup__address">{{ sAddressValue }}</b>
+    {% endif %}
+    {% if sPhoneValue is not empty %}
+        <span class="map-popup__tel">{{ sPhoneValue }}</span>
+    {% endif %}
+    {% if sAddressDescription is not empty %}
+        <span class="map-popup__working-hours">{{ sAddressDescription }}</span>
+    {% endif %}
+</div>
+";s:5:"mtime";i:1560802171;s:6:"markup";s:748:"{% set sTitle              = this.theme.map_popup_title %}
+{% set sAddressValue       = this.theme.address %}
+{% set sAddressDescription = this.theme.address_description %}
+{% set sPhoneValue         = this.theme.phone %}
+
+<div class="map-popup contact__popup">
+    {% if sTitle is not empty %}
+        <h4 class="map-popup__title">{{ sTitle }}</h4>
+    {% endif %}
+    {% if sAddressValue is not empty %}
+        <b class="map-popup__address">{{ sAddressValue }}</b>
+    {% endif %}
+    {% if sPhoneValue is not empty %}
+        <span class="map-popup__tel">{{ sPhoneValue }}</span>
+    {% endif %}
+    {% if sAddressDescription is not empty %}
+        <span class="map-popup__working-hours">{{ sAddressDescription }}</span>
+    {% endif %}
+</div>";s:4:"code";N;}}

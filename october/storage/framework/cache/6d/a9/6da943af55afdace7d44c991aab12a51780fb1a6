@@ -1,0 +1,42 @@
+1608942940a:1:{s:41:"product/catalog/filter-bar/filter-bar.htm";a:5:{s:8:"fileName";s:41:"product/catalog/filter-bar/filter-bar.htm";s:7:"content";s:1265:"<div class="filter-bar">
+    <div class="filter-bar__sort">
+        <label class="select__label" for="sort-select">Sort</label>
+        <select class="select select_no-border _shopaholic-sorting" id="sort-select" name="sort">
+            <option value="popularity|desc" {{ (sActiveSorting == 'popularity|desc' or sActiveSorting is empty) ? 'selected' : '' }} >Popular</option>
+            <option value="price|desc" {{ sActiveSorting == 'price|desc' ? 'selected' : '' }} >Expensive</option>
+            <option value="price|asc" {{ sActiveSorting == 'price|asc' ? 'selected' : '' }}>Cheap</option>
+            <option value="new" {{ sActiveSorting == 'new' ? 'selected' : '' }} >New</option>
+        </select>
+    </div>
+    {% set iFilterCount = arFilterValue|length + arFilterBrandIDList|length %}
+    {% if fMinPriceFilterValue > 0 or fMaxPriceFilterValue > 0 %}
+        {% set iFilterCount = iFilterCount + 1 %}
+    {% endif %}
+    {% if iFilterCount > 0 %}
+        {% partial 'product/catalog/filter-bar/filter-checked/filter-checked' %}
+    {% endif %}
+    <div class="filter-bar__filter-btn-wrapper">
+        {% partial 'product/catalog/filter-bar/filter-bar-btn-ajax' arFilterValue=arFilterValue arFilterBrandIDList=arFilterBrandIDList %}
+    </div>
+</div>
+";s:5:"mtime";i:1607537685;s:6:"markup";s:1264:"<div class="filter-bar">
+    <div class="filter-bar__sort">
+        <label class="select__label" for="sort-select">Sort</label>
+        <select class="select select_no-border _shopaholic-sorting" id="sort-select" name="sort">
+            <option value="popularity|desc" {{ (sActiveSorting == 'popularity|desc' or sActiveSorting is empty) ? 'selected' : '' }} >Popular</option>
+            <option value="price|desc" {{ sActiveSorting == 'price|desc' ? 'selected' : '' }} >Expensive</option>
+            <option value="price|asc" {{ sActiveSorting == 'price|asc' ? 'selected' : '' }}>Cheap</option>
+            <option value="new" {{ sActiveSorting == 'new' ? 'selected' : '' }} >New</option>
+        </select>
+    </div>
+    {% set iFilterCount = arFilterValue|length + arFilterBrandIDList|length %}
+    {% if fMinPriceFilterValue > 0 or fMaxPriceFilterValue > 0 %}
+        {% set iFilterCount = iFilterCount + 1 %}
+    {% endif %}
+    {% if iFilterCount > 0 %}
+        {% partial 'product/catalog/filter-bar/filter-checked/filter-checked' %}
+    {% endif %}
+    <div class="filter-bar__filter-btn-wrapper">
+        {% partial 'product/catalog/filter-bar/filter-bar-btn-ajax' arFilterValue=arFilterValue arFilterBrandIDList=arFilterBrandIDList %}
+    </div>
+</div>";s:4:"code";N;}}

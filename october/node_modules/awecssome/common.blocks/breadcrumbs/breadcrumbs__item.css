@@ -1,0 +1,12 @@
+/* -------------------------------------------------- */
+/* Variables and defaults                             */
+/* -------------------------------------------------- */
+
+:root {
+  /* Typographic */
+  --breadcrumbs-separator: "\2192";
+}
+
+.breadcrumbs__item:not(:last-child)::after {
+  content: var(--breadcrumbs-separator);
+}

@@ -1,0 +1,33 @@
+{% set sSearchText = input('search') %}
+
+{% if this.theme.search_by_category %}
+    {% set arCategoryList = CategoryList.make().active().search(sSearchText).take(5) %}
+{% endif %}
+
+{% if this.theme.search_by_product %}
+    {% set arProductList = ProductList.make().active().search(sSearchText).take(10) %}
+{% endif %}
+
+{% if arCategoryList is not empty or arProductList is not empty %}
+    {% for obCategory in arCategoryList %}
+        <li class="search-panel__result-item">
+            <a href="{{ obCategory.getPageUrl('catalog') }}" class="search-panel__result-value">
+                {{ obCategory.name }}
+            </a>
+        </li>
+    {% endfor %}
+    {% for obProduct in arProductList %}
+        <li class="search-panel__result-item">
+            <a href="{{ obProduct.getPageUrl('product') }}" class="search-panel__result-value">
+                {{ obProduct.name }}
+            </a>
+        </li>
+    {% endfor %}
+{% elseif sSearchText is not empty %}
+    <li class="search-panel__result-item">
+        <span class="search-panel__result-value">
+            No results found for
+            <span class="search-panel__result-search-text">"{{ sSearchText }}"</span>
+        </span>
+    </li>
+{% endif %}

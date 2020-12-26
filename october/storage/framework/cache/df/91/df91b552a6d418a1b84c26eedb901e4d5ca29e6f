@@ -1,0 +1,55 @@
+1608942940a:1:{s:52:"product/catalog/filter/filter-price/filter-price.htm";a:5:{s:8:"fileName";s:52:"product/catalog/filter/filter-price/filter-price.htm";s:7:"content";s:1056:"<div class="filter-price">
+    <div class="filter-price__wrapper">
+        <label class="filter-price__label" for="min-price">Min price</label>
+        <input class="filter-price__input _shopaholic-price-filter"
+               id="min-price"
+               type="text"
+               name="filter-min-price"
+               maxlength="7"
+               value="{{ min_value }}"
+               min="{{ min }}"
+               max="{{ max }}"
+               placeholder="{{ currency }}{{ min }}">
+    </div>
+    <span class="filter-price__separator" aria-hidden="true"></span>
+    <div class="filter-price__wrapper">
+        <label class="filter-price__label" for="max-price">Max price</label>
+        <input class="filter-price__input _shopaholic-price-filter"
+               id="max-price"
+               type="text"
+               name="filter-max-price"
+               maxlength="7"
+               value="{{ max_value }}"
+               min="{{ min }}"
+               max="{{ max }}"
+               placeholder="{{ currency }}{{ max }}">
+    </div>
+</div>
+
+";s:5:"mtime";i:1560802180;s:6:"markup";s:1054:"<div class="filter-price">
+    <div class="filter-price__wrapper">
+        <label class="filter-price__label" for="min-price">Min price</label>
+        <input class="filter-price__input _shopaholic-price-filter"
+               id="min-price"
+               type="text"
+               name="filter-min-price"
+               maxlength="7"
+               value="{{ min_value }}"
+               min="{{ min }}"
+               max="{{ max }}"
+               placeholder="{{ currency }}{{ min }}">
+    </div>
+    <span class="filter-price__separator" aria-hidden="true"></span>
+    <div class="filter-price__wrapper">
+        <label class="filter-price__label" for="max-price">Max price</label>
+        <input class="filter-price__input _shopaholic-price-filter"
+               id="max-price"
+               type="text"
+               name="filter-max-price"
+               maxlength="7"
+               value="{{ max_value }}"
+               min="{{ min }}"
+               max="{{ max }}"
+               placeholder="{{ currency }}{{ max }}">
+    </div>
+</div>";s:4:"code";N;}}

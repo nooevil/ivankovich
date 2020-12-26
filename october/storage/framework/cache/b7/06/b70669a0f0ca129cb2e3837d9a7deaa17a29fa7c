@@ -1,0 +1,30 @@
+1608936673a:1:{s:50:"product/catalog/filter/filter-size/filter-size.htm";a:5:{s:8:"fileName";s:50:"product/catalog/filter/filter-size/filter-size.htm";s:7:"content";s:480:"<li class="filter-size__item {{ wrapperClass }}">
+    <input type="{{ type|default('checkbox') }}"
+           class="filter-size__checkbox"
+           id="{{ id }}"
+           name="{{ name }}"
+           value="{{ value }}"
+           {% if checked == true %}
+               checked
+           {% endif %}
+           {% if disabled == true %}
+               disabled
+           {% endif %}
+    >
+    <label for="{{ id }}" class="filter-size__label">{{ labelText }}</label>
+</li>
+";s:5:"mtime";i:1560802180;s:6:"markup";s:479:"<li class="filter-size__item {{ wrapperClass }}">
+    <input type="{{ type|default('checkbox') }}"
+           class="filter-size__checkbox"
+           id="{{ id }}"
+           name="{{ name }}"
+           value="{{ value }}"
+           {% if checked == true %}
+               checked
+           {% endif %}
+           {% if disabled == true %}
+               disabled
+           {% endif %}
+    >
+    <label for="{{ id }}" class="filter-size__label">{{ labelText }}</label>
+</li>";s:4:"code";N;}}

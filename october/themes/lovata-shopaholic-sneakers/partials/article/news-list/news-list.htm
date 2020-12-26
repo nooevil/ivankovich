@@ -1,0 +1,42 @@
+{% set obCategoryList = ArticleCategoryList.make().active() %}
+{% set sPageTitle = SeoToolbox.getPageTitle()|default('Our Blog') %}
+
+{% set arBreadcrumbs = [
+    {'active': true, 'name': sPageTitle }
+] %}
+
+<section class="news-list">
+    {% partial 'common/breadcrumbs/breadcrumbs' arBreadcrumbs=arBreadcrumbs  %}
+    {% if obCategoryList.isNotEmpty() %}
+        <div class="news-list__header">
+            <div class="new-list__header-wrapper">
+                <h1 class="news-list__title">{{ sPageTitle }}</h1>
+                {% partial 'common/preloader/preloader' wrapperClass='news-list__preloader' %}
+            </div>
+            {% set iCategoryID = null %}
+            <ul class="news-list__tablist" role="tablist">
+                {% for obCategory in obCategoryList %}
+                    {% set isActive = '' %}
+                    {% if loop.index == 1 %}
+                        {% set isActive = 'news-list__btn_active' %}
+                        {% set iCategoryID = obCategory.id %}
+                    {% endif %}
+                    {% set obArticleList  = ArticleList.make().sort('publish|desc').category(obCategory.id, true).published() %}
+                    {% if obArticleList is not empty %}
+                        <li class="news-list__tabitem">
+                            <button class="news-list__btn {{ isActive }}" role="tab" data-id="{{ obCategory.id }}">{{ obCategory.name }}</button>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="news-list__wrapper">
+            {% partial 'article/news-list/news-list-ajax' iCategoryID=iCategoryID %}
+        </div>
+    {% else %}
+        <div class="news-list__header">
+            <h1 class="news-list__title">{{ sPageTitle }}</h1>
+        </div>
+        <div class="news-list__wrapper  news-list__wrapper_empty">There are no news at this time.</div>
+    {% endif %}
+</section>

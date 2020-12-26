@@ -1,0 +1,17 @@
+<div class="product-price {{ wrapperClass }}"  itemscope itemprop="offers" itemtype="http://schema.org/Offer">
+    {% if obOffer.old_price_value > 0 %}
+        <span class="product-price__text product-price__text_sale">
+            <span class="product-price__currency" itemprop="priceCurrency" content="{{ obOffer.currency_code }}">{{ obOffer.currency }}</span>
+            <span class="product-price__value" itemprop="price">{{ obOffer.price }}</span>
+        </span>
+        <span class="product-price__text product-price__text_old">
+            <span class="product-price__currency" content="{{ obOffer.currency_code }}">{{ obOffer.currency }}</span>
+            <span class="product-price__value">{{ obOffer.old_price }}</span>
+        </span>
+    {% else %}
+        <span class="product-price__text product-price__text_current">
+            <span class="product-price__currency" itemprop="priceCurrency" content="{{ obOffer.currency_code }}">{{ obOffer.currency }}</span>
+            <span class="product-price__value" itemprop="price">{{ obOffer.price }}</span>
+        </span>
+    {% endif %}
+</div>

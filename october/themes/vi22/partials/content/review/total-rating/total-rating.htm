@@ -1,0 +1,18 @@
+{% set iRatingTotalCount = obProduct.getRatingTotalCount() %}
+
+<section class="total-rating">
+    {% partial 'common/section-title/section-title' wrapperClass='total-rating__title' text='Total rating' %}
+    <ul class="total-rating__list">
+        {% for i in 1..5 %}
+            {% set iCount = obProduct.getRatingCount(i) %}
+            <li class="total-rating__item" {{ i }}>
+                {% partial 'common/rating/rating-image' maxRating='5' rating=i unique_id='total-rating-'~i %}
+                <span class="total-rating__persent">{{ obProduct.getRatingPercent(i)|round(2) }}%</span>
+                <span class="total-rating__counter">
+                    <span class="total-rating__counter-value">{{ iCount }}&nbsp;</span>
+                    <span class="total-rating__counter-text">{{ choice('Review|Reviews|Reviews', iCount) }}</span>
+                </span>
+            </li>
+        {% endfor %}
+    </ul>
+</section>

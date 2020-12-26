@@ -1,0 +1,32 @@
+{% set obBrandList   = BrandList.make().sort().active() %}
+
+{% if obBrandList.isNotEmpty() %}
+    <section class="brand-slider">
+        {% partial 'common/section-title/section-title' wrapperClass='brand-slider__title' text='Original Brands' %}
+        <div class="brand-slider__container swiper-container">
+            <ul class="brand-slider__wrapper swiper-wrapper">
+                {% for obBrand in obBrandList  %}
+                    <li class="brand-slider__slide swiper-slide">
+                        <span class="brand-slider__link">
+                            {% if obBrand.preview_image.path|length > 0 %}
+                            <picture class="brand-slider__img-wrap">
+                                <source data-srcset="{{ obBrand.preview_image.getThumb(300, 300, {'quantity': 80, 'extension': 'webp'}) }}" type="image/webp">
+                                <source data-srcset="{{ obBrand.preview_image.getThumb(300, 300, {'quantity': 80}) }}">
+                                <img data-src="{{ obBrand.preview_image.getThumb(300, 300, {'quantity': 80}) }}" alt="{{ obBrand.preview_image.description }}" title="{{ obBrand.preview_image.title }}" class="brand-slider__img js-lazy-load">
+                            </picture>
+                            {% partial 'common/preloader/preloader' wrapperClass='brand-slider__preloader' %}
+                            {% else %}
+                                <img class="brand-slider__img brand-slider__img_no-photo" src="{{ 'assets/img/nophoto.svg'|theme }}" itemprop="image" alt="{{ obProduct.preview_image.description }}" title="{{ obProduct.preview_image.title }}">
+                            {% endif %}
+                        </span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="brand-slider__nav-wrapper">
+            <div class="brand-slider__nav brand-slider__nav_prev"></div>
+            <div class="brand-slider__pagination"></div>
+            <div class="brand-slider__nav brand-slider__nav_next"></div>
+        </div>
+    </section>
+{% endif %}

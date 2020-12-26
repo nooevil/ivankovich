@@ -1,0 +1,29 @@
+{% set arBreadcrumbs = [
+    {'slug': 'news-list'|page, 'name': 'News' },
+    {'active': true, 'name': obArticle.title }
+] %}
+
+{% set sLogoImage = this.theme.logo_image %}
+<div class="news-page" itemscope itemtype="http://schema.org/NewsArticle">
+    <link href="{{ ''|page }}" itemprop="url">
+    <meta itemprop="author" content="{{ this.theme.company_name }}">
+    <meta content="{{ obArticle.preview_image.path }}" itemprop="image">
+    {% partial 'common/breadcrumbs/breadcrumbs' wrapperClass='catalog__breadcrumbs' arBreadcrumbs=arBreadcrumbs  %}
+    <h1 class="news-page__title" itemprop="headline">{{ SeoToolbox.getPageTitle(obArticle, arSEOParams)|default(obArticle.title) }}</h1>
+    <time itemprop="datePublished" class="news-page__date" datetime="{{ obArticle.published_start.format('c') }}">{{ obArticle.published_start.format('F d, Y') }}</time>
+
+    {% if obArticle.content is not empty %}
+        <div class="news-page__wrapper" itemtype="https://schema.org/Organization" itemscope="itemscope" itemprop="publisher">
+            <span itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                <link itemprop="image" href="{{ sLogoImage|media }}
+                ">
+                <link itemprop="url" href="{{ sLogoImage|media }}
+                ">
+            </span>
+            <meta itemprop="name" content="{{ this.theme.company_name }}">
+            <link itemprop="url" href="">
+            {% partial 'common/social-sharing/social-sharing' wrapperClass='news-page__share' %}
+            <div class="wysiwyg new-page__wysiwyg" itemprop="articleBody">{{ obArticle.content|raw }}</div>
+        </div>
+    {% endif %}
+</div>

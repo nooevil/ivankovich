@@ -1,0 +1,11 @@
+{% set sLogoTitle = this.theme.logo_title %}
+{% set sLogoDescription = this.theme.logo_alt %}
+{% set sLogoImage = this.theme.logo_image %}
+
+{% if sLogoImage is not empty %}
+    <a {% if this.page.id != 'index' %} href="{{ 'index'|page }}" {% endif %} class="logo {{ wrapperClass }}" aria-label="Go to index page">
+        <img src="{{ sLogoImage|media }}" alt="{{ sLogoDescription }}" title="{{ sLogoTitle }}" class="logo__img">
+    </a>
+{% else %}
+    <div class="logo logo_stub"></div>
+{% endif %}

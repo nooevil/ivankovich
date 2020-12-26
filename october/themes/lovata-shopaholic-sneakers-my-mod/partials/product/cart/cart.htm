@@ -1,0 +1,96 @@
+{% set obShippingTypeList = ShippingTypeList.make().sort().active() %}
+
+{% set iActiveShippingTypeID = input('shipping_type_id') %}
+{% set obActiveShippingType = obShippingTypeList.find(iActiveShippingTypeID) %}
+{% if obActiveShippingType.isEmpty() %}
+    {% set obActiveShippingType = obShippingTypeList.first() %}
+{% endif %}
+
+{% set obCartList = Cart.get(obActiveShippingType) %}
+{% set obTotalPriceData = Cart.getTotalPriceData() %}
+{% set obPaymentMethodList = PaymentMethodList.make().sort().active() %}
+
+<form class="cart _required _shopaholic-order-form">
+    <div class="cart__order cart__section" aria-labelledby="cart-order-info" role="group">
+        {% partial 'common/section-title/section-title' id='cart-order-info' wrapperClass='cart__heading' text="1. Your Order" %}
+        <ul class="cart__order-list cart__list">
+            {% for obCartPosition in obCartList %}
+                {% set obOffer = obCartPosition.offer %}
+                {% set obProduct = obOffer.product %}
+                <li class="cart__order-item cart__item _shopaholic-product-wrapper" data-position-id="{{ obCartPosition.id }}">
+                    <div class="cart__order-restore js-item-restore _visually-hidden" aria-hidden="true">
+                        <span class="cart__order-restore-text">
+                            {{ obProduct.name }} has been deleted.
+                        </span>
+                        <button type="button" class="cart__order-restore-btn _shopaholic-cart-restore" tabindex="-1">Undo</button>
+                    </div>
+                    {% partial 'product/cart/cart-product/cart-product'
+                        obCartPosition=obCartPosition
+                        obOffer=obOffer
+                        obProduct=obProduct
+                        id='cart-order'~loop.index
+                    %}
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="cart__total-price">
+            <div class="cart-mini-price__inner cart-mini-price__inner_in-cart">
+                <b class="cart-mini-price__text">
+                    Subtotal:&nbsp;
+                </b>
+                <span class="cart-mini-price__ajax-wrapper">
+                    {% partial 'product/cart/cart-total' obCartList=obCartList %}
+                </span>
+            </div>
+        </div>
+        {% set obActiveCoupon = Cart.getAppliedCouponList()|first %}
+        <div class="cart__coupon">
+            <b class="cart__coupon-heading">
+                Do you have a coupon?
+            </b>
+            {% partial 'form/input/input-text'
+                labelText='Coupon Code'
+                id='your-coupon'
+                name='coupon'
+                value=obActiveCoupon.code
+                wrapperClass='cart__coupon-input'
+                attribute='data-coupon'
+                inputClass=obActiveCoupon is not empty ? 'input__field_disabled' : ''
+                labelClass=obActiveCoupon is not empty ? 'input__label_elevated' : ''
+                disabled=obActiveCoupon is not empty
+            %}
+            {% partial 'common/tooltip/tooltip' wrapperClass='cart__coupon-tooltip' error=true %}
+            {% if obActiveCoupon is not empty %}
+                {% partial 'form/button/button' text='Remove Coupon' wrapperClass='cart__coupon-btn _shopaholic-coupon-remove' %}
+            {% else %}
+                {% partial 'form/button/button' text='Apply Coupon' wrapperClass='cart__coupon-btn _shopaholic-coupon-add' %}
+            {% endif %}
+        </div>
+    </div>
+
+    {% if obShippingTypeList.isNotEmpty() %}
+        <div class="cart__delivery cart__section _cart_delivery_wrapper" data-selection-type="radio" aria-labelledby="cart-delivery-info" role="group">
+            {% partial 'product/cart/cart-delivery' obShippingType=obShippingType obActiveShippingType=obActiveShippingType %}
+        </div>
+    {% endif %}
+    <div class="cart__delivery cart__section" aria-labelledby="cart-person-info" role="group">
+        {% partial 'product/cart/cart-personal-info' %}
+    </div>
+    {% if obPaymentMethodList.isNotEmpty() %}
+        <div class="cart__delivery cart__section" data-selection-type="radio" aria-labelledby="cart-payment-info" role="group">
+            {% partial 'common/section-title/section-title' id='cart-payment-info' wrapperClass='cart__heading
+            cart__heading_no-border' text='4. Pay With:' %}
+            <ul class="cart__payment-list cart__list">
+                {% for obPaymentMethod in obPaymentMethodList %}
+                    {% partial 'product/cart/cart-payment' index=loop.index obPaymentMethod = obPaymentMethod %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    <div class="cart__section cart__total">
+        <div class="cart__total-ajax-wrapper">
+            {% partial 'product/cart/cart-total-result' obTotalPriceData=obTotalPriceData %}
+        </div>
+        {% partial 'common/tooltip/tooltip' wrapperClass='cart__tooltip _shopaholic-error' error = true %}
+    </div>
+</form>

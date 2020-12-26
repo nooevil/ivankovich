@@ -1,0 +1,419 @@
+1608943569a:1:{s:14:"size-guide.htm";a:7:{s:8:"fileName";s:14:"size-guide.htm";s:7:"content";s:2345:"[viewBag]
+title = "Size guide"
+url = "/size-guide"
+layout = "static"
+is_hidden = 0
+navigation_hidden = 0
+==
+<h1>Size Guide</h1>
+
+<h2>Measurements, cm</h2>
+
+<table border="1" cellpadding="0" cellspacing="0" dir="ltr" style="width:90%;">
+	<tbody>
+		<tr>
+			<td colspan="3" rowspan="1">Panties</td>
+		</tr>
+		<tr>
+			<td>Size</td>
+			<td>Waist</td>
+			<td>Hips</td>
+		</tr>
+		<tr>
+			<td>XS</td>
+			<td>64-66</td>
+			<td>89-91</td>
+		</tr>
+		<tr>
+			<td>S</td>
+			<td>69-71</td>
+			<td>94-97</td>
+		</tr>
+		<tr>
+			<td>M</td>
+			<td>74-76</td>
+			<td>99-102</td>
+		</tr>
+		<tr>
+			<td>L</td>
+			<td>79-81</td>
+			<td>104-107</td>
+		</tr>
+		<tr>
+			<td>XL</td>
+			<td>84-86</td>
+			<td>109-112</td>
+		</tr>
+	</tbody>
+</table>
+
+<table border="1" cellpadding="0" cellspacing="0" dir="ltr" style="width:90%;">
+	<tbody>
+		<tr>
+			<td colspan="5" rowspan="1">Bra</td>
+		</tr>
+		<tr>
+			<td>Under Bust</td>
+			<td>68-72</td>
+			<td>73-77</td>
+			<td>78-82</td>
+			<td>83-87</td>
+		</tr>
+		<tr>
+			<td>Cup size</td>
+			<td>70</td>
+			<td>75</td>
+			<td>80</td>
+			<td>85</td>
+		</tr>
+		<tr>
+			<td>AA</td>
+			<td>80-82</td>
+			<td>85-87</td>
+			<td>90-92</td>
+			<td>95-97</td>
+		</tr>
+		<tr>
+			<td>A</td>
+			<td>84-84</td>
+			<td>87-89</td>
+			<td>92-94</td>
+			<td>97-99</td>
+		</tr>
+		<tr>
+			<td>B</td>
+			<td>84-86</td>
+			<td>89-91</td>
+			<td>94-96</td>
+			<td>99-101</td>
+		</tr>
+		<tr>
+			<td>C</td>
+			<td>86-88</td>
+			<td>91-93</td>
+			<td>96-98</td>
+			<td>101-103</td>
+		</tr>
+		<tr>
+			<td>D</td>
+			<td>88-90</td>
+			<td>93-95</td>
+			<td>98-100</td>
+			<td>103-105</td>
+		</tr>
+	</tbody>
+</table>
+
+<table border="1" cellpadding="0" cellspacing="0" dir="ltr" style="width:90%;">
+	<tbody>
+		<tr>
+			<td colspan="6" rowspan="1">Clothing</td>
+		</tr>
+		<tr>
+			<td>Size</td>
+			<td>XS</td>
+			<td>S</td>
+			<td>M</td>
+			<td>L</td>
+			<td>XL</td>
+		</tr>
+		<tr>
+			<td>Chest</td>
+			<td>84</td>
+			<td>88</td>
+			<td>92</td>
+			<td>96</td>
+			<td>100</td>
+		</tr>
+		<tr>
+			<td>Hips</td>
+			<td>88</td>
+			<td>93</td>
+			<td>98</td>
+			<td>103</td>
+			<td>108</td>
+		</tr>
+		<tr>
+			<td>Length</td>
+			<td>108</td>
+			<td>110</td>
+			<td>112</td>
+			<td>114</td>
+			<td>116</td>
+		</tr>
+	</tbody>
+</table>";s:5:"mtime";i:1566983973;s:6:"markup";s:2237:"<h1>Size Guide</h1>
+
+<h2>Measurements, cm</h2>
+
+<table border="1" cellpadding="0" cellspacing="0" dir="ltr" style="width:90%;">
+	<tbody>
+		<tr>
+			<td colspan="3" rowspan="1">Panties</td>
+		</tr>
+		<tr>
+			<td>Size</td>
+			<td>Waist</td>
+			<td>Hips</td>
+		</tr>
+		<tr>
+			<td>XS</td>
+			<td>64-66</td>
+			<td>89-91</td>
+		</tr>
+		<tr>
+			<td>S</td>
+			<td>69-71</td>
+			<td>94-97</td>
+		</tr>
+		<tr>
+			<td>M</td>
+			<td>74-76</td>
+			<td>99-102</td>
+		</tr>
+		<tr>
+			<td>L</td>
+			<td>79-81</td>
+			<td>104-107</td>
+		</tr>
+		<tr>
+			<td>XL</td>
+			<td>84-86</td>
+			<td>109-112</td>
+		</tr>
+	</tbody>
+</table>
+
+<table border="1" cellpadding="0" cellspacing="0" dir="ltr" style="width:90%;">
+	<tbody>
+		<tr>
+			<td colspan="5" rowspan="1">Bra</td>
+		</tr>
+		<tr>
+			<td>Under Bust</td>
+			<td>68-72</td>
+			<td>73-77</td>
+			<td>78-82</td>
+			<td>83-87</td>
+		</tr>
+		<tr>
+			<td>Cup size</td>
+			<td>70</td>
+			<td>75</td>
+			<td>80</td>
+			<td>85</td>
+		</tr>
+		<tr>
+			<td>AA</td>
+			<td>80-82</td>
+			<td>85-87</td>
+			<td>90-92</td>
+			<td>95-97</td>
+		</tr>
+		<tr>
+			<td>A</td>
+			<td>84-84</td>
+			<td>87-89</td>
+			<td>92-94</td>
+			<td>97-99</td>
+		</tr>
+		<tr>
+			<td>B</td>
+			<td>84-86</td>
+			<td>89-91</td>
+			<td>94-96</td>
+			<td>99-101</td>
+		</tr>
+		<tr>
+			<td>C</td>
+			<td>86-88</td>
+			<td>91-93</td>
+			<td>96-98</td>
+			<td>101-103</td>
+		</tr>
+		<tr>
+			<td>D</td>
+			<td>88-90</td>
+			<td>93-95</td>
+			<td>98-100</td>
+			<td>103-105</td>
+		</tr>
+	</tbody>
+</table>
+
+<table border="1" cellpadding="0" cellspacing="0" dir="ltr" style="width:90%;">
+	<tbody>
+		<tr>
+			<td colspan="6" rowspan="1">Clothing</td>
+		</tr>
+		<tr>
+			<td>Size</td>
+			<td>XS</td>
+			<td>S</td>
+			<td>M</td>
+			<td>L</td>
+			<td>XL</td>
+		</tr>
+		<tr>
+			<td>Chest</td>
+			<td>84</td>
+			<td>88</td>
+			<td>92</td>
+			<td>96</td>
+			<td>100</td>
+		</tr>
+		<tr>
+			<td>Hips</td>
+			<td>88</td>
+			<td>93</td>
+			<td>98</td>
+			<td>103</td>
+			<td>108</td>
+		</tr>
+		<tr>
+			<td>Length</td>
+			<td>108</td>
+			<td>110</td>
+			<td>112</td>
+			<td>114</td>
+			<td>116</td>
+		</tr>
+	</tbody>
+</table>";s:4:"code";N;s:7:"viewBag";a:5:{s:5:"title";s:10:"Size guide";s:3:"url";s:11:"/size-guide";s:6:"layout";s:6:"static";s:9:"is_hidden";s:1:"0";s:17:"navigation_hidden";s:1:"0";}s:12:"parsedMarkup";s:2237:"<h1>Size Guide</h1>
+
+<h2>Measurements, cm</h2>
+
+<table border="1" cellpadding="0" cellspacing="0" dir="ltr" style="width:90%;">
+	<tbody>
+		<tr>
+			<td colspan="3" rowspan="1">Panties</td>
+		</tr>
+		<tr>
+			<td>Size</td>
+			<td>Waist</td>
+			<td>Hips</td>
+		</tr>
+		<tr>
+			<td>XS</td>
+			<td>64-66</td>
+			<td>89-91</td>
+		</tr>
+		<tr>
+			<td>S</td>
+			<td>69-71</td>
+			<td>94-97</td>
+		</tr>
+		<tr>
+			<td>M</td>
+			<td>74-76</td>
+			<td>99-102</td>
+		</tr>
+		<tr>
+			<td>L</td>
+			<td>79-81</td>
+			<td>104-107</td>
+		</tr>
+		<tr>
+			<td>XL</td>
+			<td>84-86</td>
+			<td>109-112</td>
+		</tr>
+	</tbody>
+</table>
+
+<table border="1" cellpadding="0" cellspacing="0" dir="ltr" style="width:90%;">
+	<tbody>
+		<tr>
+			<td colspan="5" rowspan="1">Bra</td>
+		</tr>
+		<tr>
+			<td>Under Bust</td>
+			<td>68-72</td>
+			<td>73-77</td>
+			<td>78-82</td>
+			<td>83-87</td>
+		</tr>
+		<tr>
+			<td>Cup size</td>
+			<td>70</td>
+			<td>75</td>
+			<td>80</td>
+			<td>85</td>
+		</tr>
+		<tr>
+			<td>AA</td>
+			<td>80-82</td>
+			<td>85-87</td>
+			<td>90-92</td>
+			<td>95-97</td>
+		</tr>
+		<tr>
+			<td>A</td>
+			<td>84-84</td>
+			<td>87-89</td>
+			<td>92-94</td>
+			<td>97-99</td>
+		</tr>
+		<tr>
+			<td>B</td>
+			<td>84-86</td>
+			<td>89-91</td>
+			<td>94-96</td>
+			<td>99-101</td>
+		</tr>
+		<tr>
+			<td>C</td>
+			<td>86-88</td>
+			<td>91-93</td>
+			<td>96-98</td>
+			<td>101-103</td>
+		</tr>
+		<tr>
+			<td>D</td>
+			<td>88-90</td>
+			<td>93-95</td>
+			<td>98-100</td>
+			<td>103-105</td>
+		</tr>
+	</tbody>
+</table>
+
+<table border="1" cellpadding="0" cellspacing="0" dir="ltr" style="width:90%;">
+	<tbody>
+		<tr>
+			<td colspan="6" rowspan="1">Clothing</td>
+		</tr>
+		<tr>
+			<td>Size</td>
+			<td>XS</td>
+			<td>S</td>
+			<td>M</td>
+			<td>L</td>
+			<td>XL</td>
+		</tr>
+		<tr>
+			<td>Chest</td>
+			<td>84</td>
+			<td>88</td>
+			<td>92</td>
+			<td>96</td>
+			<td>100</td>
+		</tr>
+		<tr>
+			<td>Hips</td>
+			<td>88</td>
+			<td>93</td>
+			<td>98</td>
+			<td>103</td>
+			<td>108</td>
+		</tr>
+		<tr>
+			<td>Length</td>
+			<td>108</td>
+			<td>110</td>
+			<td>112</td>
+			<td>114</td>
+			<td>116</td>
+		</tr>
+	</tbody>
+</table>";}}

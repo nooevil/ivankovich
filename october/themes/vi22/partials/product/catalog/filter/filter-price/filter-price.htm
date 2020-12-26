@@ -1,0 +1,28 @@
+<div class="filter-price">
+    <div class="filter-price__wrapper">
+        <label class="filter-price__label" for="min-price">Min price</label>
+        <input class="filter-price__input _shopaholic-price-filter"
+               id="min-price"
+               type="text"
+               name="filter-min-price"
+               maxlength="7"
+               value="{{ min_value }}"
+               min="{{ min }}"
+               max="{{ max }}"
+               placeholder="{{ currency }}{{ min }}">
+    </div>
+    <span class="filter-price__separator" aria-hidden="true"></span>
+    <div class="filter-price__wrapper">
+        <label class="filter-price__label" for="max-price">Max price</label>
+        <input class="filter-price__input _shopaholic-price-filter"
+               id="max-price"
+               type="text"
+               name="filter-max-price"
+               maxlength="7"
+               value="{{ max_value }}"
+               min="{{ min }}"
+               max="{{ max }}"
+               placeholder="{{ currency }}{{ max }}">
+    </div>
+</div>
+

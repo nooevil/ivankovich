@@ -1,0 +1,100 @@
+/* stylelint-disable max-line-length, declaration-property-value-whitelist, number-no-trailing-zeros */
+
+:root {
+  --grid-template-areas:
+    '. HDR HDR HDR HDR HDR HDR HDR HDR HDR HDR HDR HDR HDR HDR HDR HDR HDR HDR HDR HDR HDR HDR HDR HDR .'
+    '. MAN MAN MAN MAN MAN MAN MAN MAN MAN MAN MAN MAN MAN MAN MAN MAN MAN MAN MAN MAN MAN MAN MAN MAN .'
+    '. FTR FTR FTR FTR FTR FTR FTR FTR FTR FTR FTR FTR FTR FTR FTR FTR FTR FTR FTR FTR FTR FTR FTR FTR .';
+
+  /* typography */
+  --font-family-futura: 'Futura', 'Times New Roman', serif;
+  
+  --font-family-futura: 'Montserrat', 'sans-serif';
+  
+  --font-display: swap;
+  --font-size-default: 10px;
+
+  /* Title sizes */
+  --font-size-title-xxl: 6.3rem;     /* 63px */
+  --font-size-title-l: 3rem;         /* 30px */
+  --font-size-title: 1.8rem;         /* 18px */
+
+  /* Title line-height */
+  --line-height-title: 1.2;
+
+  /* Text sizes */
+  --font-size-zero: 0;                 /* 0 */
+  --font-size-text-xl: 2rem;           /* 20px */
+  --font-size-text-l: 1.8rem;          /* 18px */
+  --font-size-text-m: 1.6rem;          /* 16px */
+  --font-size-text-ml: 1.6rem;         /* 16px */
+  --font-size-text: 1.4rem;            /* 14px */
+  --font-size-text-s: 1.2rem;          /* 12px */
+  --font-size-text-xxs: 0.9rem;        /* 9px */
+
+  /* Text line heights */
+  --line-height: 1;
+  --line-height-l: 2.8rem;        /* 28px */
+  --line-height-normal: 2.4rem;   /* 24px */
+  --line-height-s: 1.4rem;        /* 14px */
+  --line-height-xl: 3.4rem;       /* 34px */
+
+  /* Colors */
+  --color-default: rgb(0, 0, 0);
+  --color-primary: rgb(118, 118, 118);
+  --color-primary-light: rgb(246, 246, 246);
+  --color-primary-light-hovered: rgb(236, 236, 236);
+  --color-primary-dark: rgb(115, 115, 115);
+  --color-white: rgb(255, 255, 255);
+  --color-accent: rgb(255, 238, 238);
+  --color-caution: rgb(238, 0, 0);
+  --color-warning: rgb(255, 122, 104);
+  --color-link: rgb(50, 142, 255);
+  --color-link-hover: rgb(1, 6, 255);
+  --color-link-active: var(--color-default);
+  --color-link-visited: rgb(227, 71, 255);
+  --color-outline: rgb(183, 183, 255);
+  --color-transparent: rgba(0, 0, 0, 0);
+  --color-semi-transparent: rgba(0, 0, 0, 0.2);
+  --color-transparent-white: rgba(255, 255, 255, 0.4);
+  --color-preloader: rgba(0, 0, 0, 0.05);
+  --color-input: rgb(230, 230, 230);
+  --color-table: rgb(214, 214, 214);
+  --color-success: rgb(29, 165, 97);
+
+  /* border-radius */
+  --border-radius-0: 0;
+  --border-radius-2: 2px;
+  --border-radius-10: 10px;
+  --border-radius-circle: 50%;
+
+  /* box-shadow */
+  --shadow-outline: inset 0 0 0 2px rgb(183, 183, 255);
+  --shadow-hover: inset 0 0 0 2px rgb(236, 236, 236);
+  --shadow-transparent: inset 0 0 0 2px rgba(0, 0, 0, 0);
+}
+
+@media (width > 768px) {
+  :root {
+    /* Title sizes */
+    --font-size-title-xxl: 8rem;     /* 80px */
+    --font-size-title-l: 3.8rem;       /* 38px */
+    --font-size-title: 2rem;           /* 20px */
+
+    /* Title line heights */
+    --line-height-title: 1.2;
+    --line-height-s: 1.2;
+
+    /* Text sizes */
+    --font-size-text-xl: 2.6rem;         /* 26px */
+    --font-size-text-l: 2rem;          /* 20px */
+    --font-size-text-ml: 1.8rem;          /* 18px */
+
+    /* Text line heights */
+    --line-height-xl: 4rem;      /* 40px */
+    --line-height-l: 3rem;        /* 30px */
+    --line-height: 2.6rem;        /* 28px */
+  }
+}
+
+/* stylelint-enable */

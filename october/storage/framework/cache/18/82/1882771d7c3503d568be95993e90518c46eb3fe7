@@ -1,0 +1,26 @@
+1608890605a:1:{s:53:"product/cart/cart-mini/cart-info/cart-info-button.htm";a:5:{s:8:"fileName";s:53:"product/cart/cart-mini/cart-info/cart-info-button.htm";s:7:"content";s:890:"{% set iCountPosition = Cart.get().count() %}
+
+{% if iCountPosition > 0 %}
+    <button type="button" class="cart-info js-cart-mini {{ this.page.id == 'checkout' ? 'cart-info_empty' : '' }}" aria-label="Press to open cart. Now {{ iCountPosition }} {{ choice('product|products|products', iCountPosition) }} there" aria-controls="cart-mini-content">
+        <span class="cart-info__counter" aria-hidden="true">{{ iCountPosition }}</span>
+        <span class="cart-info__text" aria-hidden="true">&nbsp;{{ choice('item|items|items', iCountPosition) }}</span>
+    </button>
+{% else %}
+    <button type="button" class="cart-info cart-info_empty js-cart-mini" aria-label="You have no products in your shopping cart" tabindex="-1">
+        <span class="cart-info__counter" aria-hidden="true"></span>
+        <span class="cart-info__text" aria-hidden="true">No items</span>
+    </button>
+{% endif %}
+";s:5:"mtime";i:1560802178;s:6:"markup";s:889:"{% set iCountPosition = Cart.get().count() %}
+
+{% if iCountPosition > 0 %}
+    <button type="button" class="cart-info js-cart-mini {{ this.page.id == 'checkout' ? 'cart-info_empty' : '' }}" aria-label="Press to open cart. Now {{ iCountPosition }} {{ choice('product|products|products', iCountPosition) }} there" aria-controls="cart-mini-content">
+        <span class="cart-info__counter" aria-hidden="true">{{ iCountPosition }}</span>
+        <span class="cart-info__text" aria-hidden="true">&nbsp;{{ choice('item|items|items', iCountPosition) }}</span>
+    </button>
+{% else %}
+    <button type="button" class="cart-info cart-info_empty js-cart-mini" aria-label="You have no products in your shopping cart" tabindex="-1">
+        <span class="cart-info__counter" aria-hidden="true"></span>
+        <span class="cart-info__text" aria-hidden="true">No items</span>
+    </button>
+{% endif %}";s:4:"code";N;}}

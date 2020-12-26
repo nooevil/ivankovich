@@ -1,0 +1,23 @@
+@import './../partials/product/wish-list/wish-list-add/wish-list-add';
+
+@import './../partials/product/catalog/filter/filter-size/filter-size';
+@import './../partials/product/product-price/product-price';
+@import './../partials/product/product-slider/product-slider';
+@import './../partials/product/product-info/product-info';
+@import './../partials/product/product-description/product-description';
+
+/* Review */
+
+@import './../partials/content/review/review';
+@import './../partials/content/review/review-list/review-list';
+@import './../partials/content/review/review-list/review-card/review-card';
+@import './../partials/content/review/total-rating/total-rating';
+@import './../partials/content/review/review-add/review-add';
+@import './../partials/common/rating/rating';
+
+/* Slider */
+
+@import './../partials/product/product-slider/product-nav-slider';
+@import './../partials/product/relative-product-slider/relative-product-slider';
+
+@import './../partials/content/seo-text/seo-text';

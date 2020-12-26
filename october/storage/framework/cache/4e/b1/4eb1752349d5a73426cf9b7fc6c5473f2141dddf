@@ -1,0 +1,18 @@
+1608943569a:1:{s:17:"footer/footer.htm";a:5:{s:8:"fileName";s:17:"footer/footer.htm";s:7:"content";s:309:"<footer class="footer">
+    <div class="footer__col">
+        {% partial 'footer/footer-nav/footer-nav' %}
+    </div>
+    <div class="footer__col footer__col_2nd">
+        {% partial 'common/logo/logo' wrapperClass='footer__logo' %}
+        {% partial 'footer/footer-info/footer-info' %}
+    </div>
+</footer>
+";s:5:"mtime";i:1560802173;s:6:"markup";s:308:"<footer class="footer">
+    <div class="footer__col">
+        {% partial 'footer/footer-nav/footer-nav' %}
+    </div>
+    <div class="footer__col footer__col_2nd">
+        {% partial 'common/logo/logo' wrapperClass='footer__logo' %}
+        {% partial 'footer/footer-info/footer-info' %}
+    </div>
+</footer>";s:4:"code";N;}}

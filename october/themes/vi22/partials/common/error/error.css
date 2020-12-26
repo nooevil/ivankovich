@@ -1,0 +1,84 @@
+.error {
+  box-sizing: border-box;
+  grid-column: 2 / -2;
+  padding: 0 20px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 50px);
+
+  @media (width > 768px) {
+    padding-bottom: 0;
+  }
+}
+
+.error__title {
+  font-size: var(--font-size-title-xxl);
+  color: var(--color-default);
+  margin-top: 0;
+  margin-bottom: 38px;
+  font-weight: 900;
+
+  @media (width > 768px) {
+    margin-bottom: 50px;
+  }
+}
+
+.error__descr {
+  font-weight: 900;
+  color: var(--color-default);
+  font-size: var(--font-size-title-l);
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+
+  @media (width > 768px) {
+    margin-bottom: 24px;
+
+    & br { /* stylelint-disable-line selector-max-type */
+      display: none;
+    }
+  }
+}
+
+.error__hint {
+  font-weight: 600;
+  color: var(--color-primary);
+  font-size: var(--font-size-text-l);
+  margin-bottom: 35px;
+  text-align: center;
+
+  @media (width > 768px) {
+    margin-bottom: 59px;
+  }
+}
+
+.error__btn {
+  min-width: 120px;
+  line-height: var(--line-height-xl);
+
+  @media (width > 768px) {
+    min-width: 150px;
+  }
+}
+
+.error__link-back {
+  position: relative;
+  padding-left: 22px;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 18px;
+    width: 20px;
+    height: 38px;
+    transform: rotate(180deg);
+    background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/arrow.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+  }
+}

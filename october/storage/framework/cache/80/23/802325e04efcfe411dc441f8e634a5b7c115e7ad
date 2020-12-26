@@ -1,0 +1,30 @@
+1608942939a:1:{s:22:"common/error/error.htm";a:5:{s:8:"fileName";s:22:"common/error/error.htm";s:7:"content";s:522:"<div class="error">
+    <h1 class="error__title">
+        {{ title }}
+    </h1>
+    <span class="error__descr">
+        {{ description|raw }}
+    </span>
+    <span class="error__hint">
+        {{ hint|raw }}
+    </span>
+    {% set errorType = this.page.id=='404' %}
+    {% set href = this.page.id=='404' ? 'index'|page : '' %}
+    {% set class = this.page.id=='404' ? 'error__btn error__link-back' : 'error__btn' %}
+    {% partial 'form/button/button' link=errorType wrapperClass=class text=buttonText href=href %}
+</div>
+";s:5:"mtime";i:1560802169;s:6:"markup";s:521:"<div class="error">
+    <h1 class="error__title">
+        {{ title }}
+    </h1>
+    <span class="error__descr">
+        {{ description|raw }}
+    </span>
+    <span class="error__hint">
+        {{ hint|raw }}
+    </span>
+    {% set errorType = this.page.id=='404' %}
+    {% set href = this.page.id=='404' ? 'index'|page : '' %}
+    {% set class = this.page.id=='404' ? 'error__btn error__link-back' : 'error__btn' %}
+    {% partial 'form/button/button' link=errorType wrapperClass=class text=buttonText href=href %}
+</div>";s:4:"code";N;}}

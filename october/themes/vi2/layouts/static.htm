@@ -1,0 +1,78 @@
+[staticMenu FooterMenu]
+code = "footer-menu"
+
+[staticMenu SideMenuLeft]
+code = "side-menu-left"
+
+[CategoryList]
+
+[ProductList]
+sorting = "popularity|desc"
+
+[Cart]
+
+[FilterPanel]
+
+[SeoToolbox]
+
+[staticPage]
+useContent = 1
+default = 0
+==
+<?php
+function onStart()
+{
+    $this['path_css'] = mix('css/common.css', 'themes/lovata-shopaholic-sneakers/assets');
+    $this['path_app_js'] = mix('js/common.js', 'themes/lovata-shopaholic-sneakers/assets');
+    $this['path_manifest_js'] = mix('js/manifest.js', 'themes/lovata-shopaholic-sneakers/assets');
+    $this['path_vendor_js'] = mix('js/vendor.js', 'themes/lovata-shopaholic-sneakers/assets');
+}
+
+function onInit()
+{
+    $this['bHasWishListPlugin'] = \System\Classes\PluginManager::instance()->hasPlugin('Lovata.WishListShopaholic') && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.WishListShopaholic');
+}
+?>
+==
+{% spaceless %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ SeoToolbox.getHeadBegin()|raw }}
+    {% placeholder seo_tags default %}
+        {% component 'SeoToolbox' %}
+    {% endplaceholder %}
+    <meta charset="utf-8">
+    {% if this.theme.favicon_32 is not empty %}
+        <link rel="icon" type="image/png" href="{{ this.theme.favicon_32|media }}" sizes="32x32">
+    {% endif %}
+    {% if this.theme.favicon_64 is not empty %}
+        <link rel="icon" type="image/png" href="{{ this.theme.favicon_64|media }}" sizes="64x64">
+    {% endif %}
+    {% if this.theme.favicon_180 is not empty %}
+        <link rel="apple-touch-icon" type="image/png" href="{{ this.theme.favicon_180|media }}" sizes="64x64">
+    {% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ path_css }}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/themes/vi2/assets/css/debug.css">    
+    {% placeholder page_style %}
+    {{ SeoToolbox.getHeadEnd()|raw }}
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" data-page-id="{{ this.page.id }}">
+    {{ SeoToolbox.getBodyBegin()|raw }}
+    <div class="wrapper grid">
+        {% partial 'header/header' %}
+        <main class="main subgrid full-width">
+            <div class="wysiwyg static">{% page %}</div>
+        </main>
+        {% partial 'footer/footer' %}
+    </div>
+    <script src="{{ path_manifest_js }}"></script>
+    <script src="{{ path_vendor_js }}"></script>
+    <script src="{{ path_app_js }}"></script>
+    {% placeholder page_script %}
+    {{ SeoToolbox.getBodyEnd()|raw }}
+</body>
+</html>
+{% endspaceless %}

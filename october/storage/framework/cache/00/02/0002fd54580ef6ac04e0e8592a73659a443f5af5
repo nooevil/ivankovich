@@ -1,0 +1,52 @@
+1608943569a:1:{s:33:"content/big-slider/big-slider.htm";a:5:{s:8:"fileName";s:33:"content/big-slider/big-slider.htm";s:7:"content";s:1845:"{% set arBannerList   = this.theme.index_banner_slider %}
+
+{% if arBannerList is not empty %}
+    <section class="big-slider swiper-container">
+        <ul class="big-slider__list swiper-wrapper">
+            {% for arBanner in arBannerList if arBanner.image is not empty %}
+                <li class="big-slider__item swiper-slide">
+                    <a {% if arBanner.url is not empty %}href="{{ arBanner.url }}"{% endif %} class="big-slider__link">
+                        <picture class="big-slider__img-container">
+                            <source media="(min-width:769px)" data-srcset="{{ arBanner.image|media|resize(1200, 510, {'quantity': 80, 'extension': 'webp'}) }}" type="image/webp">
+                            <source media="(min-width:769px)" data-srcset="{{ arBanner.image|media|resize(1200, 510, {'quantity': 80}) }}" type="image/jpeg">
+                            <source media="(max-width:768px)" data-srcset="{{ arBanner.mobile_image|media|resize(728, 682, {'quantity': 80, 'extension': 'webp'}) }}" type="image/webp">
+                            <source media="(max-width:768px)" data-srcset="{{ arBanner.mobile_image|media|resize(728, 682, {'quantity': 80}) }}" type="image/jpeg">
+                            <img class="big-slider__img js-lazy-load" data-src="{{ arBanner.image|media|resize(1200, 510) }}" alt="{{ arBanner.description }}" title="{{ arBanner.title }}">
+                        </picture>
+                        {% partial 'common/preloader/preloader' wrapperClass='big-slider__preloader' %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="big-slider__btn-wrap">
+            <div class="big-slider__btn big-slider__btn_prev"></div>
+            <div class="big-slider__btn big-slider__btn_next"></div>
+        </div>
+    </section>
+{% endif %}
+";s:5:"mtime";i:1560802171;s:6:"markup";s:1844:"{% set arBannerList   = this.theme.index_banner_slider %}
+
+{% if arBannerList is not empty %}
+    <section class="big-slider swiper-container">
+        <ul class="big-slider__list swiper-wrapper">
+            {% for arBanner in arBannerList if arBanner.image is not empty %}
+                <li class="big-slider__item swiper-slide">
+                    <a {% if arBanner.url is not empty %}href="{{ arBanner.url }}"{% endif %} class="big-slider__link">
+                        <picture class="big-slider__img-container">
+                            <source media="(min-width:769px)" data-srcset="{{ arBanner.image|media|resize(1200, 510, {'quantity': 80, 'extension': 'webp'}) }}" type="image/webp">
+                            <source media="(min-width:769px)" data-srcset="{{ arBanner.image|media|resize(1200, 510, {'quantity': 80}) }}" type="image/jpeg">
+                            <source media="(max-width:768px)" data-srcset="{{ arBanner.mobile_image|media|resize(728, 682, {'quantity': 80, 'extension': 'webp'}) }}" type="image/webp">
+                            <source media="(max-width:768px)" data-srcset="{{ arBanner.mobile_image|media|resize(728, 682, {'quantity': 80}) }}" type="image/jpeg">
+                            <img class="big-slider__img js-lazy-load" data-src="{{ arBanner.image|media|resize(1200, 510) }}" alt="{{ arBanner.description }}" title="{{ arBanner.title }}">
+                        </picture>
+                        {% partial 'common/preloader/preloader' wrapperClass='big-slider__preloader' %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="big-slider__btn-wrap">
+            <div class="big-slider__btn big-slider__btn_prev"></div>
+            <div class="big-slider__btn big-slider__btn_next"></div>
+        </div>
+    </section>
+{% endif %}";s:4:"code";N;}}

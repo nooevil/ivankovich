@@ -1,0 +1,23 @@
+{# TODO: Set a unique ID for a correct work of partial #}
+
+{% set labelStateClass = labelStateClass is not empty ? 'input__label_elevated' : '' %}
+<div class="input textarea {{ wrapperClass }}">
+    <label for="{{ id }}" class="textarea__label input__label {{ labelStateClass }} {{ labelClass }}">{{ labelText }}</label>
+    <textarea
+        id="{{ id }}"
+        name="{{ name }}"
+        class="textarea__field input__field {{ inputClass }}"
+        maxlength="{{ maxLength|default('1000') }}"
+        {% if minLength is not same as(null) %}
+            minlength="{{ minLength }}"
+        {% endif %}
+        {{ required }}
+        {% if validationErrorSelector is not same as(null) %}
+            data-bouncer-target=".{{ validationErrorSelector }}"
+        {% endif %}
+        {{ attribute|raw }}
+    >{{ text }}</textarea>
+    {% if validationErrorSelector is not same as(null) %}
+        <span class="{{ validationErrorSelector }}"></span>
+    {% endif %}
+</div>

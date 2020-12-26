@@ -1,0 +1,13 @@
+.seo-text {
+  grid-column: 2 / -2;
+  padding: 0 20px 55px;
+
+  @media (width > 768px) {
+    grid-column: 7 / -2;
+    padding: 0 0 55px;
+
+    &_bottom {
+      grid-column: 6 / -6;
+    }
+  }
+}

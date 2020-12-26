@@ -1,0 +1,35 @@
+{% set obOffer = obProduct.offer.first() %}
+<div class="product-card" itemscope itemtype="http://schema.org/Product">
+    <div class="product-card__img-wrap">
+        {% if obProduct.preview_image.path|length > 0 %}
+            <picture class="product-card__img-container">
+                <source media="(min-width:769px)" data-srcset="{{ obProduct.preview_image.getThumb(420, 315, {'quantity': 80, 'extension': 'webp'}) }}" type="image/webp">
+                <source media="(min-width:769px)" data-srcset="{{ obProduct.preview_image.getThumb(420, 315, {'quantity': 80}) }}" type="image/jpeg">
+                <source media="(max-width:768px)" data-srcset="{{ obProduct.preview_image.getThumb(500, 373, {'quantity': 80, 'extension': 'webp'}) }}" type="image/webp">
+                <source media="(max-width:768px)" data-srcset="{{ obProduct.preview_image.getThumb(500, 373, {'quantity': 80}) }}" type="image/jpeg">
+                <img class="product-card__img js-lazy-load" data-src="{{ obProduct.preview_image.getThumb(500, 373, {'quantity': 80}) }}" itemprop="image" alt="{{ obProduct.preview_image.description }}" title="{{ obProduct.preview_image.title }}">
+            </picture>
+            {% partial 'common/preloader/preloader' wrapperClass='product-card__preloader' %}
+        {% else %}
+            <img class="product-card__img product-card__img_no-photo" src="{{ 'assets/img/nophoto.svg'|theme }}" itemprop="image" alt="{{ obProduct.preview_image.description }}" title="{{ obProduct.preview_image.title }}">
+        {% endif %}
+    </div>
+    <h3 class="product-card__title" itemprop="name">{{ obProduct.name }}</h3>
+    <div class="product-card__price-wrap" itemscope itemprop="offers" itemtype="http://schema.org/Offer">
+        {% if obOffer.old_price_value > 0 %}
+            <div class="product-card__price product-card__price_current">
+                <span class="product-card__price-currency" itemprop="priceCurrency" content="{{ obOffer.currency_code }}">{{ obOffer.currency }}</span>
+                <span class="product-card__price-value" itemprop="price">{{ obOffer.price }}</span>
+            </div>
+            <div class="product-card__price product-card__price_old">
+                <span class="product-card__price-currency" itemprop="priceCurrency" content="{{ obOffer.currency_code }}">{{ obOffer.currency }}</span>
+                <span class="product-card__price-value" itemprop="price">{{ obOffer.old_price }}</span>
+            </div>
+        {% else %}
+            <div class="product-card__price">
+                <span class="product-card__price-currency" itemprop="priceCurrency" content="{{ obOffer.currency_code }}">{{ obOffer.currency }}</span>
+                <span class="product-card__price-value" itemprop="price">{{ obOffer.price }}</span>
+            </div>
+        {% endif %}
+    </div>
+</div>

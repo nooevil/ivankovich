@@ -1,0 +1,30 @@
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.preloader {
+  display: none;
+  position: absolute;
+  top: 4px;
+  left: 50%;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/preloader.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    animation-name: rotate;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}

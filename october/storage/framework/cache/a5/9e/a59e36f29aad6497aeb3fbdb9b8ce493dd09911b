@@ -1,0 +1,45 @@
+1608943569a:1:{s:19:"side-menu-left.yaml";a:7:{s:8:"fileName";s:19:"side-menu-left.yaml";s:7:"content";s:953:"name: 'Side menu left'
+items:
+    -
+        title: About
+        type: url
+        url: 'https://bit.ly/2WktpJj'
+        code: ''
+        viewBag:
+            locale:
+                ru:
+                    title: 'О нас'
+                    url: ''
+                ua:
+                    title: ''
+                    url: ''
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Contacts
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: contact
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Our Blog'
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: news-list
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+";s:5:"mtime";i:1607549879;s:6:"markup";N;s:4:"code";N;s:4:"name";N;s:5:"items";a:0:{}}}

@@ -1,0 +1,20 @@
+1608942939a:1:{s:22:"form/button/button.htm";a:5:{s:8:"fileName";s:22:"form/button/button.htm";s:7:"content";s:337:"{% if link == true %}
+    <a  class="button {{ wrapperClass }}" href="{{ href }}" {% if blank==true %} target="_blank" {% endif %}
+        {{ attr|raw }}>
+        {{ text }}
+    </a>
+{% else %}
+    <button class="button {{ wrapperClass }}" type="{{ type|default('button') }}" {{ attr|raw }}>
+        {{ text }}
+    </button>
+{% endif %}
+";s:5:"mtime";i:1560802174;s:6:"markup";s:336:"{% if link == true %}
+    <a  class="button {{ wrapperClass }}" href="{{ href }}" {% if blank==true %} target="_blank" {% endif %}
+        {{ attr|raw }}>
+        {{ text }}
+    </a>
+{% else %}
+    <button class="button {{ wrapperClass }}" type="{{ type|default('button') }}" {{ attr|raw }}>
+        {{ text }}
+    </button>
+{% endif %}";s:4:"code";N;}}

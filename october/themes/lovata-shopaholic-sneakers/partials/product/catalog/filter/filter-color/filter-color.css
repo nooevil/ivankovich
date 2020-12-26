@@ -1,0 +1,88 @@
+.filter-color {
+  display: grid;
+  grid-gap: 20px;
+  max-width: calc(30px * 3 + 40px);
+  grid-template-columns: repeat(3, 30px);
+  padding: 0;
+  list-style: none;
+}
+
+.filter-color__item {
+  width: 30px;
+  height: 30px;
+}
+
+.filter-color__checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin-left: -1px;
+}
+
+.filter-color__label {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: var(--font-size-text);
+  color: var(--color-table);
+  min-width: 30px;
+  max-width: 30px;
+  min-height: 30px;
+  max-height: 30px;
+  border: 2px solid var(--color-input);
+  transition: border 0.2s;
+
+  &:hover,
+  &.focus-visible:focus {
+    cursor: pointer;
+    border: 2px solid var(--color-primary-dark);
+  }
+}
+
+.filter-color__checkbox:focus + .filter-color__label {
+  outline: 2px solid var(--color-outline);
+  outline-offset: 2px;
+}
+
+.filter-color__checkbox:disabled + .filter-color__label {
+  position: relative;
+  cursor: not-allowed;
+  border: 2px solid var(--color-input);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-semi-transparent);
+    background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/lock.svg');
+    background-size: 40%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.filter-color__checkbox:checked + .filter-color__label {
+  position: relative;
+  border: 2px solid var(--color-primary-dark);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-semi-transparent);
+    background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/checked.svg');
+    background-size: 40%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}

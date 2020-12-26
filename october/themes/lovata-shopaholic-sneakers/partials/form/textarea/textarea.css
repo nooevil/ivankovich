@@ -1,0 +1,9 @@
+.textarea__field {
+  height: 115px;
+  width: 100%;
+  padding: 13px 20px;
+}
+
+.textarea__label:not(.input__label_elevated) {
+  top: 13px;
+}

@@ -1,0 +1,6 @@
+plugin:
+    name: 'diskinternals.languagedomain::lang.plugin.name'
+    description: 'diskinternals.languagedomain::lang.plugin.description'
+    author: DiskInternals
+    icon: oc-icon-language
+    homepage: ''

@@ -1,0 +1,15 @@
+<li class="filter-color__item">
+    <input type="checkbox"
+           class="filter-color__checkbox"
+           id="{{ id }}"
+           name="{{ name }}"
+           value="{{ value }}"
+           {% if checked == true %}
+               checked
+           {% endif %}
+           {% if disabled == true %}
+               disabled
+           {% endif %}
+    >
+    <label for="{{ id }}" class="filter-color__label" style="background-color: {{ bgColor }}">{{ labelText }}</label>
+</li>

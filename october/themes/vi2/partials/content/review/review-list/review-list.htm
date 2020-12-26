@@ -1,0 +1,12 @@
+{% set iPage = Pagination.getPageFromRequest() %}
+{% set iMaxPage = Pagination.getMaxPage(obReviewList.count()) %}
+
+<ul class="review-list">
+    {% partial 'content/review/review-list/review-list-ajax' obReviewList = obReviewList %}
+</ul>
+{% if iMaxPage > iPage %}
+    <div class="review-list__wrapper">
+        {% partial 'form/button/button' type='button' text='Load more' wrapperClass='review-list__more' attr='data-max-page="' ~ iMaxPage ~ '" data-page="1"' %}
+        {% partial 'common/preloader/preloader' wrapperClass="review-list__preloader" %}
+    </div>
+{% endif %}

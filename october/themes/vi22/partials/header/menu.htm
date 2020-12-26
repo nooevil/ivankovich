@@ -1,0 +1,63 @@
+[viewBag]
+==
+{# {% set obCategoryList = CategoryList.make().tree().active() %}   #}
+{% set wrapperClass='header-nav_desktop' %}
+{% set itemClass='header-nav__item_desktop' %}
+{% set classid_counter = 1 %}
+
+<nav class="header-nav {{ wrapperClass }}" aria-labelledby="header-catalog-nav">
+    <b class="header-nav__title header-nav__title_sr-only" id="header-catalog-nav">Category</b>
+        
+    {% if obCategoryList.isNotEmpty() %}
+        <ul class="header-nav__list {{ wrapperClass }} menu" role="menubar">
+            {% for obCategory in obCategoryList if obCategory.product_count > 0 %} 
+    		{% if obCategory.children.isNotEmpty() %}    				
+    			<li class="header-nav__item {{ itemClass }} drop-down" role="menuitem">
+    			    {%set classid = 'check0'~classid_counter %}
+    			    {%set classid_counter = classid_counter+1 %}
+	                <input id="{{ classid }}" type="checkbox" name="menu"/>
+	                <label class="header-nav__link" for="{{ classid }}">{{ obCategory.name }}</label>    			    
+    			    <ul>                
+                        {% for obChildCategory in obCategory.children %}
+    					    <li><a href="{{ obChildCategory.getPageUrl('catalog') }}" class="header-nav__link {{ linkClass }}">{{ obChildCategory.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+    		{% else %}					
+    			<li class="header-nav__item {{ itemClass }}" role="menuitem">
+    			    <a href="{{ obCategory.getPageUrl('catalog') }}" class="header-nav__link {{ linkClass }}">{{ obCategory.name }}</a>
+    			</li>
+    		{% endif %}			
+            {% endfor %}
+        </ul>
+    {% endif %}    
+</nav>
+
+<script>
+function isDescendant(parent, child) {
+     var node = child.parentNode;
+     while (node != null) {
+         if (node == parent) {
+             return true;
+         }
+         node = node.parentNode;
+     }
+     return false;
+}
+
+(function(){
+	var drop_menus = document.querySelectorAll('.drop-down');
+
+	document.addEventListener("click", function(e) {	  	  
+	  for (i = 0; i < drop_menus.length; ++i) {
+		var menu = drop_menus[i];
+		var checkbox = menu.querySelector('input');
+		  
+		if (checkbox.checked==true)
+	      if (menu != e.target && !isDescendant(menu, e.target)) {
+		    checkbox.checked = false;
+	      }
+	  }		
+	}, false);
+}());
+</script>

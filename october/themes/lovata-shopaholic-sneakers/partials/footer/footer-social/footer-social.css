@@ -1,0 +1,45 @@
+.footer-social {
+  display: flex;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 29px;
+  list-style: none;
+}
+
+.footer-social__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  margin-right: 21px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @media (width > 768px) {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.footer-social__link {
+  display: block;
+  width: 100%;
+  opacity: 0.5;
+
+  @media (width > 768px) {
+    &:hover,
+    &.focus-visible:focus {
+      opacity: 1;
+      transition: 0.2s ease-out;
+    }
+  }
+}
+
+.footer-social__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

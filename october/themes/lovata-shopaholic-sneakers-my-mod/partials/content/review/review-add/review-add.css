@@ -1,0 +1,109 @@
+.review-add {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  padding: 0 0 30px;
+  background-color: var(--color-white);
+  z-index: 100;
+  overflow: auto;
+  filter: blur(0);
+  backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  @media (width > 768px) {
+    position: fixed;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 5vh 0;
+    background-color: var(--color-transparent);
+  }
+}
+
+.review-add__container {
+  position: relative;
+  padding: 0 20px 40px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto auto;
+
+  @media (width > 768px) {
+    box-sizing: border-box;
+    height: auto;
+    padding: 40px 100px 60px;
+    margin: auto;
+    background-color: var(--color-white);
+  }
+}
+
+.review-add_visible {
+  display: flex;
+}
+
+.review-add__title {
+  display: flex;
+  align-items: center;
+  height: 83px;
+  padding-left: 20px;
+  margin: 0 -20px;
+  background-color: var(--color-primary-light);
+
+  @media (width > 768px) {
+    padding-bottom: 15px;
+    padding-left: 0;
+    margin: 0;
+    border-bottom: 2px solid var(--color-input);
+    background-color: var(--color-transparent);
+  }
+}
+
+.review-add__close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: block;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: var(--color-transparent);
+  background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/close.svg');
+  background-size: 11px 11px;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media (width > 768px) {
+    top: 29px;
+    right: 35px;
+  }
+}
+
+.review-add__success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-white);
+}
+
+.review-add__preloader {
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 38px;
+  background-color: var(--color-transparent-white);
+  z-index: 2;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 19px);
+    width: 38px;
+    height: 38px;
+  }
+}

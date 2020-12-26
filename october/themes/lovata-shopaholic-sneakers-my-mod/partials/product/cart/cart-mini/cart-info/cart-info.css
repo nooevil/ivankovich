@@ -1,0 +1,142 @@
+.cart-info {
+  position: relative;
+  width: 22px;
+  max-width: 22px;
+  height: 22px;
+  padding: 0;
+  font-size: var(--font-size-zero);
+  background-color: var(--color-transparent);
+  border: none;
+  font-family: var(--font-family-futura);
+
+  &_empty:focus {
+    outline: none;
+  }
+
+  &::after {
+    content: '';
+    width: 22px;
+    height: calc(100% + 2px);
+    left: 0;
+    top: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/cart.svg');
+  }
+
+  @media (width > 768px) {
+    display: flex;
+    font-size: var(--font-size-text-m);
+    font-weight: 600;
+    width: auto;
+    max-width: none;
+    min-width: 95px;
+    height: 19px;
+    padding-left: 31px;
+
+    &:hover,
+    &.focus-visible:focus {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    &_empty:hover,
+    &_empty:focus {
+      cursor: default;
+      text-decoration: none;
+    }
+  }
+}
+
+.cart-info__text {
+  color: var(--color-default);
+}
+
+.cart-info__counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  top: -3px;
+  right: -5px;
+  border-radius: var(--border-radius-circle);
+  background-color: var(--color-caution);
+  font-size: var(--font-size-text-xxs);
+  color: var(--color-white);
+  font-weight: 600;
+  z-index: 2;
+
+  &:empty {
+    display: none;
+  }
+
+  @media (width > 768px) {
+    display: inline;
+    position: static;
+    color: var(--color-default);
+    background-color: var(--color-transparent);
+    border-radius: var(--border-radius-0);
+    font-size: var(--font-size-text-m);
+    font-weight: inherit;
+    width: auto;
+    height: auto;
+  }
+}
+
+.cart-info__panel {
+  display: none;
+}
+
+@keyframes cart-drawer {
+  from {
+    transform: translateX(110%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.cart-info__panel_visible {
+  display: block;
+  box-sizing: border-box;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  padding: 16px 0;
+  background-color: var(--color-white);
+  z-index: 100;
+  height: 100%;
+  max-height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  animation-name: cart-drawer;
+  animation-duration: 200ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  will-change: transform, animation;
+
+  @media (768px < width < 1280px) {
+    right: unset;
+    left: calc(100% - 440px);
+  }
+
+  @media (width > 768px) {
+    max-width: 440px;
+    padding-left: 0;
+    padding-top: 33px;
+    padding-right: 0;
+    padding-bottom: 33px;
+  }
+}
+
+.cart-info__preloader {
+  display: block;
+  top: -5px;
+  left: 0;
+}

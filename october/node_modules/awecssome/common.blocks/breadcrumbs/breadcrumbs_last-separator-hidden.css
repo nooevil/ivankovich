@@ -1,0 +1,7 @@
+/* -------------------------------------------------- */
+/* Variables and defaults                             */
+/* -------------------------------------------------- */
+
+.breadcrumbs_last-separator-hidden :nth-last-child(2)::after {
+  content: '';
+}

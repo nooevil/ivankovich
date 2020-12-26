@@ -1,0 +1,159 @@
+@keyframes search-drawer {
+  from {
+    transform: translateX(110%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.search-panel {
+  display: block;
+  box-sizing: border-box;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  padding: 16px 20px;
+  background-color: var(--color-white);
+  z-index: 100;
+  animation-name: search-drawer;
+  animation-duration: 200ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+  will-change: transform, animation;
+
+  @media (768px < width < 1280px) {
+    right: unset;
+    left: calc(100% - 440px);
+  }
+
+  @media (width > 768px) {
+    max-width: 440px;
+    padding-left: 50px;
+    padding-top: 33px;
+    padding-right: 40px;
+    padding-bottom: 33px;
+  }
+}
+
+.search-panel_hidden {
+  display: none;
+}
+
+.search-panel__title {
+  display: block;
+  width: 100%;
+  margin-bottom: 40px;
+  color: var(--color-default);
+  font-size: var(--font-size-text-l);
+  font-weight: 600;
+}
+
+.search-panel__close {
+  display: block;
+  border: none;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  background-color: var(--color-transparent);
+  background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/close.svg');
+  background-size: 11px 11px;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media (width > 768px) {
+    top: 35px;
+    right: 40px;
+  }
+}
+
+.search-panel__form {
+  width: 100%;
+  position: relative;
+}
+
+.search-panel__input {
+  width: 100%;
+  margin-bottom: 24px;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 37px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-image: url('/themes/lovata-shopaholic-sneakers/assets/img/icon/search.svg');
+    background-position: center;
+    background-size: 15px;
+    background-repeat: no-repeat;
+  }
+
+  @media (width > 768px) {
+    margin-bottom: 41px;
+  }
+}
+
+.search-panel__button {
+  display: none;
+}
+
+.search-panel__result {
+  margin: 0;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 21px;
+  list-style: none;
+  overflow-y: auto;
+
+  @media (width > 768px) {
+    padding-left: 22px;
+  }
+}
+
+.search-panel__result-item:not(:last-child) {
+  margin-bottom: 28px;
+
+  @media (width > 768px) {
+    margin-bottom: 25px;
+  }
+}
+
+.search-panel__result-value {
+  text-decoration: none;
+  color: var(--color-primary-dark);
+  font-size: var(--font-size-text);
+  font-weight: 600;
+
+  @media (width > 768px) {
+    font-size: var(--font-size-text-m);
+
+    &:hover,
+    &.focus-visible:focus {
+      cursor: pointer;
+      color: var(--color-default);
+      transition: color 0.2s ease-out;
+    }
+  }
+}
+
+.search-panel__result-search-text {
+  color: var(--color-default);
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-panel__preloader {
+  top: 4px;
+  left: 50%;
+}

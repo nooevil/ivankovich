@@ -1,0 +1,17 @@
+{% if obProductList.isNotEmpty() %}
+    {% for obProduct in obProductList %}
+        <li class="wish-list-panel__item _shopaholic-product-wrapper" data-product-id="{{ obProduct.id }}">
+            <div class="wish-list-panel__restore wish-list-panel__restore_visually-hidden" aria-hidden="true">
+                <a href="{{ obProduct.getPageUrl('product') }}" class="wish-list-panel__restore-text">
+                    {{ obProduct.name }} has been deleted.
+                </a>
+                <button type="button" class="wish-list-panel__restore-btn" tabindex="-1">Undo</button>
+            </div>
+            {% partial 'product/wish-list/wish-product/wish-product' obProduct=obProduct %}
+        </li>
+    {% endfor %}
+{% else %}
+    <li class="wish-list-panel__item wish-list-panel__item_none">
+        There are no items in your wish list
+    </li>
+{% endif %}

@@ -1,0 +1,230 @@
+1608943569a:1:{s:11:"product.htm";a:15:{s:8:"fileName";s:11:"product.htm";s:7:"content";s:4749:"title = "product"
+url = "/:main_category/:slug_category/:slug"
+layout = "main"
+is_hidden = 0
+
+[CategoryPage]
+slug = "{{ :slug_category }}"
+slug_required = 1
+smart_url_check = 0
+
+[ProductPage]
+slug = "{{ :slug }}"
+slug_required = 1
+smart_url_check = 1
+
+[ProductData]
+
+[ProductList]
+sorting = "no"
+
+[Pagination]
+count_per_page = 3
+pagination_limit = 5
+active_class = "pagination__link_current"
+button_list = "last-more,last"
+first_button_name = "First"
+first_button_limit = 3
+first_button_number = 1
+first-more_button_name = "..."
+first-more_button_limit = 3
+prev_button_name = "Prev"
+prev_button_limit = 1
+prev-more_button_name = "..."
+prev-more_button_limit = 1
+next-more_button_name = "..."
+next-more_button_limit = 1
+next_button_name = "Next"
+next_button_limit = 1
+last-more_button_name = "..."
+last-more_button_limit = 3
+last_button_name = "Last"
+last_button_limit = 3
+last_button_number = 1
+
+[CategoryPage MainCategoryPage]
+slug = "{{ :main_category }}"
+slug_required = 1
+smart_url_check = 0
+==
+<?php
+function onStart()
+{
+    $this['path_page_js'] = mix('js/product.js', 'themes/lovata-shopaholic-sneakers/assets');
+    $this['path_page_css'] = mix('css/product.css', 'themes/lovata-shopaholic-sneakers/assets');
+
+    //Get product and first offer item
+    $obProductItem = $this->ProductPage->get();
+    if (empty($obProductItem)) {
+        dd($this->ProductPage);
+        return;
+    }
+
+    $obOfferList = $obProductItem->offer;
+
+    /* bob */
+    
+	$obFirstOfferItem = false;	
+    foreach($obOfferList as $obOfferItem) {
+        if ($obOfferItem->price >0) {
+            $obFirstOfferItem = $obOfferItem;
+            break;
+        };
+    }
+    
+    /* end test */
+    
+	// old code 
+	if  (!$obFirstOfferItem)
+		$obFirstOfferItem = $obOfferList->first();
+		
+    //Get offer list    
+    //$obFirstOfferItem = $obOfferList->first();
+    
+
+    //Get size property and prepare "choose size" array    
+    $arChooseSize = [];
+    $obSizeProperty = $obFirstOfferItem->property->getByCode('size');
+    if ($obSizeProperty->isNotEmpty()) {
+        foreach($obOfferList as $obOfferItem) {
+            $arChooseSize[$obOfferItem->id] = $obOfferItem->property->find($obSizeProperty->id)->property_value->getValueString();
+        }
+    }
+
+    natsort($arChooseSize);
+
+    $this['obProduct'] = $obProductItem;
+    $this['obRelatedProductList'] = $obProductItem->related;
+    $this['obOffer'] = $obFirstOfferItem;
+    $this['obOfferList'] = $obOfferList;
+    $this['arChooseSize'] = $arChooseSize;
+
+    $this['bHasReviewsPlugin'] = \System\Classes\PluginManager::instance()->hasPlugin('Lovata.ReviewsShopaholic') && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.ReviewsShopaholic');
+    $this['bHasWishListPlugin'] = \System\Classes\PluginManager::instance()->hasPlugin('Lovata.WishListShopaholic') && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.WishListShopaholic');
+}
+
+function onInit()
+{
+    $obManager = \Cms\Classes\ComponentManager::instance();
+    if ($obManager->hasComponent('Lovata\ReviewsShopaholic\Components\MakeReview')){
+        $this->addComponent('Lovata\ReviewsShopaholic\Components\MakeReview', 'MakeReview', [ 'mode' => 'ajax']);
+    }
+}
+?>
+==
+{% put page_style %}
+    <link rel="stylesheet" href="{{ path_page_css }}">
+{% endput %}
+{% put page_script %}
+    <script src="{{ path_page_js }}"></script>
+{% endput %}
+
+{% set arSEOParams = {'product': obProduct, 'category': obProduct.category} %}
+{% put seo_tags %}
+    {% component 'SeoToolbox' model=obProduct params=arSEOParams %}
+{% endput %}
+
+{% set arBreadcrumbs = [
+    {'slug': obProduct.category.getPageUrl('catalog'), 'name': obProduct.category.name},
+    {'active': true, 'name': obProduct.name}
+] %}
+
+{% partial 'common/breadcrumbs/breadcrumbs' wrapperClass='product-info__breadcrumbs' arBreadcrumbs=arBreadcrumbs  %}
+				
+{% partial 'product/product-info/product-info' obProduct=obProduct %}
+{% partial 'product/product-description/product-description' obProduct=obProduct %}
+{% if bHasReviewsPlugin %}
+    {% partial 'content/review/review' obProduct=obProduct obReviewList=obReviewList %}
+    {% partial 'content/review/total-rating/total-rating' obProduct=obProduct %}
+{% endif %}
+{% partial 'product/relative-product-slider/relative-product-slider' arProductList=ProductList.make().active().category(obProduct.category.id).random(5) sBlockTitle='You May Also Like' %}
+{% partial 'product/relative-product-slider/relative-product-slider' arProductList=obProduct.accessory.active().random(5) sBlockTitle='Accessories' %}
+{% partial 'content/seo-text/seo-text' wrapperClass='seo-text_bottom' text=SeoToolbox.getPageDescription(obProduct, arSEOParams) %}";s:5:"mtime";i:1569504639;s:6:"markup";s:1498:"{% put page_style %}
+    <link rel="stylesheet" href="{{ path_page_css }}">
+{% endput %}
+{% put page_script %}
+    <script src="{{ path_page_js }}"></script>
+{% endput %}
+
+{% set arSEOParams = {'product': obProduct, 'category': obProduct.category} %}
+{% put seo_tags %}
+    {% component 'SeoToolbox' model=obProduct params=arSEOParams %}
+{% endput %}
+
+{% set arBreadcrumbs = [
+    {'slug': obProduct.category.getPageUrl('catalog'), 'name': obProduct.category.name},
+    {'active': true, 'name': obProduct.name}
+] %}
+
+{% partial 'common/breadcrumbs/breadcrumbs' wrapperClass='product-info__breadcrumbs' arBreadcrumbs=arBreadcrumbs  %}
+				
+{% partial 'product/product-info/product-info' obProduct=obProduct %}
+{% partial 'product/product-description/product-description' obProduct=obProduct %}
+{% if bHasReviewsPlugin %}
+    {% partial 'content/review/review' obProduct=obProduct obReviewList=obReviewList %}
+    {% partial 'content/review/total-rating/total-rating' obProduct=obProduct %}
+{% endif %}
+{% partial 'product/relative-product-slider/relative-product-slider' arProductList=ProductList.make().active().category(obProduct.category.id).random(5) sBlockTitle='You May Also Like' %}
+{% partial 'product/relative-product-slider/relative-product-slider' arProductList=obProduct.accessory.active().random(5) sBlockTitle='Accessories' %}
+{% partial 'content/seo-text/seo-text' wrapperClass='seo-text_bottom' text=SeoToolbox.getPageDescription(obProduct, arSEOParams) %}";s:4:"code";s:2239:"function onStart()
+{
+    $this['path_page_js'] = mix('js/product.js', 'themes/lovata-shopaholic-sneakers/assets');
+    $this['path_page_css'] = mix('css/product.css', 'themes/lovata-shopaholic-sneakers/assets');
+
+    //Get product and first offer item
+    $obProductItem = $this->ProductPage->get();
+    if (empty($obProductItem)) {
+        dd($this->ProductPage);
+        return;
+    }
+
+    $obOfferList = $obProductItem->offer;
+
+    /* bob */
+    
+	$obFirstOfferItem = false;	
+    foreach($obOfferList as $obOfferItem) {
+        if ($obOfferItem->price >0) {
+            $obFirstOfferItem = $obOfferItem;
+            break;
+        };
+    }
+    
+    /* end test */
+    
+	// old code 
+	if  (!$obFirstOfferItem)
+		$obFirstOfferItem = $obOfferList->first();
+		
+    //Get offer list    
+    //$obFirstOfferItem = $obOfferList->first();
+    
+
+    //Get size property and prepare "choose size" array    
+    $arChooseSize = [];
+    $obSizeProperty = $obFirstOfferItem->property->getByCode('size');
+    if ($obSizeProperty->isNotEmpty()) {
+        foreach($obOfferList as $obOfferItem) {
+            $arChooseSize[$obOfferItem->id] = $obOfferItem->property->find($obSizeProperty->id)->property_value->getValueString();
+        }
+    }
+
+    natsort($arChooseSize);
+
+    $this['obProduct'] = $obProductItem;
+    $this['obRelatedProductList'] = $obProductItem->related;
+    $this['obOffer'] = $obFirstOfferItem;
+    $this['obOfferList'] = $obOfferList;
+    $this['arChooseSize'] = $arChooseSize;
+
+    $this['bHasReviewsPlugin'] = \System\Classes\PluginManager::instance()->hasPlugin('Lovata.ReviewsShopaholic') && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.ReviewsShopaholic');
+    $this['bHasWishListPlugin'] = \System\Classes\PluginManager::instance()->hasPlugin('Lovata.WishListShopaholic') && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.WishListShopaholic');
+}
+
+function onInit()
+{
+    $obManager = \Cms\Classes\ComponentManager::instance();
+    if ($obManager->hasComponent('Lovata\ReviewsShopaholic\Components\MakeReview')){
+        $this->addComponent('Lovata\ReviewsShopaholic\Components\MakeReview', 'MakeReview', [ 'mode' => 'ajax']);
+    }
+}";s:5:"title";s:7:"product";s:3:"url";s:36:"/:main_category/:slug_category/:slug";s:6:"layout";s:4:"main";s:9:"is_hidden";s:1:"0";s:12:"CategoryPage";a:3:{s:4:"slug";s:20:"{{ :slug_category }}";s:13:"slug_required";s:1:"1";s:15:"smart_url_check";s:1:"0";}s:11:"ProductPage";a:3:{s:4:"slug";s:11:"{{ :slug }}";s:13:"slug_required";s:1:"1";s:15:"smart_url_check";s:1:"1";}s:11:"ProductData";a:0:{}s:11:"ProductList";a:1:{s:7:"sorting";s:2:"no";}s:10:"Pagination";a:22:{s:14:"count_per_page";s:1:"3";s:16:"pagination_limit";s:1:"5";s:12:"active_class";s:24:"pagination__link_current";s:11:"button_list";s:14:"last-more,last";s:17:"first_button_name";s:5:"First";s:18:"first_button_limit";s:1:"3";s:19:"first_button_number";s:1:"1";s:22:"first-more_button_name";s:3:"...";s:23:"first-more_button_limit";s:1:"3";s:16:"prev_button_name";s:4:"Prev";s:17:"prev_button_limit";s:1:"1";s:21:"prev-more_button_name";s:3:"...";s:22:"prev-more_button_limit";s:1:"1";s:21:"next-more_button_name";s:3:"...";s:22:"next-more_button_limit";s:1:"1";s:16:"next_button_name";s:4:"Next";s:17:"next_button_limit";s:1:"1";s:21:"last-more_button_name";s:3:"...";s:22:"last-more_button_limit";s:1:"3";s:16:"last_button_name";s:4:"Last";s:17:"last_button_limit";s:1:"3";s:18:"last_button_number";s:1:"1";}s:29:"CategoryPage MainCategoryPage";a:3:{s:4:"slug";s:20:"{{ :main_category }}";s:13:"slug_required";s:1:"1";s:15:"smart_url_check";s:1:"0";}}}

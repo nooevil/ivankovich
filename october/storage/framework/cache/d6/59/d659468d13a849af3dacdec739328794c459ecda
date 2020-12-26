@@ -1,0 +1,24 @@
+1608895100a:1:{s:47:"content/review/review-list/review-list-ajax.htm";a:5:{s:8:"fileName";s:47:"content/review/review-list/review-list-ajax.htm";s:7:"content";s:503:"{% if obReviewList is empty %}
+    {% set obProduct = ProductPage.get() %}
+    {% set obReviewList = obProduct.review.active().sort() %}
+
+    {% set iPage = Pagination.getPageFromRequest() %}
+    {% set iMaxPage = Pagination.getMaxPage(iReviewCount) %}
+{% endif %}
+
+{% set arReviewList = obReviewList.page(iPage, Pagination.getCountPerPage()) %}
+{% for obReview in arReviewList %}
+    {% partial 'content/review/review-list/review-card/review-card' obProduct=obProduct obReview=obReview %}
+{% endfor %}
+";s:5:"mtime";i:1560802172;s:6:"markup";s:502:"{% if obReviewList is empty %}
+    {% set obProduct = ProductPage.get() %}
+    {% set obReviewList = obProduct.review.active().sort() %}
+
+    {% set iPage = Pagination.getPageFromRequest() %}
+    {% set iMaxPage = Pagination.getMaxPage(iReviewCount) %}
+{% endif %}
+
+{% set arReviewList = obReviewList.page(iPage, Pagination.getCountPerPage()) %}
+{% for obReview in arReviewList %}
+    {% partial 'content/review/review-list/review-card/review-card' obProduct=obProduct obReview=obReview %}
+{% endfor %}";s:4:"code";N;}}

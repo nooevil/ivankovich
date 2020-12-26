@@ -1,0 +1,17 @@
+{% set sActive = this.theme.map_active %}
+{% set sLat    = this.theme.map_lat %}
+{% set sLng    = this.theme.map_lng %}
+{% set sApiKey = this.theme.map_api_key %}
+
+{% if sActive and sApiKey is not empty %}
+    <div class="contact__map-wrap">
+        <div class="map contact__map"
+            data-api-key="{{ sApiKey }}"
+            data-coordinates="{{ sLat }},{{ sLng }}"
+            data-marker-path={{ 'assets/img/icon/marker.png'|theme }}>
+            {% partial 'content/contact/contact-popup' %}
+        </div>
+    </div>
+{% endif %}
+
+

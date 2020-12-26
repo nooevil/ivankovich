@@ -1,0 +1,38 @@
+title = "Index"
+url = "/"
+layout = "main"
+is_hidden = 0
+
+[BrandList]
+
+[ArticleCategoryList]
+
+[ArticleList]
+sorting = "publish|desc"
+==
+<?php
+function onStart()
+{
+    $this['path_page_js'] = mix('js/index.js', 'themes/lovata-shopaholic-sneakers/assets');
+    $this['path_page_css'] = mix('css/index.css', 'themes/lovata-shopaholic-sneakers/assets');
+}
+?>
+==
+{% put page_style %}
+    <link rel="stylesheet" href="{{ path_page_css }}">
+{% endput %}
+{% put page_script %}
+    <script src="{{ path_page_js }}"></script>
+{% endput %}
+
+
+{% partial 'content/main-slider/main-slider' %}
+{% partial 'product/two-level-slider/two-level-slider' %}
+{% partial 'content/big-slider/big-slider' %}
+
+{% partial 'article/news-slider/news-slider' %}
+
+{#
+{% partial 'content/brand-slider/brand-slider' %}
+{% partial 'form/subscribe/subscribe' %}
+#}

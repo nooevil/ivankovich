@@ -1,0 +1,20 @@
+{% if obCategoryList.isNotEmpty() %}
+    <ul class="header-nav__list {{ wrapperClass }}" role="menubar">
+        {% for obCategory in obCategoryList if obCategory.product_count > 0 %}
+            <li class="header-nav__item {{ itemClass }}" role="menuitem">
+                
+				<a href="{{ obCategory.getPageUrl('catalog') }}" class="header-nav__link {{ linkClass }}">{{ obCategory.name }}</a>
+				
+				{% if obCategory.children.isNotEmpty() %}
+					
+					<ul class="">                
+                    {% for obChildCategory in obCategory.children %}
+						<li><a href="{{ obChildCategory.getPageUrl('catalog') }}" class="header-nav__link {{ linkClass }}">{{ obChildCategory.name }}</a></li>
+                    {% endfor %}
+                    </ul>
+				{% else %}					
+				{% endif %}			
+            </li>			
+        {% endfor %}
+    </ul>
+{% endif %}

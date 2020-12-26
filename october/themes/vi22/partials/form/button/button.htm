@@ -1,0 +1,10 @@
+{% if link == true %}
+    <a  class="button {{ wrapperClass }}" href="{{ href }}" {% if blank==true %} target="_blank" {% endif %}
+        {{ attr|raw }}>
+        {{ text }}
+    </a>
+{% else %}
+    <button class="button {{ wrapperClass }}" type="{{ type|default('button') }}" {{ attr|raw }}>
+        {{ text }}
+    </button>
+{% endif %}

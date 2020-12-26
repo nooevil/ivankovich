@@ -1,0 +1,15 @@
+<label class="select__label" for="property-filter-{{ obProperty.id }}">{{ obProperty.filter_name }}</label>
+<select class="select {{ wrapperClass }}" name="{{ obProperty.filter_name }}" id="property-filter-{{ obProperty.id }}">
+    <option value="" {% if arFilterValue[obProperty.id] is empty %}selected{% endif %}>{{ text }}</option>
+    {% for obValue in obPropertyValueList %}
+        {% set bSelected = arFilterValue[obProperty.id] is not empty and obValue.slug in arFilterValue[obProperty.id] %}
+        {% set bDisabled = false %}
+        {% if bSelected == false and arFilterValueWithoutProperty[obProperty.id] is not empty %}34534
+            {% set obProductListTemp = obFilteredProductList.copy().filterByProperty(arFilterValueWithoutProperty[obProperty.id], obProductPropertyList).filterByProperty(arFilterValueWithoutProperty[obProperty.id], obOfferPropertyList) %}
+            {% set bDisabled = obValue.isDisabled(obProductListTemp) %}
+        {% endif %}
+        <option value="{{ obValue.slug }}" {% if bSelected %}selected{% endif %} {{ bDisabled ? 'disabled' : '' }}>
+            {{ obValue.value }}
+        </option>
+    {% endfor %}
+</select>

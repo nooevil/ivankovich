@@ -1,0 +1,22 @@
+1608943569a:1:{s:20:"common/logo/logo.htm";a:5:{s:8:"fileName";s:20:"common/logo/logo.htm";s:7:"content";s:500:"{% set sLogoTitle = this.theme.logo_title %}
+{% set sLogoDescription = this.theme.logo_alt %}
+{% set sLogoImage = this.theme.logo_image %}
+
+{% if sLogoImage is not empty %}
+    <a {% if this.page.id != 'index' %} href="{{ 'index'|page }}" {% endif %} class="logo {{ wrapperClass }}" aria-label="Go to index page">
+        <img src="{{ sLogoImage|media }}" alt="{{ sLogoDescription }}" title="{{ sLogoTitle }}" class="logo__img">
+    </a>
+{% else %}
+    <div class="logo logo_stub"></div>
+{% endif %}
+";s:5:"mtime";i:1560802169;s:6:"markup";s:499:"{% set sLogoTitle = this.theme.logo_title %}
+{% set sLogoDescription = this.theme.logo_alt %}
+{% set sLogoImage = this.theme.logo_image %}
+
+{% if sLogoImage is not empty %}
+    <a {% if this.page.id != 'index' %} href="{{ 'index'|page }}" {% endif %} class="logo {{ wrapperClass }}" aria-label="Go to index page">
+        <img src="{{ sLogoImage|media }}" alt="{{ sLogoDescription }}" title="{{ sLogoTitle }}" class="logo__img">
+    </a>
+{% else %}
+    <div class="logo logo_stub"></div>
+{% endif %}";s:4:"code";N;}}

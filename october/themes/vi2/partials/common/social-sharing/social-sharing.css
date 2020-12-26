@@ -1,0 +1,50 @@
+.social-sharing {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+
+.social-sharing__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  appearance: none;
+  padding: 0;
+  border: none;
+  background-color: var(--color-white);
+  width: 25px;
+  height: 25px;
+  margin-right: 14px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @media (width > 768px) {
+    margin-right: 0;
+    margin-bottom: 22px;
+  }
+}
+
+.social-sharing__icon {
+  width: auto;
+  max-height: 14px;
+  opacity: 0.4;
+}
+
+.social-sharing__btn:hover .social-sharing__icon,
+.social-sharing__btn:focus .social-sharing__icon {
+  opacity: 1;
+  transition: 0.2s ease-in;
+  cursor: pointer;
+}
+
+.social-likes__icon {
+  display: none;
+}
+
+.social-likes__button {
+  width: 100%;
+  height: 100%;
+}

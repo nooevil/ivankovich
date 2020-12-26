@@ -1,0 +1,11 @@
+{% set obCategoryList = CategoryList.make().tree().active() %}
+
+<header class="header">
+    <div class="header__wrapper">
+        {% partial 'header/drawer-nav/drawer-nav' obCategoryList=obCategoryList %}
+        {% partial 'header/header-nav/header-nav' wrapperClass='header-nav_desktop' obCategoryList=obCategoryList %}
+        {% partial 'common/logo/logo' wrapperClass='header__logo' %}
+        {% partial 'header/search/search' wrapperClass='header__search' %}
+        {% partial 'header/userbar/userbar' %}
+    </div>
+</header>

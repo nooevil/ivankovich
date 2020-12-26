@@ -1,0 +1,8 @@
+<nav class="header-nav {{ wrapperClass }}" aria-labelledby="header-catalog-nav">
+    <b class="header-nav__title header-nav__title_sr-only" id="header-catalog-nav">Category</b>
+    {% partial 'header/header-nav/header-nav-list'
+        obCategoryList=obCategoryList
+        wrapperClass='header-nav__list_desktop'
+        itemClass='header-nav__item_desktop'
+    %}
+</nav>

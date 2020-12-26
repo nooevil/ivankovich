@@ -1,0 +1,25 @@
+/* -------------------------------------------------- */
+/* Variables and defaults                             */
+/* -------------------------------------------------- */
+
+:root {
+  /* Typographic */
+  --breadcrumbs-font-size: inherit;
+  --breadcrumbs-font-weight: inherit;
+  --breadcrumbs-font-family: inherit;
+  --breadcrumbs-line-height: inherit;
+
+  /* Colors */
+  --breadcrumbs-color: inherit;
+}
+
+.breadcrumbs {
+  margin: 0;
+  padding-left: 0;
+  display: flex;
+  list-style: none;
+  font-size: var(--breadcrumbs-font-size);
+  font-weight: var(--breadcrumbs-font-weight);
+  font-family: var(--breadcrumbs-font-family);
+  color: var(--breadcrumbs-color);
+}

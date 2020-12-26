@@ -1,0 +1,18 @@
+<section class="subscribe">
+    {% partial 'common/section-title/section-title' wrapperClass='subscribe__title' text='Newsletter' %}
+    <p class="subscribe__descr">{{ this.theme.index_subscription_description }}</p>
+    <form class="subscribe__form _required" {# data-request="mailSignup::onSignup" #}>
+        {% partial 'form/input/input-email'
+            wrapperClass='subscribe__input'
+            id='subscribe'
+            labelClass='subscribe__label'
+            name='email'
+            inputClass='subscribe__email'
+            required='required'
+            validationErrorSelector='subscribe-form__error'
+        %}
+        {% partial 'form/button/button' type='submit' text='Subscribe' wrapperClass='subscribe__submit' %}
+        {% partial 'common/preloader/preloader' wrapperClass='subscribe__preloader' %}
+        {% partial 'common/tooltip/tooltip' wrapperClass='subscribe__success' text='You`ve subscribed successfully!' %}
+    </form>
+</section>

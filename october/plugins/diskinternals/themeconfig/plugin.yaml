@@ -1,0 +1,6 @@
+plugin:
+    name: 'diskinternals.themeconfig::lang.plugin.name'
+    description: 'diskinternals.themeconfig::lang.plugin.description'
+    author: diskinternals
+    icon: oc-icon-adjust
+    homepage: ''

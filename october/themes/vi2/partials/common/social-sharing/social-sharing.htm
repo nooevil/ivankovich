@@ -1,0 +1,22 @@
+{% set social = {
+  1: {
+    name: 'Facebook',
+    icon: 'assets/img/icon/facebook.svg',
+  },
+  2: {
+    name: 'Twitter',
+    icon: 'assets/img/icon/twitter.svg',
+  },
+  3: {
+    name: 'Telegram',
+    icon: 'assets/img/icon/telegram.svg',
+  },
+} %}
+
+<div class="social-sharing social-likes {{ wrapperClass }}">
+    {% for i in social %}
+        <button class="social-sharing__btn" aria-label="Share in {{ i.name }}" data-service="{{ i.name|lower }}">
+            <img class="social-sharing__icon" src="{{ i.icon|theme }}" alt="{{ i.name }}" role="presentation">
+       </button>
+    {% endfor %}
+</div>

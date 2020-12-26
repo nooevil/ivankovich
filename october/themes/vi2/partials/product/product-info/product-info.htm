@@ -1,0 +1,137 @@
+{% set obPropertyList = obProduct.property %}
+{% set obMainGroupProperty = obPropertyList.getGroupList().getByCode('main') %}
+{% set obMainGroupPropertyList = obPropertyList.group(obMainGroupProperty.id) %}
+{% set iTotalQuantity = obOfferList.getTotalQuantity() %}
+
+
+<section class="product-info _shopaholic-product-wrapper" itemscope itemtype="https://schema.org/Product" data-product-id="{{ obProduct.id }}">
+    <div class="product-info__wrapper">
+        <h1 class="product__info-title" itemprop="name">{{ obProduct.name }}</h1>
+
+        {% set iReviewCount = obProduct.review.active().count() %}
+        {% set fRating = obProduct.rating %}
+
+        {% if bHasReviewsPlugin %}
+        {% partial 'common/rating/rating'
+            wrapperClass='product-info__rating'
+            rating=fRating
+            maxRating='5'
+            reviewCount=iReviewCount %}
+        {% endif %}
+        {% partial 'product/product-price/product-price' wrapperClass='product-info__price' obOffer=obOffer %}
+    </div>
+    {% partial 'product/product-slider/product-slider' wrapperClass='product-info__slider' obImageList = obProduct.images %}
+        <div class="product-info__detail-wrapper">
+                {% if obMainGroupPropertyList.isNotEmpty() or obProduct.preview_text is not empty %}
+            <div class="product-info__detail">
+                <button type="button" class="product-info__detail-btn product-info__subtitle">Product Details</button>
+                <div class="product-info__detail-text product-info__detail-text_visually-hidden wysiwyg" itemprop="description">
+                    {% if obProduct.preview_text is not empty %}
+                        <p>{{ obProduct.preview_text|raw }}</p>
+                    {% endif %}
+					
+                    {% if obMainGroupPropertyList.isNotEmpty() %}					
+                        <ul>
+                            {% for obProperty in obMainGroupPropertyList if obProperty.code != 'color' and obProperty.code != 'size' and obProperty.hasValue() %}
+                                <li>{{ obProperty.name }}: {{ obProperty.property_value.getValueString() }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <br>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if obRelatedProductList.isNotEmpty() %}
+            <div class="product-info__color">
+                <b class="product-info__subtitle product-info__color-heading">
+                    Select Color
+                </b>
+                <ul class="product-info__color-list">
+                    <li class="product-info__color-item product-info__color-item_active">
+                        <a class="product-info__color-link" aria-label="Go to {{ obProduct.name }}">
+                           {% if obProduct.preview_image.path|length > 0 %}
+                                <picture class="product-info__color-img-container">
+                                    <source data-srcset="{{ obProduct.preview_image.getThumb(130, 130, {'quantity': 100, 'extension': 'webp'}) }}" type="image/webp">
+                                    <source data-srcset="{{ obProduct.preview_image.getThumb(130, 130, {'quantity': 100}) }}" type="image/jpeg">
+                                    <img class="product-info__color-img js-lazy-load" data-src="{{ obProduct.preview_image.getThumb(130, 130, {'quantity': 100}) }}" itemprop="image" alt="{{ obProduct.preview_image.description }}" title="{{ obProduct.preview_image.title }}">
+                                </picture>
+                                {% partial 'common/preloader/preloader' wrapperClass='product-info__color-preloader' %}
+                            {% else %}
+                                <img class="product-info__color-img product-info__color-img_no-photo" src="{{ 'assets/img/nophoto.svg'|theme }}" itemprop="image" alt="{{ obProduct.preview_image.description }}" title="{{ obProduct.preview_image.title }}">
+                            {% endif %}
+                        </a>
+                    </li>
+                    {% for obRelatedProduct in obRelatedProductList %}
+                        <li class="product-info__color-item">
+                            <a href="{{ obRelatedProduct.getPageUrl('product') }}"
+                            class="product-info__color-link" aria-label="Go to {{ obProduct.name }}">
+                                {% if obRelatedProduct.preview_image.path|length > 0 %}
+                                    <picture class="product-info__color-img-container">
+                                        <source data-srcset="{{ obRelatedProduct.preview_image.getThumb(130, 130, {'quantity': 100, 'extension': 'webp'}) }}" type="image/webp">
+                                        <source data-srcset="{{ obRelatedProduct.preview_image.getThumb(130, 130, {'quantity': 100}) }}" type="image/jpeg">
+                                        <img class="product-info__color-img js-lazy-load" data-src="{{ obRelatedProduct.preview_image.getThumb(130, 130, {'quantity': 100}) }}" itemprop="image" alt="{{ obRelatedProduct.preview_image.description }}" title="{{ obRelatedProduct.preview_image.title }}">
+                                    </picture>
+                                    {% partial 'common/preloader/preloader' wrapperClass='product-info__color-preloader' %}
+                                {% else %}
+                                    <img class="product-info__color-img product-info__color-img_no-photo" alt="No photo" src="{{ 'assets/img/nophoto.svg'|theme }}" itemprop="image">
+                                {% endif %}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <form action="#" class="product-info__form">
+            <div class="product-info__size">
+                {% if arChooseSize is not empty and iTotalQuantity > 0 %}
+                    {% set sizeGuidePath = 'size-guide'|staticPage %}
+                    <b class="product-info__subtitle">Select Size</b>
+                    {% if sizeGuidePath %}
+                        <a href="{{ sizeGuidePath }}" class="product-info__size-link">Guide</a>
+                    {% endif %}
+                    <ul class="product-info__size-list">
+                        {% set bChecked = true %}
+                        {% for iOfferID,sSize in arChooseSize %}
+                            {% set obCurrenctOffer = obOfferList.find(iOfferID) %}
+                            {% partial 'product/catalog/filter/filter-size/filter-size'
+                                wrapperClass='product-info__size-item'
+                                id='size-' ~ iOfferID
+                                name='offer_id'
+                                value=iOfferID
+                                labelText=sSize
+                                type='radio'
+                                disabled=obCurrenctOffer.quantity == 0
+                                checked = bChecked
+                            %}
+                            {% if bChecked and obCurrenctOffer.quantity > 0 %}
+                                {% set bChecked = false %}
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <input type="hidden" name='offer_id' value={{ obOffer.id }}>
+                {% endif %}
+            </div>
+            <div class="product-info__btn-block">
+                {% if iTotalQuantity > 0 %}
+                    {% partial 'form/button/button'
+                        text='Add to cart'
+                        wrapperClass='product-info__btn _shopaholic-cart-add'
+                        type='submit'
+                        attr='data-offer-id='~obOffer.id
+                    %}
+                {% else %}
+                    <span class="button product-info__btn product-info__btn_not-available">Out of stock</span>
+                {% endif %}
+
+                {% partial 'common/preloader/preloader' wrapperClass="product-info__preloader" %}
+                {% partial 'common/tooltip/tooltip' wrapperClass="product-info__tooltip" text="Product added to cart"  %}
+                {% if bHasWishListPlugin %}
+                    {% partial 'product/wish-list/wish-list-add/wish-list-add' obProduct=obProduct %}
+                {% endif %}
+            </div>
+        </form>
+    </div>
+</section>

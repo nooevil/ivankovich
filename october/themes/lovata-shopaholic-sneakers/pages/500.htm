@@ -1,0 +1,22 @@
+title = "500"
+url = "/error"
+layout = "main"
+is_hidden = 0
+==
+<?php
+function onStart()
+{
+    $this['path_page_js'] = mix('js/500.js', 'themes/lovata-shopaholic-sneakers/assets');
+}
+?>
+==
+{% put page_script %}
+    <script src="{{ path_page_js }}"></script>
+{% endput %}
+
+{% partial 'common/error/error'
+    title='500'
+    description='Sorry. It’s not you. <br/> It’s us.'
+    hint='We have an internal server error. Please try again later.'
+    buttonText='Reload'
+%}

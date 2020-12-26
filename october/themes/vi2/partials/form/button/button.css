@@ -1,0 +1,30 @@
+.button {
+  display: block;
+  padding: 0 12px;
+  height: 38px;
+  box-sizing: border-box;
+  background-color: var(--color-default);
+  color: var(--color-white);
+  font-size: var(--font-size-text);
+  text-decoration: none;
+  text-align: center;
+  box-shadow: none;
+  border: 2px solid var(--color-default);
+  transition-duration: 0.2s;
+  transition-property: background-color, color, border-color;
+  cursor: pointer;
+
+  @media (width > 768px) {
+    width: auto;
+    font-size: var(--font-size-text-m);
+
+    &:hover,
+    &.focus-visible:focus {
+      opacity: 0.8;
+    }
+
+    &:active {
+      opacity: 0.7;
+    }
+  }
+}

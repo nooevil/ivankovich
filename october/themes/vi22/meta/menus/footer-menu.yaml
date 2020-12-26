@@ -1,0 +1,73 @@
+name: 'Footer menu'
+items:
+    -
+        title: Info
+        nesting: ''
+        type: header
+        url: ''
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: About
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: about
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: Contacts
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: contact
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: Content
+        type: header
+        code: ''
+        viewBag:
+            isHidden: '1'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'Our Blog'
+                type: cms-page
+                code: ''
+                reference: news-list
+                viewBag:
+                    isHidden: '1'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Size guide'
+                nesting: '0'
+                type: static-page
+                url: ''
+                code: ''
+                reference: size-guide
+                cmsPage: ''
+                replace: '0'
+                viewBag:
+                    isHidden: '1'
+                    cssClass: ''
+                    isExternal: '0'

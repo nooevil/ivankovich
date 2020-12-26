@@ -1,0 +1,76 @@
+1608895100a:1:{s:51:"product/product-description/product-description.htm";a:5:{s:8:"fileName";s:51:"product/product-description/product-description.htm";s:7:"content";s:1801:"{% set obPropertyList = obProduct.property %}
+{% set obPropertyGroupList = obPropertyList.getGroupList() %}
+
+<section class="product-descr">
+    <ul class="product-descr__tablist" role="tablist">
+        {% if obProduct.description is not empty %}
+            <li class="product-descr__tabitem" role="presentation">
+                <a class="product-descr__link product-descr__link_active"  href="#product-descr-block" id="descr-tab" role="tab">
+                    Description
+                </a>
+            </li>
+        {% endif %}
+        {% if obPropertyList.isNotEmpty() %}
+        <li class="product-descr__tabitem" role="presentation">
+            <a class="product-descr__link" role="tab" href="#product-feature-block" id="feature-tab">
+                Features
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+    {% if obProduct.description is not empty %}
+        <div class="product-descr__content wysiwyg" id="product-descr-block" role="tabpanel" aria-labelledby="descr-tab">{{ obProduct.description|raw() }}</div>
+    {% endif %}
+    {% if obPropertyList.isNotEmpty() %}
+    <div class="product-descr__content product-descr__content_visually-hidden wysiwyg" id="product-feature-block" role="tabpanel" aria-labelledby="feature-tab">
+        {% for obPropertyGroup in obPropertyGroupList if obPropertyGroup.code != 'main' %}
+            {% if obPropertyList.isNotEmpty() %}
+                <h4>{{ obPropertyGroup.name }}</h4>
+                <ul>
+                    {% for obProperty in obPropertyList if obProperty.hasValue() %}
+                        <li>{{ obProperty.name }}: {{ obProperty.property_value.getValueString() }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+</section>
+";s:5:"mtime";i:1560802181;s:6:"markup";s:1800:"{% set obPropertyList = obProduct.property %}
+{% set obPropertyGroupList = obPropertyList.getGroupList() %}
+
+<section class="product-descr">
+    <ul class="product-descr__tablist" role="tablist">
+        {% if obProduct.description is not empty %}
+            <li class="product-descr__tabitem" role="presentation">
+                <a class="product-descr__link product-descr__link_active"  href="#product-descr-block" id="descr-tab" role="tab">
+                    Description
+                </a>
+            </li>
+        {% endif %}
+        {% if obPropertyList.isNotEmpty() %}
+        <li class="product-descr__tabitem" role="presentation">
+            <a class="product-descr__link" role="tab" href="#product-feature-block" id="feature-tab">
+                Features
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+    {% if obProduct.description is not empty %}
+        <div class="product-descr__content wysiwyg" id="product-descr-block" role="tabpanel" aria-labelledby="descr-tab">{{ obProduct.description|raw() }}</div>
+    {% endif %}
+    {% if obPropertyList.isNotEmpty() %}
+    <div class="product-descr__content product-descr__content_visually-hidden wysiwyg" id="product-feature-block" role="tabpanel" aria-labelledby="feature-tab">
+        {% for obPropertyGroup in obPropertyGroupList if obPropertyGroup.code != 'main' %}
+            {% if obPropertyList.isNotEmpty() %}
+                <h4>{{ obPropertyGroup.name }}</h4>
+                <ul>
+                    {% for obProperty in obPropertyList if obProperty.hasValue() %}
+                        <li>{{ obProperty.name }}: {{ obProperty.property_value.getValueString() }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+</section>";s:4:"code";N;}}

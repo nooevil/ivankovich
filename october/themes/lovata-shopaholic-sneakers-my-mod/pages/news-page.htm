@@ -1,0 +1,39 @@
+title = "Article page"
+url = "/news/:slug"
+layout = "main"
+is_hidden = 0
+
+[ArticlePage]
+slug = "{{ :slug }}"
+slug_required = 1
+
+[ArticleList]
+sorting = "publish|desc"
+
+[ArticleCategoryList]
+==
+<?php
+function onStart()
+{
+    $this['path_page_js'] = mix('js/news-page.js', 'themes/lovata-shopaholic-sneakers/assets');
+    $this['path_page_css'] = mix('css/news-page.css', 'themes/lovata-shopaholic-sneakers/assets');
+}
+?>
+==
+
+{% put page_style %}
+    <link rel="stylesheet" href="{{ path_page_css }}">
+{% endput %}
+{% put page_script %}
+    <script src="{{ path_page_js }}"></script>
+{% endput %}
+{% set obArticle = ArticlePage.get() %}
+
+{% set arSEOParams = {'article': obArticle} %}
+{% put seo_tags %}
+    {% component 'SeoToolbox' model=obArticle params=arSEOParams %}
+{% endput %}
+
+{% partial 'article/news-page/news-page' obArticle=obArticle arSEOParams=arSEOParams %}
+{% partial 'article/news-simple-slider/news-simple-slider' obArticle=obArticle %}
+{% partial 'form/subscribe/subscribe' %}

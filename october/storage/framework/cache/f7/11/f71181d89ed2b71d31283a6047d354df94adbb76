@@ -1,0 +1,44 @@
+1608943569a:1:{s:35:"article/news-slider/news-slider.htm";a:5:{s:8:"fileName";s:35:"article/news-slider/news-slider.htm";s:7:"content";s:1160:"{% set obCategoryList = ArticleCategoryList.make().tree() %}
+
+{% if obCategoryList.isNotEmpty() %}
+    <section class="news-slider">
+        <a href="{{ 'news-list'|page }}" class="news-slider__title-link">
+            {% partial 'common/section-title/section-title' wrapperClass='news-slider__title' text='Our Blog' %}
+        </a>
+        <ul class="news-slider__tablist" role="tablist">
+            {% for obCategory in obCategoryList %}
+                <li class="news-slider__tabitem" role="presentation">
+                    {% set isActive = loop.index == 1 ? 'news-slider__btn_active' : '' %}
+                    <button class="news-slider__btn {{ isActive }}" data-id="{{ obCategory.id }}" role="tab" aria-controls="news-slider">{{ obCategory.name }}</button>
+                </li>
+            {% endfor %}
+        </ul>
+        {% set obFirstCategory = obCategoryList.first() %}
+        <div class="news-slider__slider">
+            {% partial 'article/news-slider/news-slider-ajax' iCategoryID = obFirstCategory.id %}
+        </div>
+        {% partial 'common/preloader/preloader' wrapperClass='news-slider__preloader' %}
+    </section>
+{% endif %}
+";s:5:"mtime";i:1560802168;s:6:"markup";s:1159:"{% set obCategoryList = ArticleCategoryList.make().tree() %}
+
+{% if obCategoryList.isNotEmpty() %}
+    <section class="news-slider">
+        <a href="{{ 'news-list'|page }}" class="news-slider__title-link">
+            {% partial 'common/section-title/section-title' wrapperClass='news-slider__title' text='Our Blog' %}
+        </a>
+        <ul class="news-slider__tablist" role="tablist">
+            {% for obCategory in obCategoryList %}
+                <li class="news-slider__tabitem" role="presentation">
+                    {% set isActive = loop.index == 1 ? 'news-slider__btn_active' : '' %}
+                    <button class="news-slider__btn {{ isActive }}" data-id="{{ obCategory.id }}" role="tab" aria-controls="news-slider">{{ obCategory.name }}</button>
+                </li>
+            {% endfor %}
+        </ul>
+        {% set obFirstCategory = obCategoryList.first() %}
+        <div class="news-slider__slider">
+            {% partial 'article/news-slider/news-slider-ajax' iCategoryID = obFirstCategory.id %}
+        </div>
+        {% partial 'common/preloader/preloader' wrapperClass='news-slider__preloader' %}
+    </section>
+{% endif %}";s:4:"code";N;}}

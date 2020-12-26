@@ -1,0 +1,13 @@
+{% set iFilterCount = arFilterValue|length + arFilterBrandIDList|length %}
+{% if fMinPriceFilterValue > 0 or fMaxPriceFilterValue > 0 %}
+    {% set iFilterCount = iFilterCount + 1 %}
+{% endif %}
+
+<button type="button" class="filter-bar__filter-btn js-filter-bar" aria-label="Open Filter Panel. {{ iFilterCount }} {{ choice('filter|filters|filters', iFilterCount) }} were checked">
+    <span class="filter-bar__filter-text" aria-hidden="true">Filter</span>
+    {% if iFilterCount > 0 %}
+        <span class="filter-bar__filter-counter" aria-hidden="true">({{ iFilterCount }})</span>
+    {% else %}
+        <span class="filter-bar__filter-counter" aria-hidden="true"></span>
+    {% endif %}
+</button>

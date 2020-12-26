@@ -1,0 +1,53 @@
+1608943569a:1:{s:20:"header/lang/lang.htm";a:5:{s:8:"fileName";s:20:"header/lang/lang.htm";s:7:"content";s:553:"<ul style="list-style-type: none; margin-right: 20px;" class="lang-lang">
+    <li>
+        <a href="https://ru.victoriaivankovich.com" class="header-nav__link ">RU</a>
+    </li>
+    <li>
+        <a href="https://en.victoriaivankovich.com" class="header-nav__link ">EN</a>
+    </li>
+</ul>
+
+<style>
+	@media (max-width: 450px) {
+		.lang-lang {
+			display: none;
+		}
+		.lang-lang-menu{
+			display: block;
+		}
+	}
+	@media (min-width: 450px) {
+		.lang-lang {
+			display: block;
+		}
+		.lang-lang-menu{
+			display: none;
+		}
+	}
+</style>";s:5:"mtime";i:1608156400;s:6:"markup";s:553:"<ul style="list-style-type: none; margin-right: 20px;" class="lang-lang">
+    <li>
+        <a href="https://ru.victoriaivankovich.com" class="header-nav__link ">RU</a>
+    </li>
+    <li>
+        <a href="https://en.victoriaivankovich.com" class="header-nav__link ">EN</a>
+    </li>
+</ul>
+
+<style>
+	@media (max-width: 450px) {
+		.lang-lang {
+			display: none;
+		}
+		.lang-lang-menu{
+			display: block;
+		}
+	}
+	@media (min-width: 450px) {
+		.lang-lang {
+			display: block;
+		}
+		.lang-lang-menu{
+			display: none;
+		}
+	}
+</style>";s:4:"code";N;}}

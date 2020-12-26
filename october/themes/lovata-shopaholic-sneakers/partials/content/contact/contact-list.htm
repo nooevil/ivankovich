@@ -1,0 +1,48 @@
+{% set sAddressValue       = this.theme.address %}
+{% set sAddressDescription = this.theme.address_description %}
+{% set sPhoneValue         = this.theme.phone %}
+{% set sPhoneDescription   = this.theme.phone_description %}
+{% set sEmailValue         = this.theme.email %}
+{% set sEmailDescription   = this.theme.email_description %}
+
+{% if sAddressValue is not empty or sPhoneValue is not empty or sEmailValue is not empty %}
+    <ul class="contact__list" itemscope itemtype="http://schema.org/Organization">
+        <meta itemprop="name" content="{{ this.theme.company_name }}">
+        <link itemprop="url" href="{{ 'index'|page }}">
+        {% if sAddressValue is not empty %}
+            <li class="contact__item" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                <b class="contact__item-heading">Address</b>
+                <span class="contact__item-content" itemprop="streetAddress">{{ sAddressValue }}</span>
+                {% if sAddressDescription is not empty %}
+                    <span class="contact__item-hint">{{ sAddressDescription }}</span>
+                {% endif %}
+            </li>
+        {% endif %}
+        {% if sPhoneValue is not empty %}
+            <li class="contact__item">
+                <b class="contact__item-heading">Phone</b>
+                <a href="tel: {{ sPhoneValue }}" class="contact__item-content">
+                    <span itemprop="telephone">
+                        {{ sPhoneValue }}
+                    </span>
+                </a>
+                {% if sPhoneDescription is not empty %}
+                    <span class="contact__item-hint">{{ sPhoneDescription }}</span>
+                {% endif %}
+            </li>
+        {% endif %}
+        {% if sEmailValue is not empty %}
+            <li class="contact__item">
+                <b class="contact__item-heading">E-mail</b>
+                <a href="mailto: {{ sEmailValue }}" class="contact__item-content">
+                    <span itemprop="email">
+                        {{ sEmailValue }}
+                    </span>
+                </a>
+                {% if sEmailDescription is not empty %}
+                    <span class="contact__item-hint">{{ sEmailDescription }}</span>
+                {% endif %}
+            </li>
+        {% endif %}
+    </ul>
+{% endif %}

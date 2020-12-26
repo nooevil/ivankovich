@@ -1,0 +1,32 @@
+<div class="cart-product {{ wrapperClass }}">
+    <a href="{{ obProduct.getPageUrl('product') }}" class="cart-product__link">
+        {% if obProduct.preview_image.path is not empty %}
+            <img src="{{ obProduct.preview_image.getThumb(240, 240) }}" class="cart-product__img" alt="{{ obProduct.preview_image.description }}" title="{{ obProduct.preview_image.title }}">
+        {% else %}
+            <img class="cart-product__img cart-product__img_no-photo" src="{{ 'assets/img/nophoto.svg'|theme }}" itemprop="image" alt="{{ obProduct.preview_image.description }}" title="{{ obProduct.preview_image.title }}">
+        {% endif %}
+    </a
+    >
+    <b class="cart-product__title">
+        {{ obProduct.name }}
+    </b>
+    <button type="button" class="cart-product__remove _shopaholic-cart-remove">
+        <span class="cart-product__remove-text">Delete</span>
+    </button>
+    {% set obPropertySize = obOffer.property.getByCode('size') %}
+    {% if obPropertySize is not empty and obPropertySize.property_value.getValueString() is not empty %}
+        <span class="cart-product__param">
+            <span class="cart-product__param-name">Size:</span>
+            <span class="cart-product__param-val">{{ obPropertySize.property_value.getValueString() }}</span>
+        </span>
+    {% endif %}
+    <div class="cart-product__quantity">
+        <button type="button" class="cart-product__change-btn cart-product__change-btn_decrease _shopaholic-cart-decrease-quantity" aria-label="Decrease quantity" {% if obCartPosition.quantity == 1 %}disabled="disabled"{% endif %}>-</button>
+        <label for="{{ id }}" class="cart-product__quantity-label">Select size</label>
+        <input class="cart-product__quantity-input _shopaholic-cart-quantity" id="{{ id }}" type="text" min="1" max="{{ obOffer.quantity }}" name="quantity" value="{{ obCartPosition.quantity }}" disabled>
+        <button type="button" class="cart-product__change-btn cart-product__change-btn_increase _shopaholic-cart-increase-quantity" aria-label="Increase quantity" {% if obCartPosition.quantity >= obOffer.quantity %}disabled="disabled"{% endif %}>+</button>
+    </div>
+    <div class="cart-product__price">
+        {% partial 'product/cart/cart-product/cart-product-price' obCartPosition=obCartPosition %}
+    </div>
+</div>

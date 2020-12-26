@@ -1,0 +1,46 @@
+{% set sPageTitle = SeoToolbox.getPageTitle()|default('About') %}
+
+{% set arBreadcrumbs = [
+    {'active': true, 'name': sPageTitle }
+] %}
+
+{% partial 'common/breadcrumbs/breadcrumbs' arBreadcrumbs=arBreadcrumbs  %}
+<div class="about">
+    <section class="about__main">
+        <div class="about__main-content">
+            <h1 class="about__title">{{ sPageTitle }}</h1>
+            <div class="about__main-text wysiwyg">
+                <p>
+                    We offer you only original lifestyle modern sneakers by global manufacturers — Nike, Karhu, Adidas, Reebok, New
+                    Balance, Converse, Under Armour, Saucony, Asics, Lacoste, Kappa, Anta, Premiata, Fila and many others.
+                </p>
+                <p>
+                    We are trying to maintain such a pricing policy so that you can purchase original, fashionable and quality
+                    sneakers for
+                    a reasonable price without overpaying!
+                </p>
+            </div>
+        </div>
+        <div class="about__main-img-wrap">
+            <img class="about__main-img" src="{{ 'assets/img/temp_img/about-1.jpg'|theme }}" alt="about1">
+        </div>
+    </section>
+    <ul class="about__list">
+        {% for i in 0..2 %}
+        <li class="about__item">
+            <div class="about__item-wrapper">
+                <h2 class="about__item-heading">For women</h2>
+                <div class="about__item-text wysiwyg">
+                    <p>
+                        From spin sessions to yoga to everyday wear, shop women's sneakers featuring signature Nike styles and footwear
+                        technologies. Whether it be the iconic Air Force 1or latest Vapor, find the pair that matches your look.
+                    </p>
+                </div>
+             </div>
+            <div class="about__item-img-wrap">
+                <img class="about__item-img"  src="{{ 'assets/img/temp_img/about-2.jpg'|theme }}" alt="about2">
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,13 @@
+title: 'lovata.propertiesshopaholic::lang.measure.list_title'
+modelClass: Lovata\PropertiesShopaholic\Models\Measure
+list: $/lovata/propertiesshopaholic/models/measure/columns.yaml
+recordUrl: 'lovata/propertiesshopaholic/measures/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 10
+showSetup: true
+showCheckboxes: 1
+showSorting: 1
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

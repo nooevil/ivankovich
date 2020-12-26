@@ -1,0 +1,39 @@
+<div class="filter-checked">
+    <ul class="filter-checked__list">
+        {% if fMinPriceFilterValue > 0 or fMaxPriceFilterValue > 0 %}
+            {% set sText = (fMinPriceFilterValue > 0 ? fMinPriceFilterValue : obOfferMinPrice.price) ~ '-' ~ (fMaxPriceFilterValue > 0 ? fMaxPriceFilterValue : obOfferMaxPrice.price) ~ obOfferMinPrice.currency %}
+            {% partial 'product/catalog/filter-bar/filter-checked/filter-checked-item' text=sText filterField='price' %}
+        {% endif %}
+        {% if arFilterBrandIDList is not empty %}
+            {% set sText = obBrandList.copy().intersect(arFilterBrandIDList).implode('name') %}
+            {% partial 'product/catalog/filter-bar/filter-checked/filter-checked-item' text=sText filterField='brand' %}
+        {% endif %}
+        {% if arFilterValue is not empty %}
+        {% for iPropertyID, arValueList in arFilterValue %}
+            {% set obProperty = obProductPropertyList.find(iPropertyID) %}
+            {% if obProperty.isEmpty() %}
+                {% set obProperty = obOfferPropertyList.find(iPropertyID) %}
+            {% endif %}
+
+            {% if obProperty.isNotEmpty() and obProperty.code != 'color' %}
+                {% set obPropertyValueList = obProperty.property_value.sort() %}
+                {% set sText = '' %}
+                {% for obValue in obPropertyValueList if obValue.slug in arValueList %}
+                    {% if sText|length > 0 %}
+                        {% set sText =  sText ~ ', ' %}
+                    {% endif %}
+                    {% set sText = sText ~ obValue.value %}
+                {% endfor %}
+                {% partial 'product/catalog/filter-bar/filter-checked/filter-checked-item' text=sText filterField='property' propertyID=iPropertyID %}
+            {% endif %}
+            {% if obProperty.isNotEmpty() and obProperty.code == 'color' %}
+                {% set sText = obProperty.name %}
+                {% partial 'product/catalog/filter-bar/filter-checked/filter-checked-item' text=sText filterField='property' propertyID=iPropertyID %}
+            {% endif %}
+        {% endfor %}
+        {% endif %}
+        <li class="filter-checked__item">
+            <button type="button" class="filter-checked__reset">Clear all</button>
+        </li>
+    </ul>
+</div>

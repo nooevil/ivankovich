@@ -1,0 +1,46 @@
+{% set obCategory = obProduct.category %}
+<div class="wish-product" data-product-id="{{ obProduct.id }}">
+    <a href="{{ obProduct.getPageUrl('product') }}" class="wish-product__link">
+        {% if obProduct.preview_image.path is not empty %}
+            <img src="{{ obProduct.preview_image.getThumb(240, 240) }}" class="wish-product__img" alt="{{ obProduct.preview_image.description }}" title="{{ obProduct.preview_image.title }}">
+        {% else %}
+            <img class="wish-product__img wish-product__img_no-photo" src="{{ 'assets/img/nophoto.svg'|theme }}" itemprop="image" alt="{{ obProduct.preview_image.description }}" title="{{ obProduct.preview_image.title }}">
+        {% endif %}
+    </a>
+    <a href="{{ obProduct.getPageUrl('product') }}" class="wish-product__title">
+        {{ obProduct.name }}
+    </a>
+    <button type="button" class="wish-product__remove">
+        <span class="wish-product__remove-text">Delete</span>
+    </button>
+    {% set obPropertyList = obProduct.property %}
+    {% if obPropertyList.isNotEmpty == true %}
+        {% set obOfferList = obProduct.offer %}
+        {% set obOfferSizePropertyList = FilterPanel.getOfferPropertyList(['main'], null, obOfferList).getByCode('size').property_value.sort() %}
+        {% if obOfferSizePropertyList.isNotEmpty() %}
+            <span class="wish-product__param">
+                <span class="wish-product__param-name">Size:</span>
+                <span class="wish-product__param-val">
+                    {% for obOfferSizeProperty in obOfferSizePropertyList %}
+                        {{ obOfferSizeProperty.value }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </span>
+            </span>
+        {% endif %}
+    {% endif %}
+    <span class="wish-product__quantity">
+        {% set iTotalQuantity = obOfferList.getTotalQuantity() %}
+        {% if iTotalQuantity > 0 %}
+            {{ iTotalQuantity }} {{ choice('item|items|items', iTotalQuantity) }} left
+        {% else %}
+            <span class="wish-product__none">
+                 Out of stock
+             </span>
+        {% endif %}
+    </span>
+    {% set obOffer = obProduct.offer.first() %}
+    <div class="wish-product__price">
+        <span class="wish-product__price-currency">{{ obOffer.currency }}</span>
+        <span class="wish-product__price-value">{{ obOffer.price }}</span>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<section class="filter">
+    {% partial 'common/section-title/section-title' wrapperClass='filter__header' text='Filter' %}
+    <button type="button" class="filter__btn-close js-filter-bar" aria-label="Close Filter Panel"></button>
+    <div class="filter__wrapper">
+       {% partial 'product/catalog/filter/filter-ajax' obCategory=obCategory obCategoryProductList=obCategoryProductList %}
+    </div>
+    {% partial 'common/preloader/preloader' wrapperClass='filter__preloader' %}
+</section>

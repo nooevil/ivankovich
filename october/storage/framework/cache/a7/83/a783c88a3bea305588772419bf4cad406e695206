@@ -1,0 +1,59 @@
+1608943569a:1:{s:9:"index.htm";a:12:{s:8:"fileName";s:9:"index.htm";s:7:"content";s:849:"title = "Index"
+url = "/"
+layout = "main"
+is_hidden = 0
+
+[BrandList]
+
+[ArticleCategoryList]
+
+[ArticleList]
+sorting = "publish|desc"
+==
+<?php
+function onStart()
+{
+    $this['path_page_js'] = mix('js/index.js', 'themes/lovata-shopaholic-sneakers/assets');
+    $this['path_page_css'] = mix('css/index.css', 'themes/lovata-shopaholic-sneakers/assets');
+}
+?>
+==
+{% put page_style %}
+    <link rel="stylesheet" href="{{ path_page_css }}">
+{% endput %}
+{% put page_script %}
+    <script src="{{ path_page_js }}"></script>
+{% endput %}
+
+
+{% partial 'content/main-slider/main-slider' %}
+{% partial 'product/two-level-slider/two-level-slider' %}
+{% partial 'content/big-slider/big-slider' %}
+
+{% partial 'article/news-slider/news-slider' %}
+
+{#
+{% partial 'content/brand-slider/brand-slider' %}
+{% partial 'form/subscribe/subscribe' %}
+#}";s:5:"mtime";i:1558965578;s:6:"markup";s:488:"{% put page_style %}
+    <link rel="stylesheet" href="{{ path_page_css }}">
+{% endput %}
+{% put page_script %}
+    <script src="{{ path_page_js }}"></script>
+{% endput %}
+
+
+{% partial 'content/main-slider/main-slider' %}
+{% partial 'product/two-level-slider/two-level-slider' %}
+{% partial 'content/big-slider/big-slider' %}
+
+{% partial 'article/news-slider/news-slider' %}
+
+{#
+{% partial 'content/brand-slider/brand-slider' %}
+{% partial 'form/subscribe/subscribe' %}
+#}";s:4:"code";s:213:"function onStart()
+{
+    $this['path_page_js'] = mix('js/index.js', 'themes/lovata-shopaholic-sneakers/assets');
+    $this['path_page_css'] = mix('css/index.css', 'themes/lovata-shopaholic-sneakers/assets');
+}";s:5:"title";s:5:"Index";s:3:"url";s:1:"/";s:6:"layout";s:4:"main";s:9:"is_hidden";s:1:"0";s:9:"BrandList";a:0:{}s:19:"ArticleCategoryList";a:0:{}s:11:"ArticleList";a:1:{s:7:"sorting";s:12:"publish|desc";}}}
